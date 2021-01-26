@@ -436,7 +436,7 @@ async function starts() {
 					buffer = await getBuffer(`https://imgur.com/${memein.hash}.jpg`)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
 					break
-				case '.glitch':
+				case 'glitch':
 					if (args.length < 1) return reply('O que você quer escrever??')
 					gh = body.slice(8)
                       gl1 = gh.split("|")[0];
@@ -471,6 +471,13 @@ async function starts() {
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomloli?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
+					break
+				case 'badday':
+					/*if (!isDaftar) return reply(mess.only.daftarB)*/
+					reply(mess.wait)
+					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomfmylife?apikey=BotWeA`, {method: 'get'})
+					buffer = await getBuffer(anu.result)
+					client.sendMessage(from, buffer, {quoted: mek})
 					break
 				case 'cryanime':
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
