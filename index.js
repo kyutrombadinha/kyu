@@ -438,26 +438,13 @@ async function starts() {
 					break
 				case 'glitch':
 					if (args.length < 1) return reply('O que você quer escrever??')
-					gh = body.slice(8)
-                      gl1 = gh.split("|")[0];
-                      gl2 = gh.split("|")[1];
+					teks = body.slice(8)
 					reply(mess.wait)
-					anu = await fetchJson(`https://arugaz.my.id/api/textpro/glitchtext?text1=${gl1}&text2=${gl2}`, {method: 'get'})      /*KYU*/
-					//if (anu.error) return reply(anu.error)
+					anu = await fetchJson(`https://arugaz.my.id/api/textpro/glitchtext?text1=${teks}&text2=`, {method: 'get'})      /*KYU*/
+					if (anu.error) return reply(anu.error)
 					buff = await getBuffer(anu.result)
 					client.sendMessage(from, buff, image, {quoted: mek, caption: mess.success})
 					break
-				case 'ninjalogo':
-                      if (args.length < 1) return reply('Teks nya mana?')
-                      //if (!isUser) return reply(mess.only.daftarB)
-                      gh = body.slice(11)
-                      gl1 = gh.split("|")[0];
-                      gl2 = gh.split("|")[1];
-                      reply(mess.wait)
-                      anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=ninjalogo&text1=${gl1}&text2=${gl2}&apikey=BotWeA`, {method: 'get'})
-                      buff = await getBuffer(anu.result)
-                      client.sendMessage(from, buff, image, {quoted: mek})
-                break
 				/*case 'loli':
 					loli.getSFWLoli(async (err, res) => {
 						if (err) return reply('❌ *ERROR* ❌')
@@ -473,13 +460,6 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
-				case 'badday':
-					/*if (!isDaftar) return reply(mess.only.daftarB)*/
-					reply(mess.wait)
-					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomfmylife?apikey=BotWeA`, {method: 'get'})
-					buffer = await getBuffer(anu.result)
-					reply(buffer}
-					break
 				case 'cry':
 					teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
@@ -489,11 +469,15 @@ async function starts() {
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
 				case 'trap':
+						try {
 							//if (!isNsfw) return reply('âŒ *NSFW Desativado* âŒ')
 							res = await fetchJson(`https://api.computerfreaker.cf/v1/trap`, {method: 'get'})
 							buffer = await getBuffer(res.result)
-							client.sendMessage(from, buffer, image, {quoted: mek})
-
+							client.sendMessage(from, buffer, image, {quoted: mek, caption: '7w7'})
+						} catch (e) {
+							console.log(`Error :`, color(e,'red'))
+							reply('âŒ *ERROR* âŒ')
+						}
 					break
 				case 'nsfwloli':
 					if (!isNsfw) return reply('❌ *FALSE* ❌')
