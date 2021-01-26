@@ -405,11 +405,6 @@ async function starts() {
 					buffer = await getBuffer(`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtbo5EcVSGj-IvEVznHIgMZ9vjFptZfvprtg&usqp=CAU`)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '️💆'})
 					break
-				case 'canal':
-					memein = await kagApi.memeindo()
-					buffer = await getBuffer(`https://imgur.com/gallery/xuTCBPO`)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: '️*canal do zeus:*\n\n https://bit.ly/3iIlHmc'})
-					break
 				case 'mia1':
 					memein = await kagApi.memeindo()
 					buffer = await getBuffer(`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjVCGkGDxARumfloekQMCazM8uvpj2AgW2lg&usqp=CAU`)
@@ -452,6 +447,12 @@ async function starts() {
 						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'heher boy🙉'})
 					})
 					break*/
+				case 'fml':
+					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fml`)
+					//if (!isUser) return reply(mess.only.daftarB)
+					hasil = data.result.fml
+					reply(hasil)
+					break
 				case 'loli':
 					teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
@@ -506,7 +507,7 @@ async function starts() {
 					teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					//reply(mess.wait)
-					anu = await fetchJson(`https://meme-api.herokuapp.com/gimme/animebellybutton`, {method: 'get'})
+					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
