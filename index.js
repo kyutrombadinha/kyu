@@ -453,6 +453,13 @@ async function starts() {
 					hasil = data.result.fml
 					reply(hasil)
 					break
+				case 'fml2':
+					teks = body.slice(6)
+					//if (!isUser) return reply(mess.only.daftarB)
+					data = await fetchJson(`https://tobz-api.herokuapp.com/randomfmylife?apikey=BotWeA`, {method: 'get'})
+					hasil = `*Fuck My Life*\n${data.result}`
+					reply(hasil)
+					break
 				case 'loli':
 					teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
