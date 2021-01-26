@@ -506,7 +506,7 @@ async function starts() {
 					teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					//reply(mess.wait)
-					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
+					anu = await fetchJson(`https://meme-api.herokuapp.com/gimme/animebellybutton`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
