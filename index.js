@@ -473,14 +473,6 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
-				case 'nsfneko':
-					teks = body.slice(9)
-					/*if (!isDaftar) return reply(mess.only.daftarB)*/
-					reply(mess.wait)
-					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwneko?apikey=BotWeA`, {method: 'get'})
-					buffer = await getBuffer(anu.result)
-					client.sendMessage(from, buffer, image, {quoted: mek})
-					break
 				case 'badday':
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					reply(mess.wait)
@@ -489,7 +481,7 @@ async function starts() {
 					reply(buffer}
 					break
 				case 'cry':
-					teks = body.slice(4)
+					teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					reply(mess.wait)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/cry?apikey=BotWeA`, {method: 'get'})
