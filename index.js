@@ -436,7 +436,7 @@ async function starts() {
 					buffer = await getBuffer(`https://imgur.com/${memein.hash}.jpg`)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
 					break
-				case 'glitch':
+				case '.glitch':
 					if (args.length < 1) return reply('O que você quer escrever??')
 					gh = body.slice(8)
                       gl1 = gh.split("|")[0];
@@ -449,7 +449,7 @@ async function starts() {
 					break
 				case 'ninjalogo':
                       if (args.length < 1) return reply('Teks nya mana?')
-                      if (!isUser) return reply(mess.only.daftarB)
+                      //if (!isUser) return reply(mess.only.daftarB)
                       gh = body.slice(11)
                       gl1 = gh.split("|")[0];
                       gl2 = gh.split("|")[1];
@@ -472,7 +472,7 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
-				case 'cry':
+				case 'cryanime':
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					reply(mess.wait)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/cry?apikey=BotWeA`, {method: 'get'})
@@ -484,7 +484,7 @@ async function starts() {
 							//if (!isNsfw) return reply('âŒ *NSFW Desativado* âŒ')
 							res = await fetchJson(`https://api.computerfreaker.cf/v1/trap`, {method: 'get'})
 							buffer = await getBuffer(res.result)
-							client.sendMessage(from, buffer, image, {quoted: mek, caption: '7w7'})
+							client.sendMessage(from, buffer, image, {quoted: mek})
 
 					break
 				case 'nsfwloli':
