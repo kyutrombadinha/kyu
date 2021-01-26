@@ -443,7 +443,7 @@ async function starts() {
                       gl2 = gh.split("|")[1];
 					reply(mess.wait)
 					anu = await fetchJson(`https://arugaz.my.id/api/textpro/glitchtext?text1=${gl1}&text2=${gl2}`, {method: 'get'})      /*KYU*/
-					if (anu.error) return reply(anu.error)
+					//if (anu.error) return reply(anu.error)
 					buff = await getBuffer(anu.result)
 					client.sendMessage(from, buff, image, {quoted: mek, caption: mess.success})
 					break
@@ -466,6 +466,7 @@ async function starts() {
 					})
 					break*/
 				case 'loli':
+					teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					reply(mess.wait)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomloli?apikey=BotWeA`, {method: 'get'})
@@ -477,16 +478,16 @@ async function starts() {
 					reply(mess.wait)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomfmylife?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
-					client.sendMessage(from, buffer, {quoted: mek})
+					reply(buffer}
 					break
-				case 'cryanime':
+				case 'cry':
+					teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					reply(mess.wait)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/cry?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
-					
 				case 'trap':
 							//if (!isNsfw) return reply('âŒ *NSFW Desativado* âŒ')
 							res = await fetchJson(`https://api.computerfreaker.cf/v1/trap`, {method: 'get'})
