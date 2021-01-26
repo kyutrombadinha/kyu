@@ -473,8 +473,8 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
-				case 'NSFWneko':
-					teks = body.slice(6)
+				case 'nsfneko':
+					teks = body.slice(9)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					reply(mess.wait)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwneko?apikey=BotWeA`, {method: 'get'})
