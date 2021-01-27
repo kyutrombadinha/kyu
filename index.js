@@ -28,7 +28,7 @@ const nsfw = JSON.parse(fs.readFileSync('./src/nsfw.json'))
 const samih = JSON.parse(fs.readFileSync('./src/simi.json'))
 prefix = '.'
 blocked = []
-
+const { animPict, cewePict, cowoPict } = require('./lib/pict')
 
 function kyun(seconds){
   function pad(s){
@@ -511,6 +511,16 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
+				case 'animepict':
+			   animPict()
+				   .then(buffer => {
+					   client.sendMessage(id, '[ESPERE UM POUCO...', MessageType.text)
+					   client.sendMessage(id, buffer, MessageType.image)
+				   })
+				   .catch(err => {
+					   console.log(err)
+				   })
+			   break
 				case 'play':   
                 reply(mess.wait)
                 play = body.slice(5)
@@ -624,7 +634,7 @@ async function starts() {
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					//reply(mess.wait)
 					client.sendPtt(from, './media/bakaa.mp3')
-					client.sendMessage(from, buffer, image, {quoted: mek})
+					client.sendMessage(from, buffer, audio, {quoted: mek})
 					break
 				case 'hug':
 					teks = body.slice(6)
@@ -669,6 +679,30 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
 					break
+				case 'ytmp3':
+				   ytdl('mp3', value)
+					   .then(data => {
+						   const { judul, size, hasil: link } = data
+						   let hasil = `Aqui esta o link de download da musica\nClique no link abaixo:\nMUSICA: ${judul}\n\nTamanho Do audio: ${size}\n\nLink: ${link}`
+						   client.sendMessage(id, '[aguarde...', MessageType.text)
+						   client.sendMessage(id, hasil, MessageType.text)
+					   })
+					   .catch(err => {
+						   console.log(err)
+					   })
+				   break
+				case 'ytmp4':
+			   ytdl('mp4', value)
+				   .then(data => {
+					   const { judul, size, hasil: link } = data
+					   let hasil = `Aqui esta o link de download do seu video\nclique no link abaixo:\nMUSICA: ${judul}\n\nTamanho Do video: ${size}\n\nLink: ${link}`
+					   client.sendMessage(id, '[ESPERE UM POUCO...', MessageType.text)
+					   client.sendMessage(id, hasil, MessageType.text)
+				   })
+				   .catch(err => {
+					   console.log(err)
+				   })
+			   break
 				case 'ytsearch':
 					if (args.length < 1) return reply('O que você está procurando? pau?')
 					anu = await fetchJson(`https://mhankbarbars.herokuapp.com/api/ytsearch?q=${body.slice(10)}&apiKey=${apiKey}`, {method: 'get'})
