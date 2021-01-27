@@ -451,8 +451,6 @@ async function starts() {
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fml`)
 					//if (!isUser) return reply(mess.only.daftarB)
 					hasil = data.result.fml
-					const suway1 = arg.split('|')[0]
-					const suway2 = arg.split('|')[1]
 					await axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+hasil).then(res => {
 					const resalt = `${res.data.text}`
 					reply(resalt) })
