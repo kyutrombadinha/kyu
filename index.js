@@ -444,14 +444,16 @@ async function starts() {
 					})
 					break*/
 				case 'fml':
+					const resalt2
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fml`)
 					//if (!isUser) return reply(mess.only.daftarB)
 					hasil = data.result.fml
 					await axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+hasil).then(res => {
 					const resalt = `${res.data.text}`
+					resalt2 = resalt
 					reply(resalt) })
 					client.updatePresence(from, Presence.recording) 
-					dtt = 'pt '+resalt
+					dtt = 'pt ' + resalt2
 					ranm = getRandom('.mp3')
 					rano = getRandom('.ogg')
 					dtt.length > 600
