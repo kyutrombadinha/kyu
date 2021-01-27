@@ -450,6 +450,22 @@ async function starts() {
 					await axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+hasil).then(res => {
 					const resalt = `${res.data.text}`
 					reply(resalt) })
+					client.updatePresence(from, Presence.recording) 
+					const gtts = require('./lib/gtts')(args[0])
+					dtt = 'pt '+resalt
+					ranm = getRandom('.mp3')
+					rano = getRandom('.ogg')
+					dtt.length > 600
+					? reply('texto grande demais.')
+					: gtts.save(ranm, dtt, function() {
+						exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
+							fs.unlinkSync(ranm)
+							buff = fs.readFileSync(rano)
+							if (err) return reply('Gagal om:(')
+							client.sendMessage(from, buff, audio, {quoted: mek, ptt:true})
+							fs.unlinkSync(rano)
+						})
+					})
 					break
 				/*case 'fml':
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fml`)
@@ -485,6 +501,26 @@ async function starts() {
 					buffer = await getBuffer(rblow.result)
 					client.sendMessage(from, rblow.result, `RandoBlow.gif`, {quoted: mek})
 						break
+				case 'tts':
+				   client.updatePresence(from, Presence.recording) 
+				   if (args.length < 1) return client.sendMessage(from, 'Qual Ã© o cÃ³digo da linguagem?', text, {quoted: mek})
+					const gtts = require('./lib/gtts')(args[0])
+					if (args.length < 2) return client.sendMessage(from, 'CadÃª o texto', text, {quoted: mek})
+					dtt = body.slice(8)
+					ranm = getRandom('.mp3')
+					rano = getRandom('.ogg')
+					dtt.length > 600
+					? reply('texto grande demais.')
+					: gtts.save(ranm, dtt, function() {
+						exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
+							fs.unlinkSync(ranm)
+							buff = fs.readFileSync(rano)
+							if (err) return reply('Gagal om:(')
+							client.sendMessage(from, buff, audio, {quoted: mek, ptt:true})
+							fs.unlinkSync(rano)
+						})
+					})
+					break
 				case 'images':
                                         tels = body.slice(11)
 					client.updatePresence(from, Presence.composing) 
