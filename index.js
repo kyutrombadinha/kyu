@@ -623,7 +623,7 @@ async function starts() {
 					teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					//reply(mess.wait)
-					client.sendPtt(from, './media/bakaa.mp3', id)
+					client.sendPtt(from, './media/bakaa.mp3')
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
 				case 'hug':
