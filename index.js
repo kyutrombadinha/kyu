@@ -97,7 +97,7 @@ async function starts() {
 	    }
 	})
 
-	client.on('chat-update', async (mek) => {
+	client.on('chat-update', async (aruga, mek) => {
 		try {
                         if (!mek.hasNewMessage) return
                         mek = JSON.parse(JSON.stringify(mek)).messages[0]
@@ -486,7 +486,7 @@ async function starts() {
 					n = JSON.parse(JSON.stringify(data));
 					nimek =  n[Math.floor(Math.random() * n.length)];
 					pok = await getBuffer(nimek)
-					client.sendMessage(from, pok, image, { quoted: mek, caption: `*PINTEREST*\n\*Hasil Pencarian* : *${tels}*`})
+					client.sendMessage(from, pok, image, { quoted: mek, caption: `*${tels}*`})
 					break
 				case 'loli':
 					teks = body.slice(6)
