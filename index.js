@@ -477,17 +477,37 @@ async function starts() {
 					reply(hasil)
 					break*/
 				case 'fml2':
+					data = await fetchJson(`https://tobz-api.herokuapp.com/api/randomfmylife?apikey=BotWeA`)
 					//if (!isUser) return reply(mess.only.daftarB)
-					data = await fetchJson(`https://tobz-api.herokuapp.com/randomfmylife?apikey=BotWeA`)
-					hasil = `*Fuck My Life*\n${data.result}`
-					reply(hasil)
+					hasil = data.result.fml
+					await axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+hasil).then(res => {
+					const resalt = `${res.data.text}`
+					//----
+					const gtts = require('./lib/gtts')(`pt`)
+					dtt = resalt
+					ranm = getRandom('.mp3')
+					rano = getRandom('.ogg')
+					dtt.length > 600
+					? reply('Textnya kebanyakan om')
+					: gtts.save(ranm, dtt, function() {
+						exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
+							fs.unlinkSync(ranm)
+							buff = fs.readFileSync(rano)
+							if (err) return reply('Gagal om:(')
+							client.sendMessage(from, buff, audio, {quoted: mek, ptt:true})
+							fs.unlinkSync(rano)
+						})
+					})
+					//----
+					reply(resalt) })
 					break
 				case 'hentai':
+					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					reply(mess.wait)
-					teks = body.slice(6)
-					//if (!isUser) return reply(mess.only.daftarB)
-					axios.get('https://nekos.life/api/v2/img/boobs').then(res => {
-                	sendFileFromUrl(from, res.data.url, 'bakaaa hentaii>~<');
+					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hentai?apikey=BotWeA`, {method: 'get'})
+					buffer = await getBuffer(anu.result)
+					client.sendMessage(from, buffer, image, {quoted: mek})
+					break
                 });
 					break
 				case 'gifhentai':
