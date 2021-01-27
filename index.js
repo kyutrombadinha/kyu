@@ -474,9 +474,20 @@ async function starts() {
 					break
 				case 'gifhentai':
 					reply(mess.wait)
-					axios.get('https://nekos.life/api/v2/img/Random_hentai_gif').then(res => {
-						sendFileFromUrl(from, res.data.result, '.gif');
-					});
+					anu = await fetchJson(`https://nekos.life/api/v2/img/Random_hentai_gif`, {method: 'get'})
+					buffer = await getBuffer(anu.result)
+					client.sendMessage(from, buffer, image, {quoted: mek})
+					break
+				case 'images':
+                                        tels = body.slice(11)
+					client.updatePresence(from, Presence.composing) 
+					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=${tels}`, {method: 'get'})
+                                        if (!isUser) return reply(mess.only.daftarB)
+					reply(mess.wait)
+					n = JSON.parse(JSON.stringify(data));
+					nimek =  n[Math.floor(Math.random() * n.length)];
+					pok = await getBuffer(nimek)
+					client.sendMessage(from, pok, image, { quoted: mek, caption: `*PINTEREST*\n\*Hasil Pencarian* : *${tels}*`})
 					break
 				case 'loli':
 					teks = body.slice(6)
