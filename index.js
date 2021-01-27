@@ -516,11 +516,10 @@ async function starts() {
 					break
 				case 'bjanime':
 					reply(from, mess.wait)
-					const sblow = await axios.get('https://tobz-api.herokuapp.com/api/nsfwblowjob?&apikey=BotWeA')
-					const rblow = sblow.data.result
-					buffer = await getBuffer(rblow)
-					aruga.sendFileFromUrl(from, rblow, '.gif');
-						break
+					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwblowjob?&apikey=BotWeA`, {method: 'get'})
+					buffer = await getBuffer(anu.result)
+					client.sendMessage(from, buffer, image, {quoted: mek})
+					break
 				case 'tts':
 				   client.updatePresence(from, Presence.recording) 
 				   if (args.length < 1) return client.sendMessage(from, 'Qual Ã© o cÃ³digo da linguagem?', text, {quoted: mek})
