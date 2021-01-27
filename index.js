@@ -451,7 +451,6 @@ async function starts() {
 					const resalt = `${res.data.text}`
 					reply(resalt) })
 					client.updatePresence(from, Presence.recording) 
-					const gtts = require('./lib/gtts')(args[0])
 					dtt = 'pt '+resalt
 					ranm = getRandom('.mp3')
 					rano = getRandom('.ogg')
@@ -474,9 +473,8 @@ async function starts() {
 					reply(hasil)
 					break*/
 				case 'fml2':
-					teks = body.slice(6)
 					//if (!isUser) return reply(mess.only.daftarB)
-					data = await fetchJson(`https://tobz-api.herokuapp.com/randomfmylife?apikey=BotWeA`, {method: 'get'})
+					data = await fetchJson(`https://tobz-api.herokuapp.com/randomfmylife?apikey=BotWeA`)
 					hasil = `*Fuck My Life*\n${data.result}`
 					reply(hasil)
 					break
@@ -504,7 +502,6 @@ async function starts() {
 				case 'tts':
 				   client.updatePresence(from, Presence.recording) 
 				   if (args.length < 1) return client.sendMessage(from, 'Qual Ã© o cÃ³digo da linguagem?', text, {quoted: mek})
-					const gtts = require('./lib/gtts')(args[0])
 					if (args.length < 2) return client.sendMessage(from, 'CadÃª o texto', text, {quoted: mek})
 					dtt = body.slice(8)
 					ranm = getRandom('.mp3')
