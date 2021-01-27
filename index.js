@@ -29,9 +29,7 @@ const samih = JSON.parse(fs.readFileSync('./src/simi.json'))
 prefix = '.'
 blocked = []
 
-const { 
-    rugaapi,
-} = require('./lib')
+
 function kyun(seconds){
   function pad(s){
     return (s < 10 ? '0' : '') + s;
@@ -625,7 +623,7 @@ async function starts() {
 					teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					//reply(mess.wait)
-					aruga.sendPtt(from, './media/bakaa.mp3', id)
+					client.sendPtt(from, './media/bakaa.mp3', id)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
 				case 'hug':
