@@ -476,7 +476,7 @@ async function starts() {
 					hasil = data.result.fml
 					reply(hasil)
 					break*/
-				case 'fml2':
+				/*case 'fml2':
 					data = await fetchJson(`https://tobz-api.herokuapp.com/api/randomfmylife?apikey=BotWeA`)
 					//if (!isUser) return reply(mess.only.daftarB)
 					hasil = data.result
@@ -500,7 +500,7 @@ async function starts() {
 					})
 					//----
 					reply(resalt) })
-					break
+					break*/
 				case 'hentai':
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					reply(mess.wait)
@@ -517,9 +517,9 @@ async function starts() {
 				case 'bjanime':
 					reply(from, mess.wait)
 					const sblow = await axios.get('https://tobz-api.herokuapp.com/api/nsfwblowjob?&apikey=BotWeA')
-					const rblow = sblow.data
-					buffer = await getBuffer(rblow.result)
-					client.sendMessage(from, rblow.result, `RandoBlow.gif`, {quoted: mek})
+					const rblow = sblow.data.result
+					buffer = await getBuffer(rblow)
+					aruga.sendFileFromUrl(from, rblow, '.gif');
 						break
 				case 'tts':
 				   client.updatePresence(from, Presence.recording) 
