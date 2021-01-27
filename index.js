@@ -97,7 +97,7 @@ async function starts() {
 	    }
 	})
 
-	client.on('chat-update', async (aruga, mek) => {
+	client.on('chat-update', async (mek) => {
 		try {
                         if (!mek.hasNewMessage) return
                         mek = JSON.parse(JSON.stringify(mek)).messages[0]
@@ -478,6 +478,14 @@ async function starts() {
                 	aruga.sendFileFromUrl(from, res.data.result, '.gif');
                 });
 					break
+				case 'bjanime':
+					reply(from, mess.wait, id)
+					const sblow = await axios.get('https://tobz-api.herokuapp.com/api/nsfwblowjob?&apikey=BotWeA')
+					const rblow = sblow.data
+					sendFileFromUrl(from, rblow.result, `RandoBlow.gif`, 'Random Blowjob!', id)
+					buffer = await getBuffer(rblow.result)
+					client.sendMessage(from, buffer, image, {quoted: mek})
+						break
 				case 'images':
                                         tels = body.slice(11)
 					client.updatePresence(from, Presence.composing) 
