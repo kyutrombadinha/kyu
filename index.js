@@ -5,6 +5,8 @@ const {
     Mimetype,
     GroupSettingChange
 } = require('@adiwajshing/baileys')
+
+const imageToBase64 = require('image-to-base64');
 const { color, bgcolor } = require('./lib/color')
 const axios = require('axios')
 const { help } = require('./src/help')
@@ -40,6 +42,26 @@ function kyun(seconds){
 
   //return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds)
   return `${pad(hours)} Hora ${pad(minutes)} Minuto ${pad(seconds)} Segundo`
+}
+
+const Pict = (variavel) => {
+    return new Promise((resolve, reject) => {
+        var items = [variavel]
+        var nime = items[Math.floor(Math.random() * items.length)];
+        var url = 'https://api.fdci.se/rep.php?gambar=' + nime
+        axios.get(url)
+            .then(res => {
+                var acak = res.data[Math.floor(Math.random() * res.data.length )]
+                imageToBase64(acak)
+                    .then(data => {
+                        var buffer = Buffer.from(data, 'base64')
+                        resolve(buffer)
+                    })
+            })
+            .catch(err => {
+                reject('sepertinya error.')
+            })
+    })
 }
 
 async function starts() {
@@ -512,25 +534,36 @@ async function starts() {
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
 				case 'animepict':
-			   animPict()
+					animPict()
 				   .then(buffer => {
-					   client.sendMessage(from, '[ESPERE UM POUCO...', MessageType.text)
+					   client.sendMessage(from, 'Aguarde...', MessageType.text)
 					   client.sendMessage(from, buffer, MessageType.image)
 				   })
 				   .catch(err => {
 					   console.log(err)
 				   })
-			   break
+					break
+				case 'pict':  
+					picture = body.slice(5)
+					Pict(picture)
+				   .then(buffer => {
+					   client.sendMessage(from, 'Aguarde...', MessageType.text)
+					   client.sendMessage(from, buffer, MessageType.image)
+				   })
+				   .catch(err => {
+					   console.log(err)
+				   })
+					break
 				case 'play':   
-                reply(mess.wait)
-                play = body.slice(5)
-                anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?q=${play}&apikey=apivinz`)
-                 infomp3 = `*CanÃ§Ã£o encontrada!!!*\nJudul : ${anu.result.title}\nFonte : ${anu.result.source}\nTamanho : ${anu.result.size}\n\n*ESPERE ENVIANDO POR FAVOR, NÃƒO SPAM YA PAI*`
-                buffer = await getBuffer(anu.result.thumbnail)
-                lagu = await getBuffer(anu.result.url_audio)
-                client.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
-                client.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
-                break
+					reply(mess.wait)
+					play = body.slice(5)
+					anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?q=${play}&apikey=apivinz`)
+					 infomp3 = `*CanÃ§Ã£o encontrada!!!*\nJudul : ${anu.result.title}\nFonte : ${anu.result.source}\nTamanho : ${anu.result.size}\n\n*ESPERE ENVIANDO POR FAVOR, NÃƒO SPAM YA PAI*`
+					buffer = await getBuffer(anu.result.thumbnail)
+					lagu = await getBuffer(anu.result.url_audio)
+					client.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
+					client.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
+					break
 				case 'kpop':
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					reply(mess.wait)
