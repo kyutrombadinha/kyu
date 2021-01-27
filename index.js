@@ -455,7 +455,7 @@ async function starts() {
 					const suway2 = arg.split('|')[1]
 					await axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+hasil).then(res => {
 					const resalt = `${res.data.text}`
-					reply(resalt)
+					reply(resalt) })
 					break
 				/*case 'fml':
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fml`)
