@@ -508,6 +508,23 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
+				case 'play':   
+                reply(mess.wait)
+                play = body.slice(5)
+                anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?q=${play}&apikey=apivinz`)
+                 infomp3 = `*CanÃ§Ã£o encontrada!!!*\nJudul : ${anu.result.title}\nFonte : ${anu.result.source}\nTamanho : ${anu.result.size}\n\n*ESPERE ENVIANDO POR FAVOR, NÃƒO SPAM YA PAI*`
+                buffer = await getBuffer(anu.result.thumbnail)
+                lagu = await getBuffer(anu.result.url_audio)
+                client.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
+                client.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
+                break
+				case 'kpop':
+					/*if (!isDaftar) return reply(mess.only.daftarB)*/
+					reply(mess.wait)
+					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomkpop?apikey=BotWeA`, {method: 'get'})
+					buffer = await getBuffer(anu.result)
+					client.sendMessage(from, buffer, image, {quoted: mek})
+					break
 				case 'gifhentai':
 					reply(mess.wait)
 					axios.get('https://nekos.life/api/v2/img/Random_hentai_gif').then(res => {
