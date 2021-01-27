@@ -469,13 +469,13 @@ async function starts() {
 					teks = body.slice(6)
 					//if (!isUser) return reply(mess.only.daftarB)
 					axios.get('https://nekos.life/api/v2/img/boobs').then(res => {
-                	aruga.sendFileFromUrl(from, res.data.url, 'bakaaa hentaii>~<');
+                	sendFileFromUrl(from, res.data.url, 'bakaaa hentaii>~<');
                 });
 					break
 				case 'gifhentai':
-					aruga.reply(from, mess.wait, id);
+					reply(mess.wait)
 					axios.get('https://nekos.life/api/v2/img/Random_hentai_gif').then(res => {
-						aruga.sendFileFromUrl(from, res.data.result, '.gif');
+						sendFileFromUrl(from, res.data.result, '.gif');
 					});
 					break
 				case 'loli':
