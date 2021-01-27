@@ -307,7 +307,7 @@ async function starts() {
 						reply(`Envie fotos com legendas ${prefix}sticker ou tags de imagem que já foram enviadas`)
 					}
 					break
-				case 'gtts':
+				/*case 'gtts':
 					if (args.length < 1) return client.sendMessage(from, 'Qual o código de idioma, cara?', text, {quoted: mek})
 					const gtts = require('./lib/gtts')(args[0])
 					if (args.length < 2) return client.sendMessage(from, 'Cadê o texto poh?', text, {quoted: mek})
@@ -320,7 +320,7 @@ async function starts() {
 						client.sendMessage(from, fs.readFileSync(ranm), audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 						fs.unlinkSync(rano)
 					})
-					break
+					break*/
 				case 'meme':
 					meme = await kagApi.memes()
 					buffer = await getBuffer(`https://imgur.com/${meme.hash}.jpg`)
@@ -444,29 +444,12 @@ async function starts() {
 					})
 					break*/
 				case 'fml':
-					const resalt2 = ``
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fml`)
 					//if (!isUser) return reply(mess.only.daftarB)
 					hasil = data.result.fml
 					await axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+hasil).then(res => {
 					const resalt = `${res.data.text}`
-					resalt2 = resalt
 					reply(resalt) })
-					client.updatePresence(from, Presence.recording) 
-					dtt = 'pt ' + resalt2
-					ranm = getRandom('.mp3')
-					rano = getRandom('.ogg')
-					dtt.length > 600
-					? reply('texto grande demais.')
-					: gtts.save(ranm, dtt, function() {
-						exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
-							fs.unlinkSync(ranm)
-							buff = fs.readFileSync(rano)
-							if (err) return reply('Gagal om:(')
-							client.sendMessage(from, buff, audio, {quoted: mek, ptt:true})
-							fs.unlinkSync(rano)
-						})
-					})
 					break
 				/*case 'fml':
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fml`)
@@ -504,6 +487,7 @@ async function starts() {
 				case 'tts':
 				   client.updatePresence(from, Presence.recording) 
 				   if (args.length < 1) return client.sendMessage(from, 'Qual Ã© o cÃ³digo da linguagem?', text, {quoted: mek})
+					   const gtts = require('./lib/gtts')(args[0])
 					if (args.length < 2) return client.sendMessage(from, 'CadÃª o texto', text, {quoted: mek})
 					dtt = body.slice(8)
 					ranm = getRandom('.mp3')
