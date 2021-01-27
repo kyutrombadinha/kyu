@@ -444,7 +444,7 @@ async function starts() {
 					})
 					break*/
 				case 'fml':
-					const resalt2
+					const resalt2 = ``
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fml`)
 					//if (!isUser) return reply(mess.only.daftarB)
 					hasil = data.result.fml
