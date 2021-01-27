@@ -508,8 +508,6 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
-                });
-					break
 				case 'gifhentai':
 					reply(mess.wait)
 					axios.get('https://nekos.life/api/v2/img/Random_hentai_gif').then(res => {
