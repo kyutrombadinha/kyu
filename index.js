@@ -479,7 +479,7 @@ async function starts() {
 				case 'fml2':
 					data = await fetchJson(`https://tobz-api.herokuapp.com/api/randomfmylife?apikey=BotWeA`)
 					//if (!isUser) return reply(mess.only.daftarB)
-					hasil = data.result.fml
+					hasil = data.result
 					await axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+hasil).then(res => {
 					const resalt = `${res.data.text}`
 					//----
