@@ -622,7 +622,7 @@ async function starts() {
 					teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					//reply(mess.wait)
-					sendPtt(from, './media/bakaa.mp3', id)
+					aruga.sendPtt(from, './media/bakaa.mp3', id)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
 				case 'hug':
