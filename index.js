@@ -482,9 +482,8 @@ async function starts() {
 					reply(from, mess.wait, id)
 					const sblow = await axios.get('https://tobz-api.herokuapp.com/api/nsfwblowjob?&apikey=BotWeA')
 					const rblow = sblow.data
-					sendFileFromUrl(from, rblow.result, `RandoBlow.gif`, 'Random Blowjob!', id)
 					buffer = await getBuffer(rblow.result)
-					client.sendMessage(from, buffer, image, {quoted: mek})
+					client.sendMessage(from, rblow.result, `RandoBlow.gif`, {quoted: mek})
 						break
 				case 'images':
                                         tels = body.slice(11)
