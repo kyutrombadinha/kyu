@@ -474,9 +474,9 @@ async function starts() {
 					break
 				case 'gifhentai':
 					reply(mess.wait)
-					anu = await fetchJson(`https://nekos.life/api/v2/img/Random_hentai_gif`, {method: 'get'})
-					buffer = await getBuffer(anu.result)
-					client.sendMessage(from, buffer, image, {quoted: mek})
+					axios.get('https://nekos.life/api/v2/img/Random_hentai_gif').then(res => {
+                	aruga.sendFileFromUrl(from, res.data.result, '.gif');
+                });
 					break
 				case 'images':
                                         tels = body.slice(11)
