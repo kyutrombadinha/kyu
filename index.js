@@ -28,8 +28,8 @@ const nsfw = JSON.parse(fs.readFileSync('./src/nsfw.json'))
 const samih = JSON.parse(fs.readFileSync('./src/simi.json'))
 prefix = '.'
 blocked = []
-const { animPict, cewePict, cowoPict } = require('./lib/pict')
 
+const { animPict, cewePict, cowoPict } = require('./lib/pict')
 function kyun(seconds){
   function pad(s){
     return (s < 10 ? '0' : '') + s;
@@ -514,8 +514,8 @@ async function starts() {
 				case 'animepict':
 			   animPict()
 				   .then(buffer => {
-					   client.sendMessage(id, '[ESPERE UM POUCO...', MessageType.text)
-					   client.sendMessage(id, buffer, MessageType.image)
+					   client.sendMessage(from, '[ESPERE UM POUCO...', MessageType.text)
+					   client.sendMessage(from, buffer, MessageType.image)
 				   })
 				   .catch(err => {
 					   console.log(err)
