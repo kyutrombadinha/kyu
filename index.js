@@ -450,6 +450,8 @@ async function starts() {
 					await axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+hasil).then(res => {
 					const resalt = `${res.data.text}`
 					//----
+					reply(resalt)
+					/*
 					const gtts = require('./lib/gtts')(`pt`)
 					dtt = resalt
 					ranm = getRandom('.mp3')
@@ -464,7 +466,7 @@ async function starts() {
 							client.sendMessage(from, buff, audio, {quoted: mek, ptt:true})
 							fs.unlinkSync(rano)
 						})
-					})
+					})*/
 					//----
 					reply(resalt) })
 					
@@ -616,7 +618,13 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
-					
+				case 'baka':
+					teks = body.slice(6)
+					/*if (!isDaftar) return reply(mess.only.daftarB)*/
+					//reply(mess.wait)
+					aruga.sendPtt(from, './media/bakaa.mp3', id)
+					client.sendMessage(from, buffer, image, {quoted: mek})
+					break
 				case 'hug':
 					teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
