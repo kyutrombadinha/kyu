@@ -479,7 +479,7 @@ async function starts() {
                 });
 					break
 				case 'bjanime':
-					reply(from, mess.wait, id)
+					reply(from, mess.wait)
 					const sblow = await axios.get('https://tobz-api.herokuapp.com/api/nsfwblowjob?&apikey=BotWeA')
 					const rblow = sblow.data
 					buffer = await getBuffer(rblow.result)
