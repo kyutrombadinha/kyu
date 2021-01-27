@@ -361,11 +361,6 @@ async function starts() {
 					buffer = await getBuffer(`https://i.imgur.com/iphQUGi.jpg`)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: 'hmm safado, então quer ver loli?'})
 					break
-				case 'hentai':
-					memein = await kagApi.memeindo()
-					buffer = await getBuffer(`https://i.imgur.com/8U9GwX4.jpg`)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: 'ih ala, o cara bate pra 2d 😂'})
-					break
 				case 'bomdia':
 					memein = await kagApi.memeindo()
 					buffer = await getBuffer(`https://i.imgur.com/7VL9cFf.jpg`)
@@ -468,6 +463,15 @@ async function starts() {
 					data = await fetchJson(`https://tobz-api.herokuapp.com/randomfmylife?apikey=BotWeA`, {method: 'get'})
 					hasil = `*Fuck My Life*\n${data.result}`
 					reply(hasil)
+					break
+				case 'hentai':
+				
+					reply(mess.wait)
+					teks = body.slice(6)
+					//if (!isUser) return reply(mess.only.daftarB)
+					axios.get('https://nekos.life/api/v2/img/boobs').then(res => {
+                	sendFileFromUrl(from, res.data.url, 'bakaaa hentaii>~<');
+                });
 					break
 				case 'loli':
 					teks = body.slice(6)
