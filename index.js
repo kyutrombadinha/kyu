@@ -449,7 +449,26 @@ async function starts() {
 					hasil = data.result.fml
 					await axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+hasil).then(res => {
 					const resalt = `${res.data.text}`
+					//----
+					const gtts = require('./lib/gtts')(`pt`)
+					dtt = resalt
+					ranm = getRandom('.mp3')
+					rano = getRandom('.ogg')
+					dtt.length > 600
+					? reply('Textnya kebanyakan om')
+					: gtts.save(ranm, dtt, function() {
+						exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
+							fs.unlinkSync(ranm)
+							buff = fs.readFileSync(rano)
+							if (err) return reply('Gagal om:(')
+							client.sendMessage(from, buff, audio, {quoted: mek, ptt:true})
+							fs.unlinkSync(rano)
+						})
+					})
+					//----
 					reply(resalt) })
+					
+					
 					break
 				/*case 'fml':
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fml`)
