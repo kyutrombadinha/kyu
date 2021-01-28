@@ -31,7 +31,7 @@ const samih = JSON.parse(fs.readFileSync('./src/simi.json'))
 prefix = '.'
 blocked = []
 
-const { animPict, cewePict, cowoPict, loliPict, egirlstylePict, ghibliPict, kpopPict } = require('./lib/pict')
+const { animPict, cewePict, cowoPict, loliPict, egirlstylePict, ghibliPict, kpopPict, animgif, nekoPict, perfilanime,waifuPict } = require('./lib/pict')
 function kyun(seconds){
   function pad(s){
     return (s < 10 ? '0' : '') + s;
@@ -543,6 +543,47 @@ async function starts() {
 					   console.log(err)
 				   })
 					break
+				case 'perfilanime':
+					perfilanime()
+				   .then(buffer => {
+					   client.sendMessage(from, 'Aguarde...', MessageType.text)
+					   client.sendMessage(from, buffer, MessageType.image)
+				   })
+				   .catch(err => {
+					   console.log(err)
+				   })
+					break
+				case 'nekoPict':
+					nekoPict()
+				   .then(buffer => {
+					   client.sendMessage(from, 'Aguarde...', MessageType.text)
+					   client.sendMessage(from, buffer, MessageType.image)
+				   })
+				   .catch(err => {
+					   console.log(err)
+				   })
+					break
+				case 'animgif':
+					animgif()
+				   .then(buffer => {
+					   client.sendMessage(from, 'Aguarde...', MessageType.text)
+					   client.sendMessage(from, buffer, MessageType.image)
+					   client.sendMessage(from, buffer, MessageType.video)
+				   })
+				   .catch(err => {
+					   console.log(err)
+				   })
+					break
+				case 'waifupict':
+					waifuPict()
+				   .then(buffer => {
+					   client.sendMessage(from, 'Aguarde...', MessageType.text)
+					   client.sendMessage(from, buffer, MessageType.image)
+				   })
+				   .catch(err => {
+					   console.log(err)
+				   })
+					break
 				case 'ghiblipict':
 					ghibliPict()
 				   .then(buffer => {
@@ -573,7 +614,7 @@ async function starts() {
 					   console.log(err)
 				   })
 					break
-				case 'loliPict':
+				case 'lolipict':
 					loliPict()
 				   .then(buffer => {
 					   client.sendMessage(from, 'Aguarde...', MessageType.text)
