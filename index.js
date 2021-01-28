@@ -847,7 +847,9 @@ async function starts() {
 					client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
 					break
 				case 'ytmp3':
-				   ytdl('mp3', value)
+				
+					tels = body.slice(6)
+				   ytdl('mp3', tels)
 					   .then(data => {
 						   const { judul, size, hasil: link } = data
 						   let hasil = `Aqui esta o link de download da musica\nClique no link abaixo:\nMUSICA: ${judul}\n\nTamanho Do audio: ${size}\n\nLink: ${link}`
@@ -859,7 +861,9 @@ async function starts() {
 					   })
 				   break
 				case 'ytmp4':
-			   ytdl('mp4', value)
+				
+					tels = body.slice(6)
+			   ytdl('mp4', tels)
 				   .then(data => {
 					   const { judul, size, hasil: link } = data
 					   let hasil = `Aqui esta o link de download do seu video\nclique no link abaixo:\nMUSICA: ${judul}\n\nTamanho Do video: ${size}\n\nLink: ${link}`
