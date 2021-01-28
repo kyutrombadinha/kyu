@@ -791,7 +791,7 @@ async function starts() {
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/cry?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					//client.sendMessage(from, buffer, image, {quoted: mek})
-					client.sendMessage(from, buffer, MessageType.sticker)
+					client.sendMessage(from, buffer, MessageType.Gif)
 					break
 				case 'baka':
 					teks = body.slice(6)
