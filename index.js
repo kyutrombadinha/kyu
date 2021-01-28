@@ -546,6 +546,8 @@ async function starts() {
 				case 'pict':  
 					picture = body.slice(5)
 					var items = [picture]
+					
+					   client.sendMessage(from, 'Aguarde...', MessageType.text)
 					var nime = items[Math.floor(Math.random() * items.length)];
 					var url = 'https://api.fdci.se/rep.php?gambar=' + nime
 					axios.get(url)
@@ -555,13 +557,12 @@ async function starts() {
 								.then(data => {
 									var buffer = Buffer.from(data, 'base64')
 									resolve(buffer)
+									client.sendMessage(from, buffer, MessageType.image)
 								})
 						})
 						.catch(err => {
 							reject('sepertinya error.')
 						})
-					   client.sendMessage(from, 'Aguarde...', MessageType.text)
-					   client.sendMessage(from, buffer, MessageType.image)
 					break
 				case 'play':   
 					reply(mess.wait)
