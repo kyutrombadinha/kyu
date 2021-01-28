@@ -44,9 +44,11 @@ function kyun(seconds){
   return `${pad(hours)} Hora ${pad(minutes)} Minuto ${pad(seconds)} Segundo`
 }
 const {
-	ytdl,
 	fb
-} = require('./lib')
+} = require('./lib/fb')
+const {
+	ytdl
+} = require('./lib/ytdl')
 
 
 async function starts() {
