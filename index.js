@@ -543,6 +543,46 @@ async function starts() {
 					   console.log(err)
 				   })
 					break
+				case 'ghiblipict':
+					ghibliPict()
+				   .then(buffer => {
+					   client.sendMessage(from, 'Aguarde...', MessageType.text)
+					   client.sendMessage(from, buffer, MessageType.image)
+				   })
+				   .catch(err => {
+					   console.log(err)
+				   })
+					break
+				case 'kpoppict':
+					kpopPict()
+				   .then(buffer => {
+					   client.sendMessage(from, 'Aguarde...', MessageType.text)
+					   client.sendMessage(from, buffer, MessageType.image)
+				   })
+				   .catch(err => {
+					   console.log(err)
+				   })
+					break
+				case 'egirlpict':
+					egirlstylePict()
+				   .then(buffer => {
+					   client.sendMessage(from, 'Aguarde...', MessageType.text)
+					   client.sendMessage(from, buffer, MessageType.image)
+				   })
+				   .catch(err => {
+					   console.log(err)
+				   })
+					break
+				case 'loliPict':
+					loliPict()
+				   .then(buffer => {
+					   client.sendMessage(from, 'Aguarde...', MessageType.text)
+					   client.sendMessage(from, buffer, MessageType.image)
+				   })
+				   .catch(err => {
+					   console.log(err)
+				   })
+					break
 				case 'pict':  
 					picture = body.slice(5)
 					var items = [picture]
