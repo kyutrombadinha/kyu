@@ -105,6 +105,7 @@ async function starts() {
 	})
 
 	client.on('chat-update', async (mek) => {
+		const client = new WAConnection()
 		try {
                         if (!mek.hasNewMessage) return
                         mek = JSON.parse(JSON.stringify(mek)).messages[0]
