@@ -547,28 +547,36 @@ async function starts() {
 					picture = body.slice(5)
 					var items = [picture]
 					
+					new Promise((resolve, reject) => {
+						var items = [variavel]
+						var nime = items[Math.floor(Math.random() * items.length)];
+						var url = 'https://api.fdci.se/rep.php?gambar=' + nime
+						axios.get(url)
+							.then(res => {
+								var acak = res.data[Math.floor(Math.random() * res.data.length )]
+								imageToBase64(acak)
+									.then(data => {
+										var buffer = Buffer.from(data, 'base64')
+										resolve(buffer)
+									})
+							})
+							.catch(err => {
+								reject('sepertinya error.')
+							})
+					})
+					.then(buffer => {
 					   client.sendMessage(from, 'Aguarde...', MessageType.text)
-					var nime = items[Math.floor(Math.random() * items.length)];
-					var url = 'https://api.fdci.se/rep.php?gambar=' + nime
-					axios.get(url)
-						.then(res => {
-							var acak = res.data[Math.floor(Math.random() * res.data.length )]
-							imageToBase64(acak)
-								.then(data => {
-									var buffer = Buffer.from(data, 'base64')
-									resolve(buffer)
-									client.sendMessage(from, buffer, MessageType.image)
-								})
-						})
-						.catch(err => {
-							reject('sepertinya error.')
-						})
+					   client.sendMessage(from, buffer, MessageType.image)
+				   })
+				   .catch(err => {
+					   console.log(err)
+				   })
 					break
 				case 'play':   
 					reply(mess.wait)
 					play = body.slice(5)
 					anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?q=${play}&apikey=apivinz`)
-					 infomp3 = `*CanÃ§Ã£o encontrada!!!*\nJudul : ${anu.result.title}\nFonte : ${anu.result.source}\nTamanho : ${anu.result.size}\n\n*ESPERE ENVIANDO POR FAVOR, NÃƒO SPAM YA PAI*`
+					 infomp3 = `*Musica encontrada!!!*\nJudul : ${anu.result.title}\nFonte : ${anu.result.source}\nTamanho : ${anu.result.size}\n\n*ESPERE ENVIANDO POR FAVOR, NÃƒO SPAM YA PAI*`
 					buffer = await getBuffer(anu.result.thumbnail)
 					lagu = await getBuffer(anu.result.url_audio)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
