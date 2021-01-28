@@ -45,7 +45,7 @@ function kyun(seconds){
 }
 const {
 	fb
-} = require('./lib')
+} = require('./lib/fb')
 const Pict = (variavel) => {
     return new Promise((resolve, reject) => {
         var items = [variavel]
