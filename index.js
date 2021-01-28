@@ -31,7 +31,7 @@ const samih = JSON.parse(fs.readFileSync('./src/simi.json'))
 prefix = '.'
 blocked = []
 
-const { animPict, cewePict, cowoPict } = require('./lib/pict')
+const { animPict, cewePict, cowoPict, loliPict, egirlstylePict, ghibliPict, kpopPict } = require('./lib/pict')
 function kyun(seconds){
   function pad(s){
     return (s < 10 ? '0' : '') + s;
