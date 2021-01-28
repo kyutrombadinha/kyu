@@ -781,6 +781,9 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
+				case 'del':
+					client.deleteMessage(from, { id: mek.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true })
+					break
 				case 'cry':
 					//teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
