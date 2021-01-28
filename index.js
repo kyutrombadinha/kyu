@@ -545,14 +545,23 @@ async function starts() {
 					break
 				case 'pict':  
 					picture = body.slice(5)
-					Pict(picture)
-				   .then(buffer => {
+					var items = [picture]
+					var nime = items[Math.floor(Math.random() * items.length)];
+					var url = 'https://api.fdci.se/rep.php?gambar=' + nime
+					axios.get(url)
+						.then(res => {
+							var acak = res.data[Math.floor(Math.random() * res.data.length )]
+							imageToBase64(acak)
+								.then(data => {
+									var buffer = Buffer.from(data, 'base64')
+									resolve(buffer)
+								})
+						})
+						.catch(err => {
+							reject('sepertinya error.')
+						})
 					   client.sendMessage(from, 'Aguarde...', MessageType.text)
 					   client.sendMessage(from, buffer, MessageType.image)
-				   })
-				   .catch(err => {
-					   console.log(err)
-				   })
 					break
 				case 'play':   
 					reply(mess.wait)
