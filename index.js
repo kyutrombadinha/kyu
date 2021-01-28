@@ -637,7 +637,9 @@ async function starts() {
 				   })
 					break
 				case 'fb':
-				   fb(value)
+				
+					texto = body.slice(3)
+				   fb(texto)
 					   .then(data => {
 						   const { resultHD, resultSD } = data
 						   let hasil = `Escolha a resoluÃ§Ã£o queridaðŸ˜™ \n\n\n HD ${resultHD} \n\n\n SD ${resultSD}`
@@ -696,30 +698,6 @@ async function starts() {
 				   .catch(err => {
 					   console.log(err)
 				   })
-					break
-				case 'pict':  
-					picture = body.slice(5)
-					var items = [picture]
-					
-					new Promise((resolve, reject) => {
-						var items = [variavel]
-						var nime = items[Math.floor(Math.random() * items.length)];
-						var url = 'https://api.fdci.se/rep.php?gambar=' + nime
-						axios.get(url)
-							.then(res => {
-								var acak = res.data[Math.floor(Math.random() * res.data.length )]
-								imageToBase64(acak)
-									.then(data => {
-										var buffer = Buffer.from(data, 'base64')
-										resolve(buffer)
-										client.sendMessage(from, 'Aguarde...', MessageType.text)
-										client.sendMessage(from, buffer, MessageType.image)
-									})
-							})
-							.catch(err => {
-								reject('sepertinya error.')
-							})
-					})
 					break
 				case 'play':   
 					reply(mess.wait)
