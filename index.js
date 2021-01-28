@@ -798,7 +798,7 @@ async function starts() {
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					//reply(mess.wait)
 					//client.sendPtt(from, ./media/bakaa.mp3)
-					client.sendMessage(from, ./media/bakaa.mp3, audio, {quoted: mek})
+					client.sendMessage(from, './media/bakaa.mp3', audio, {quoted: mek})
 					break
 				case 'hug':
 					teks = body.slice(6)
