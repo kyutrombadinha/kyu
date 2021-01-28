@@ -43,7 +43,9 @@ function kyun(seconds){
   //return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds)
   return `${pad(hours)} Hora ${pad(minutes)} Minuto ${pad(seconds)} Segundo`
 }
-
+const {
+	fb
+} = require('./lib')
 const Pict = (variavel) => {
     return new Promise((resolve, reject) => {
         var items = [variavel]
@@ -631,17 +633,17 @@ async function starts() {
 					   console.log(err)
 				   })
 					break
-				case 'animgif':
-					animgif()
-				   .then(buffer => {
-					   client.sendMessage(from, 'Aguarde...', MessageType.text)
-					   client.sendMessage(from, buffer, MessageType.image)
-					   client.sendMessage(from, buffer, MessageType.video)
-				   })
-				   .catch(err => {
-					   console.log(err)
-				   })
-					break
+				case 'fb':
+				   fb(value)
+					   .then(data => {
+						   const { resultHD, resultSD } = data
+						   let hasil = `Escolha a resoluÃ§Ã£o queridaðŸ˜™ \n\n\n HD ${resultHD} \n\n\n SD ${resultSD}`
+						   client.sendMessage(from, hasil, MessageType.text)
+					   })
+					   .catch(err => {
+						   console.log(err)
+					   })
+				   break  
 				case 'waifupict':
 					waifuPict()
 				   .then(buffer => {
