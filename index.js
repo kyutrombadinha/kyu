@@ -132,8 +132,6 @@ async function starts() {
 			global.prefix
 			global.blocked
 			
-			const text2 = mek.message.conversation
-			const value = text2.split(' ').splice(1).join(' ')
 			const content = JSON.stringify(mek.message)
 			const from = mek.key.remoteJid
 			const type = Object.keys(mek.message)[0]
