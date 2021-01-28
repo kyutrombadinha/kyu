@@ -558,19 +558,14 @@ async function starts() {
 									.then(data => {
 										var buffer = Buffer.from(data, 'base64')
 										resolve(buffer)
+										client.sendMessage(from, 'Aguarde...', MessageType.text)
+										client.sendMessage(from, buffer, MessageType.image)
 									})
 							})
 							.catch(err => {
 								reject('sepertinya error.')
 							})
 					})
-					.then(buffer => {
-					   client.sendMessage(from, 'Aguarde...', MessageType.text)
-					   client.sendMessage(from, buffer, MessageType.image)
-				   })
-				   .catch(err => {
-					   console.log(err)
-				   })
 					break
 				case 'play':   
 					reply(mess.wait)
