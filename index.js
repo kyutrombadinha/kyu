@@ -782,12 +782,13 @@ async function starts() {
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
 				case 'cry':
-					teks = body.slice(6)
+					//teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					//reply(mess.wait)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/cry?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
-					client.sendMessage(from, buffer, image, {quoted: mek})
+					//client.sendMessage(from, buffer, image, {quoted: mek})
+					client.sendMessage(from, buffer, MessageType.sticker)
 					break
 				case 'baka':
 					teks = body.slice(6)
