@@ -804,12 +804,22 @@ async function starts() {
 					client.sendMessage(from, './media/bakaa.mp3', audio, {quoted: mek})
 					break
 				case 'hug':
-					teks = body.slice(6)
+					
+					try {
+					//teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					//reply(mess.wait)
-					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
-					buffer = await getBuffer(anu.result)
-					client.sendMessage(from, buffer, image, {quoted: mek})
+						anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
+						buffer = await getBuffer(anu.result)
+						client.sendMessage(from, buffer, image, {quoted: mek})
+						} 
+						catch (e) 
+						{
+							anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
+							buffer = await getBuffer(anu.result)
+							client.sendMessage(from, buffer, image, {quoted: mek})
+							reply('âŒ *ERROR* âŒ')
+						}
 					break
 				case 'trap':
 						try {
