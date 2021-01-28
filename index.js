@@ -46,25 +46,7 @@ function kyun(seconds){
 const {
 	fb
 } = require('./lib/fb')
-const Pict = (variavel) => {
-    return new Promise((resolve, reject) => {
-        var items = [variavel]
-        var nime = items[Math.floor(Math.random() * items.length)];
-        var url = 'https://api.fdci.se/rep.php?gambar=' + nime
-        axios.get(url)
-            .then(res => {
-                var acak = res.data[Math.floor(Math.random() * res.data.length )]
-                imageToBase64(acak)
-                    .then(data => {
-                        var buffer = Buffer.from(data, 'base64')
-                        resolve(buffer)
-                    })
-            })
-            .catch(err => {
-                reject('sepertinya error.')
-            })
-    })
-}
+
 
 async function starts() {
 	const client = new WAConnection()
@@ -458,6 +440,7 @@ async function starts() {
 				case 'bomdia':
 					memein = await kagApi.memeindo()
 					buffer = await getBuffer(`https://i.imgur.com/7VL9cFf.jpg`)
+					client.sendPtt(from, './media/bakaa.mp3', from)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Bom dia, vcs sao fodas ❤️'})
 					break
 				case 'boatarde':
