@@ -147,11 +147,11 @@ async function starts() {
 			const isCmd = body.startsWith(prefix)
 
 			mess = {
-				wait: '⌛ Aguarde... ⌛',
+				wait: ' Carregando... ',
 				success: '✔️ Deu certo, ufa kk ✔️',
 				error: {
 					stick: '⚠️ Falha, ocorreu um erro ao converter a imagem em figurinha ⚠️',
-					Iv: '❌ Link tidak valid ❌'
+					Iv: '❌ Link  invalido ❌'
 				},
 				only: {
 					group: '❌ Este comando só pode ser usado em grupos! ❌',
@@ -751,7 +751,8 @@ async function starts() {
 					})
 					break
 				case 'images':
-                                        tels = body.slice(11)
+                                        //tels = body.slice(11)
+					tels = body.slice(7)
 					client.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=${tels}`, {method: 'get'})
 					reply(mess.wait)
@@ -857,12 +858,33 @@ async function starts() {
 					})
 					break
 				
-				case 'teste':
+				case 'egirlgif':
 					reply(mess.wait)
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					
 					var items = ["egirl gif","egirl cute gif"]
+					var cowo = items[Math.floor(Math.random() * items.length)];
+					var url = 'https://api.fdci.se/rep.php?gambar=' + cowo
+					anu = await fetchJson(url, {method: 'get'})
+					axios.get(url)
+					.then(res => {
+						var acak = res.data[Math.floor(Math.random() * res.data.length )]
+						exec(`wget ${acak} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						//if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+							})
+					})
+					case 'cade':
+					tels = body.slice(5)
+					reply(mess.wait)
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					
+					var items = [tels]
 					var cowo = items[Math.floor(Math.random() * items.length)];
 					var url = 'https://api.fdci.se/rep.php?gambar=' + cowo
 					anu = await fetchJson(url, {method: 'get'})
