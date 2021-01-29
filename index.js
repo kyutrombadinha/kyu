@@ -56,6 +56,21 @@ function kyun(seconds){
 				} 
 				catch (e) 
 				{
+					hug2()
+				}
+	}
+	const hug2 = () => {
+		try {
+			//teks = body.slice(6)
+			/*if (!isDaftar) return reply(mess.only.daftarB)*/
+			//reply(mess.wait)
+				reply('cons hug')
+				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
+				buffer = await getBuffer(anu.result)
+				client.sendMessage(from, buffer, image, {quoted: mek})
+				} 
+				catch (e) 
+				{
 					hug()
 				}
 	}
