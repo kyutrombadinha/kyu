@@ -131,7 +131,7 @@ async function starts() {
 			const isCmd = body.startsWith(prefix)
 
 			mess = {
-				wait: '⌛ Editando, aguade... ⌛',
+				wait: '⌛ Aguarde... ⌛',
 				success: '✔️ Deu certo, ufa kk ✔️',
 				error: {
 					stick: '⚠️ Falha, ocorreu um erro ao converter a imagem em figurinha ⚠️',
@@ -172,6 +172,7 @@ async function starts() {
 					//teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					//reply(mess.wait)
+						reply('cons hug')
 						anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
 						buffer = await getBuffer(anu.result)
 						client.sendMessage(from, buffer, image, {quoted: mek})
