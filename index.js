@@ -44,7 +44,21 @@ function kyun(seconds){
   return `${pad(hours)} Hora ${pad(minutes)} Minuto ${pad(seconds)} Segundo`
 }
 
-	
+	function hug = () => {
+		try {
+			//teks = body.slice(6)
+			/*if (!isDaftar) return reply(mess.only.daftarB)*/
+			//reply(mess.wait)
+				reply('cons hug')
+				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
+				buffer = await getBuffer(anu.result)
+				client.sendMessage(from, buffer, image, {quoted: mek})
+				} 
+				catch (e) 
+				{
+					hug()
+				}
+	}
 const {
 	fb
 } = require('./lib/fb')
@@ -148,21 +162,7 @@ async function starts() {
 					Badmin: '❌ Este comando só pode ser usado quando eu virar adm porra! ❌'
 				}
 			}
-			const hug = () => {
-		try {
-			//teks = body.slice(6)
-			/*if (!isDaftar) return reply(mess.only.daftarB)*/
-			//reply(mess.wait)
-				reply('cons hug')
-				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
-				buffer = await getBuffer(anu.result)
-				client.sendMessage(from, buffer, image, {quoted: mek})
-				} 
-				catch (e) 
-				{
-					hug()
-				}
-	}
+
 			const botNumber = client.user.jid
 			const ownerNumber = ["556796083824@s.whatsapp.net"] // replace this with your number
 			const isGroup = from.endsWith('@g.us')
