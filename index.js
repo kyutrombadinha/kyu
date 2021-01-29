@@ -818,7 +818,7 @@ async function starts() {
 						}
 					break*/
 					case 'hug':
-					reply('wait')
+					reply('wait2')
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://tobz-api.herokuapp.com/api/hug&apikey=BotWeA', {method: 'get'})
