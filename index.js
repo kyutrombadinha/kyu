@@ -63,24 +63,10 @@ const hug = () => {
 				} 
 				catch (e) 
 				{
-					hug2()
-				}
-	}
-	const hug2 = () => {
-		try {
-			//teks = body.slice(6)
-			/*if (!isDaftar) return reply(mess.only.daftarB)*/
-			//reply(mess.wait)
-				reply('cons hug2')
-				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
-				buffer = await getBuffer(anu.result)
-				client.sendMessage(from, buffer, image, {quoted: mek})
-				} 
-				catch (e) 
-				{
 					hug()
 				}
 	}
+
 
 async function starts() {
 	const client = new WAConnection()
