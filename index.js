@@ -423,92 +423,16 @@ async function starts() {
 					buffer = await getBuffer(`https://imgur.com/${meme.hash}.jpg`)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
 					break
-				case 'porno':
-					memein = await kagApi.memeindo()
-					buffer = await getBuffer(`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3BgnL2qAHDTlfCPMAvdjuLGvOx402dSdhw&usqp=CAU`)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Adm proibiu porno no gp🙄'})
-					break
 				case 'dono':
 					memein = await kagApi.memeindo()
 					buffer = await getBuffer(`https://imgur.com/NgpUuz6.jpg`)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '*CRIADOR:* Kyu\n*WPP:* wa.me/+556796083824\n*INSTA:* https://www.instagram.com/caffedemanha/ \n\n\n*Digite *.bot* para ver comandos basicos para criar um bot'})
-					break
-				case 'belle2':
-					memein = await kagApi.memeindo()
-					buffer = await getBuffer(`https://4.bp.blogspot.com/-pBwX3-rdXeM/XwTW_9oT_9I/AAAAAAAAPt4/_jmeK-lOJMoE4gPYvhgFqzOp-uKnNN9ygCLcBGAsYHQ/s1600/boabronha_2.jpg`)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: 'slc'})
 					break
 				/*case 'bot':
 			     	memein = await kagApi.memeindo()
 					buffer = await getBuffer(`https://i.imgur.com/dPUVFF6.png`)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: ''})
 					break*/
-				case 'belle3':
-					memein = await kagApi.memeindo()
-					buffer = await getBuffer(`https://1.bp.blogspot.com/-3K_b14RzHTA/XwTW7SQTPRI/AAAAAAAAPtY/UOaKURECbzwXfvASa3g6Pz0D_Ha73Dw4wCLcBGAsYHQ/s1600/boabronha_10.jpg`)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: 'olha p isso mano, pqp '})
-					break
-				case 'akeno':
-					meme = await kagApi.memes()
-					buffer = await getBuffer(`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnFAocqaur5ZX1DPN6ZGP8PJy2cNppas_gYA&usqp=CAU`)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
-					break
-				case 'loli1':
-					memein = await kagApi.memeindo()
-					buffer = await getBuffer(`https://i.imgur.com/iphQUGi.jpg`)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: 'hmm safado, então quer ver loli?'})
-					break
-				case 'bomdia':
-					memein = await kagApi.memeindo()
-					buffer = await getBuffer(`https://i.imgur.com/7VL9cFf.jpg`)
-					client.sendPtt(from, './media/bakaa.mp3', from)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Bom dia, vcs sao fodas ❤️'})
-					break
-				case 'boatarde':
-					memein = await kagApi.memeindo()
-					buffer = await getBuffer(`https://i.imgur.com/JaO3yoV.jpg`)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Boa tarde, rapeize 😎👍'})
-					break
-				case 'boanoite':
-					memein = await kagApi.memeindo()
-					buffer = await getBuffer(`https://i.imgur.com/yOFxSUR.jpg`)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Boa noite fml ❤️'})
-					break
-				case 'belle':
-					memein = await kagApi.memeindo()
-					buffer = await getBuffer(`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZu6GwgURUgkuWZXOq-KPLRvA5LOezhvY_VQ&usqp=CAU`)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: '👀️'})
-					break
-				case 'belle1':
-					memein = await kagApi.memeindo()
-					buffer = await getBuffer(`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ7ot6RZPnXSJFFKVjPoeXHjTYyi6uk5W_mA&usqp=CAU`)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: '👀️'})
-					break
-				case 'mia':
-					memein = await kagApi.memeindo()
-					buffer = await getBuffer(`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaKeXU5ryvFTNz6nJm9cioGCoeqlZQSh1Mgw&usqp=CAU`)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: '👀️'})
-					break
-				case 'lofi':
-					memein = await kagApi.memeindo()
-					buffer = await getBuffer(`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL9hZBPRo16fIhsIus3t1je2oAU23pQqBpfw&usqp=CAU`)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: '️💆'})
-					break
-				case 'malkova':
-					memein = await kagApi.memeindo()
-					buffer = await getBuffer(`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtbo5EcVSGj-IvEVznHIgMZ9vjFptZfvprtg&usqp=CAU`)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: '️💆'})
-					break
-				case 'mia1':
-					memein = await kagApi.memeindo()
-					buffer = await getBuffer(`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjVCGkGDxARumfloekQMCazM8uvpj2AgW2lg&usqp=CAU`)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: '👀️'})
-					break
-				case 'nsfwloli':
-					memein = await kagApi.memeindo()
-					buffer = await getBuffer(`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJhzKetbU3pzhoZdaIo6qBklCzwvmCCOznbg&usqp=CAU`)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Rum️'})
-					break
 				case 'memeindo':
 					memein = await kagApi.memeindo()
 					buffer = await getBuffer(`https://imgur.com/${memein.hash}.jpg`)
@@ -525,15 +449,7 @@ async function starts() {
 					buffer = await getBuffer(`https://imgur.com/${memein.hash}.jpg`)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
 					break
-				case 'glitch':
-					if (args.length < 1) return reply('O que você quer escrever??')
-					teks = body.slice(8)
-					reply(mess.wait)
-					anu = await fetchJson(`https://arugaz.my.id/api/textpro/glitchtext?text1=${teks}&text2=`, {method: 'get'})      /*KYU*/
-					if (anu.error) return reply(anu.error)
-					buff = await getBuffer(anu.result)
-					client.sendMessage(from, buff, image, {quoted: mek, caption: mess.success})
-					break
+
 				/*case 'loli':
 					loli.getSFWLoli(async (err, res) => {
 						if (err) return reply('❌ *ERROR* ❌')
@@ -565,8 +481,7 @@ async function starts() {
 							fs.unlinkSync(rano)
 						})
 					})*/
-					//----
-					reply(resalt) })
+				 })
 					
 					
 					break
@@ -602,7 +517,7 @@ async function starts() {
 					reply(resalt) })
 					break*/
 				case 'hentai':
-					/*if (!isDaftar) return reply(mess.only.daftarB)*/
+					if(!isNsfw) return reply('*NSFW Desativado*')
 					reply(mess.wait)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hentai?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
@@ -629,6 +544,8 @@ async function starts() {
 				   })
 					break
 				case 'nekopict':
+					
+					if(!isNsfw) return reply('*NSFW Desativado*')
 					nekoPict()
 				   .then(buffer => {
 					   client.sendMessage(from, 'Aguarde...', MessageType.text)
@@ -719,12 +636,16 @@ async function starts() {
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
 				case 'gifhentai':
+				
+					if(!isNsfw) return reply('*NSFW Desativado*')
 					reply(mess.wait)
 					axios.get('https://nekos.life/api/v2/img/Random_hentai_gif').then(res => {
                 	aruga.sendFileFromUrl(from, res.data.result, '.gif');
                 });
 					break
 				case 'bjanime':
+				
+					if(!isNsfw) return reply('*NSFW Desativado*')
 					reply(from, mess.wait)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwblowjob?&apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
@@ -778,6 +699,8 @@ async function starts() {
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
 				case 'nftrap':
+				
+					if(!isNsfw) return reply('*NSFW Desativado*')
 					teks = body.slice(8)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					reply(mess.wait)
@@ -787,6 +710,8 @@ async function starts() {
 					break
 				
 				case 'nfneko':
+				
+					if(!isNsfw) return reply('*NSFW Desativado*')
 					teks = body.slice(8)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					reply(mess.wait)
@@ -795,6 +720,8 @@ async function starts() {
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
 				case 'nfblow':
+				
+					if(!isNsfw) return reply('*NSFW Desativado*')
 					teks = body.slice(8)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					reply(mess.wait)
@@ -802,6 +729,23 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
+				case 'nsfw':
+					if (!isGroup) return reply(mess.only.group)
+					if (!isGroupAdmins) return reply(mess.only.admin)
+					if (args.length < 1) return reply('digite 1 para ativar')
+					if (Number(args[0]) === 1) {
+						if (isNsfw) return reply('o recurso está ativo')
+						nsfw.push(from)
+						fs.writeFileSync('./database/json/nsfw.json', JSON.stringify(nsfw))
+						reply('❬ _*SUCESSO*_ ❭ ativado o recurso nsfw neste grupo')
+					} else if (Number(args[0]) === 0) {
+						nsfw.splice(from, 1)
+						fs.writeFileSync('./database/json/nsfw.json', JSON.stringify(nsfw))
+						reply('❬ SUCESSO ❭ desativado o recurso nsfw neste grupo')
+					} else {
+						reply('digite 1 para ativar, 0 para desativar o recurso')
+					}
+					break	
 				case 'del':
 					client.deleteMessage(from, { id: mek.message.extendedTextMessage, remoteJid: from, fromMe: true })
 					break
@@ -843,6 +787,8 @@ async function starts() {
 					})
 					break
 				case 'blowjb':
+				
+					if(!isNsfw) return reply('*NSFW Desativado*')
 					reply(mess.wait)
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
@@ -915,7 +861,7 @@ async function starts() {
 					//----------------------------------------------------------
 				case 'trap':
 						try {
-							//if (!isNsfw) return reply('âŒ *NSFW Desativado* âŒ')
+							if (!isNsfw) return reply('*NSFW Desativado*')
 							res = await fetchJson(`https://api.computerfreaker.cf/v1/trap`, {method: 'get'})
 							buffer = await getBuffer(res.result)
 							client.sendMessage(from, buffer, image, {quoted: mek, caption: '7w7'})
@@ -923,30 +869,6 @@ async function starts() {
 							console.log(`Error :`, color(e,'red'))
 							reply('âŒ *ERROR* âŒ')
 						}
-					break
-				case 'nsfwloli':
-					if (!isNsfw) return reply('❌ *FALSE* ❌')
-					loli.getNSFWLoli(async (err, res) => {
-						if (err) return reply('❌ *ERROR* ❌')
-						buffer = await getBuffer(res.url)
-						client.sendMessage(from, buffer, image, {quoted: mek, caption: '🤭'})
-					})
-					break
-				case 'hilih':
-					if (args.length < 1) return reply('Cadê o texto, hum?')
-					anu = await fetchJson(`https://mhankbarbars.herokuapp.com/api/hilih?teks=${body.slice(7)}`, {method: 'get'})
-					reply(anu.result)
-					break
-				case 'yt2mp3':
-					if (args.length < 1) return reply('Cadê o url, hum?')
-					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
-					anu = await fetchJson(`https://mhankbarbars.herokuapp.com/api/yta?url=${args[0]}&apiKey=${apiKey}`, {method: 'get'})
-					if (anu.error) return reply(anu.error)
-					teks = `*Title* : ${anu.title}\n*Filesize* : ${anu.filesize}`
-					thumb = await getBuffer(anu.thumb)
-					client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
-					buffer = await getBuffer(anu.result)
-					client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
 					break
 				case 'ytmp3':
 				
@@ -976,52 +898,6 @@ async function starts() {
 					   console.log(err)
 				   })
 			   break
-				case 'ytsearch':
-					if (args.length < 1) return reply('O que você está procurando? pau?')
-					anu = await fetchJson(`https://mhankbarbars.herokuapp.com/api/ytsearch?q=${body.slice(10)}&apiKey=${apiKey}`, {method: 'get'})
-					if (anu.error) return reply(anu.error)
-					teks = '=================\n'
-					for (let i of anu.result) {
-						teks += `*Title* : ${i.title}\n*Id* : ${i.id}\n*Published* : ${i.publishTime}\n*Duration* : ${i.duration}\n*Views* : ${h2k(i.views)}\n=================\n`
-					}
-					reply(teks.trim())
-					break
-				case 'tulis':
-					if (args.length < 1) return reply('O que você quer escrever??')
-					teks = body.slice(7)
-					reply(mess.wait)
-					anu = await fetchJson(`https://mhankbarbars.herokuapp.com/nulis?text=${teks}&apiKey=${apiKey}`, {method: 'get'})
-					if (anu.error) return reply(anu.error)
-					buff = await getBuffer(anu.result)
-					client.sendMessage(from, buff, image, {quoted: mek, caption: mess.success})
-					break
-				case 'url2img':
-					tipelist = ['desktop','tablet','mobile']
-					if (args.length < 1) return reply('Que tipo é??')
-					if (!tipelist.includes(args[0])) return reply('Tipe desktop|tablet|mobile')
-					if (args.length < 2) return reply('Cadê o url, hum?')
-					if (!isUrl(args[1])) return reply(mess.error.Iv)
-					reply(mess.wait)
-					anu = await fetchJson(`https://mhankbarbars.herokuapp.com/api/url2image?tipe=${args[0]}&url=${args[1]}&apiKey=${apiKey}`, {method: 'get'})
-					if (anu.error) return reply(anu.error)
-					buff = await getBuffer(anu.result)
-					client.sendMessage(from, buff, image, {quoted: mek})
-					break
-				case 'tstiker':
-				case 'tsticker':
-					if (args.length < 1) return reply('Cadê o texto, hum?')
-					ranp = getRandom('.png')
-					rano = getRandom('.webp')
-					teks = body.slice(9).trim()
-					anu = await fetchJson(`https://mhankbarbars.herokuapp.com/api/text2image?text=${teks}&apiKey=${apiKey}`, {method: 'get'})
-					if (anu.error) return reply(anu.error)
-					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
-						fs.unlinkSync(ranp)
-						if (err) return reply(mess.error.stick)
-						client.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
-						fs.unlinkSync(rano)
-					})
-					break
 				case 'marcar':
 					if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
@@ -1135,7 +1011,7 @@ async function starts() {
 					if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
-					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag target yang ingin di tendang!')
+					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Qual humano você quer kickar!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
 						teks = 'Pedidos recebidos, emitidos :\n'
@@ -1159,21 +1035,21 @@ async function starts() {
 					}
 					mentions(teks, groupAdmins, true)
 					break
-                                case 'linkgroup':
-                                        if (!isGroup) return reply(mess.only.group)
-                                        if (!isGroupAdmins) return reply(mess.only.admin)
-                                        if (!isBotGroupAdmins) return reply(mess.only.Badmin)
-                                        linkgc = await client.groupInviteCode(from)
-                                        reply('https://chat.whatsapp.com/'+linkgc)
-                                        break
-                                case 'leave':
-                                        if (!isGroup) return reply(mess.only.group)
-                                        if (isGroupAdmins || isOwner) {
-                                            client.groupLeave(from)
-                                        } else {
-                                            reply(mess.only.admin)
-                                        }
-                                        break
+					case 'linkgroup':
+							if (!isGroup) return reply(mess.only.group)
+							if (!isGroupAdmins) return reply(mess.only.admin)
+							if (!isBotGroupAdmins) return reply(mess.only.Badmin)
+							linkgc = await client.groupInviteCode(from)
+							reply('https://chat.whatsapp.com/'+linkgc)
+							break
+					case 'leave':
+							if (!isGroup) return reply(mess.only.group)
+							if (isGroupAdmins || isOwner) {
+								client.groupLeave(from)
+							} else {
+								reply(mess.only.admin)
+							}
+							break
 				case 'toimg':
 					if (!isQuotedSticker) return reply('❌ responder sticker hum ❌')
 					reply(mess.wait)
@@ -1187,30 +1063,6 @@ async function starts() {
 						client.sendMessage(from, buffer, image, {quoted: mek, caption: '>//<'})
 						fs.unlinkSync(ran)
 					})
-					break
-				case 'simi':
-					if (args.length < 1) return reply('Textnya mana um?')
-					teks = body.slice(5)
-					anu = await simih(teks) //fetchJson(`https://mhankbarbars.herokuapp.com/api/samisami?text=${teks}`, {method: 'get'})
-					//if (anu.error) return reply('Simi ga tau kak')
-					reply(anu)
-					break
-				case 'simih':
-					if (!isGroup) return reply(mess.only.group)
-					if (!isGroupAdmins) return reply(mess.only.admin)
-					if (args.length < 1) return reply('Hmmmm')
-					if (Number(args[0]) === 1) {
-						if (isSimi) return reply('O modo Simi está ativado')
-						samih.push(from)
-						fs.writeFileSync('./src/simi.json', JSON.stringify(samih))
-						reply('Modo simi ativado com sucesso neste grupo hehe️')
-					} else if (Number(args[0]) === 0) {
-						samih.splice(from, 1)
-						fs.writeFileSync('./src/simi.json', JSON.stringify(samih))
-						reply('Modo simi desativado com sucesso neste grupo ✔️')
-					} else {
-						reply('1 para ativar, 0 para desativar, lerdão você em 🤦')
-					}
 					break
 				case 'welcome':
 					if (!isGroup) return reply(mess.only.group)
