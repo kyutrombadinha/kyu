@@ -829,7 +829,6 @@ async function starts() {
 						if (err) return reply(mess.error.stick)
 						buffer = fs.readFileSync(rano)
 						client.sendMessage(from, buffer, sticker, {quoted: mek})
-						reply('wait2')
 						fs.unlinkSync(rano)
 					})
 					break
