@@ -167,6 +167,20 @@ async function starts() {
 			const reply = (teks) => {
 				client.sendMessage(from, teks, text, {quoted:mek})
 			}
+			const hug = () => {
+				try {
+					//teks = body.slice(6)
+					/*if (!isDaftar) return reply(mess.only.daftarB)*/
+					//reply(mess.wait)
+						anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
+						buffer = await getBuffer(anu.result)
+						client.sendMessage(from, buffer, image, {quoted: mek})
+						} 
+						catch (e) 
+						{
+							hug()
+						}
+			}
 			const sendMess = (hehe, teks) => {
 				client.sendMessage(hehe, teks, text)
 			}
@@ -815,10 +829,7 @@ async function starts() {
 						} 
 						catch (e) 
 						{
-							anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
-							buffer = await getBuffer(anu.result)
-							client.sendMessage(from, buffer, image, {quoted: mek})
-							reply('âŒ *ERROR* âŒ')
+							hug()
 						}
 					break
 				case 'trap':
