@@ -43,7 +43,7 @@ function kyun(seconds){
   //return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds)
   return `${pad(hours)} Hora ${pad(minutes)} Minuto ${pad(seconds)} Segundo`
 }
-async function hug = () => {
+async function hug  () {
 		try {
 			//teks = body.slice(6)
 			/*if (!isDaftar) return reply(mess.only.daftarB)*/
