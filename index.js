@@ -43,7 +43,21 @@ function kyun(seconds){
   //return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds)
   return `${pad(hours)} Hora ${pad(minutes)} Minuto ${pad(seconds)} Segundo`
 }
-
+async function hug = () => {
+		try {
+			//teks = body.slice(6)
+			/*if (!isDaftar) return reply(mess.only.daftarB)*/
+			//reply(mess.wait)
+				reply('cons hug')
+				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
+				buffer = await getBuffer(anu.result)
+				client.sendMessage(from, buffer, image, {quoted: mek})
+				} 
+				catch (e) 
+				{
+					hug()
+				}
+	}
 const {
 	fb
 } = require('./lib/fb')
@@ -166,21 +180,7 @@ async function starts() {
 			const isUrl = (url) => {
 			    return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/, 'gi'))
 			}
-			const hug = () => {
-			try {
-				//teks = body.slice(6)
-				/*if (!isDaftar) return reply(mess.only.daftarB)*/
-				//reply(mess.wait)
-					reply('cons hug')
-					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
-					buffer = await getBuffer(anu.result)
-					client.sendMessage(from, buffer, image, {quoted: mek})
-					} 
-					catch (e) 
-					{
-						hug()
-					}
-			}
+			
 			const reply = (teks) => {
 				client.sendMessage(from, teks, text, {quoted:mek})
 			}
