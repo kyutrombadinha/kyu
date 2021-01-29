@@ -856,6 +856,41 @@ async function starts() {
 						fs.unlinkSync(rano)
 					})
 					break
+				
+				case 'teste':
+					reply(mess.wait)
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					
+					var items = ["egirl gif","egirl cute gif"]
+					var cowo = items[Math.floor(Math.random() * items.length)];
+					var url = 'https://api.fdci.se/rep.php?gambar=' + cowo
+					anu = await fetchJson(url, {method: 'get'})
+					axios.get(url)
+					.then(res => {
+						var acak = res.data[Math.floor(Math.random() * res.data.length )]
+						exec(`wget ${acak} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						//if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+							})
+					})
+					
+					break
+					//----------------------------------------------------
+					case 'nekopict':
+					nekoPict()
+				   .then(buffer => {
+					   client.sendMessage(from, 'Aguarde...', MessageType.text)
+					   client.sendMessage(from, buffer, MessageType.image)
+				   })
+				   .catch(err => {
+					   console.log(err)
+				   })
+					break
+					//----------------------------------------------------------
 				case 'trap':
 						try {
 							//if (!isNsfw) return reply('âŒ *NSFW Desativado* âŒ')
