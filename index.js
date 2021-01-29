@@ -805,12 +805,9 @@ async function starts() {
 					//client.sendPtt(from, ./media/bakaa.mp3)
 					client.sendMessage(from, './media/bakaa.mp3', audio, {quoted: mek})
 					break
-				case 'hug':
+				/*case 'hug':
 					reply('wait')
 					try {
-					//teks = body.slice(6)
-					/*if (!isDaftar) return reply(mess.only.daftarB)*/
-					//reply(mess.wait)
 						anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
 						buffer = await getBuffer(anu.result)
 						client.sendMessage(from, buffer, image, {quoted: mek})
@@ -819,6 +816,21 @@ async function starts() {
 						{
 							//hug()
 						}
+					break*/
+					case 'hug':
+					reply('wait')
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson('https://tobz-api.herokuapp.com/api/hug&apikey=BotWeA', {method: 'get'})
+                                        //if (!isUser) return reply(mess.only.daftarB)
+					//if (anu.error) return reply(anu.error)
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
 					break
 				case 'trap':
 						try {
