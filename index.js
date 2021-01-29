@@ -51,7 +51,36 @@ const {
 const {
 	ytdl
 } = require('./lib/ytdl')
-
+const hug = () => {
+		try {
+			//teks = body.slice(6)
+			/*if (!isDaftar) return reply(mess.only.daftarB)*/
+			//reply(mess.wait)
+				reply('cons hug')
+				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
+				buffer = await getBuffer(anu.result)
+				client.sendMessage(from, buffer, image, {quoted: mek})
+				} 
+				catch (e) 
+				{
+					hug2()
+				}
+	}
+	const hug2 = () => {
+		try {
+			//teks = body.slice(6)
+			/*if (!isDaftar) return reply(mess.only.daftarB)*/
+			//reply(mess.wait)
+				reply('cons hug2')
+				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
+				buffer = await getBuffer(anu.result)
+				client.sendMessage(from, buffer, image, {quoted: mek})
+				} 
+				catch (e) 
+				{
+					hug()
+				}
+	}
 
 async function starts() {
 	const client = new WAConnection()
@@ -805,8 +834,19 @@ async function starts() {
 					//client.sendPtt(from, ./media/bakaa.mp3)
 					client.sendMessage(from, './media/bakaa.mp3', audio, {quoted: mek})
 					break
-				
-					case 'hug':
+				case 'hug':
+					reply('wait')
+					try {
+						anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
+						buffer = await getBuffer(anu.result)
+						client.sendMessage(from, buffer, image, {quoted: mek})
+						} 
+						catch (e) 
+						{
+							hug()
+						}
+					break
+				case 'hug2':
 					reply('wait2')
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
