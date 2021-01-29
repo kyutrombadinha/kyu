@@ -805,18 +805,7 @@ async function starts() {
 					//client.sendPtt(from, ./media/bakaa.mp3)
 					client.sendMessage(from, './media/bakaa.mp3', audio, {quoted: mek})
 					break
-				/*case 'hug':
-					reply('wait')
-					try {
-						anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
-						buffer = await getBuffer(anu.result)
-						client.sendMessage(from, buffer, image, {quoted: mek})
-						} 
-						catch (e) 
-						{
-							//hug()
-						}
-					break*/
+				
 					case 'hug':
 					reply('wait2')
 					ranp = getRandom('.gif')
