@@ -1130,10 +1130,10 @@ async function starts() {
 						.then(body => {
 							let truthx = body.split('\n')
 							let truthz = truthx[Math.floor(Math.random() * truthx.length)]
-							aruga.reply(from, truthz, id)
+							reply(from, truthz, id)
 						})
 						.catch(() => {
-							aruga.reply(from, 'erro!!', id)
+							reply(from, 'erro!!', id)
 						})
 						break
 				case 'wait':
