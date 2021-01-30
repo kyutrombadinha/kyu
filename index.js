@@ -1124,6 +1124,18 @@ async function starts() {
 						reply('falhou')
 					}
 					break
+				case 'aleatorio':
+						fetch('https://raw.githubusercontent.com/kyutrombadinha/aleatorio/main/texto.txt')
+						.then(res => res.text())
+						.then(body => {
+							let truthx = body.split('\n')
+							let truthz = truthx[Math.floor(Math.random() * truthx.length)]
+							aruga.reply(from, truthz, id)
+						})
+						.catch(() => {
+							aruga.reply(from, 'erro!!', id)
+						})
+						break
 				case 'wait':
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 						reply(mess.wait)
