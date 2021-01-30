@@ -16,15 +16,9 @@ const help = (prefix) => {
 ➸ Comando : *${prefix}sticker* ou *${prefix}stiker*
 ➸ útil em : converter imagem/gif/vídeo em adesivo
 ➸ uso : responder imagem/gif/video ou enviar imagem/gif/video com legenda\n
-➸ Comando : *${prefix}sticker nobg* ou *${prefix}stiker nobg*
-➸ útil em : converter imagem em adesivo removendo o fundo
-➸ uso : responder imagem ou enviar imagem com legenda/n
 ➸ Comando : *${prefix}toimg*
 ➸ útil em : converter adesivo em imagem
 ➸ uso : adesivo de resposta\n
-➸ Comando : *${prefix}tsticker* ou *${prefix}tstiker*
-➸ útil em : converter texto em adesivo
-➸ uso : *${prefix}tsticker seu texto aqui*\n
 
        • ─── ✾ ─── •
        *MEMES*【✔】
@@ -33,35 +27,30 @@ const help = (prefix) => {
 ➸ Comando : *${prefix}meme*
 ➸ útil em : mandar imagens aleatórias de meme [inglês]
 ➸ uso : basta emviar o comando\n
-➸ Comando : *${prefix}memeindo*
-➸ útil em : mandar imagens aleatórias de meme [indo]
-➸ uso : basta enviar o comando
+
 
        • ──── ✾ ──── •
        *OUTROS...*【✔】
        • ──── ✾ ──── •
       
-➸ Comando : *${prefix}gtts*
+➸ Comando : *${prefix}tts*
 ➸ útil em : converter texto em fala/áudio
-➸ uso : *${prefix}gtts [cc] [text]*\nexemplo : *${prefix}gtts ja On2-chan*\n
+➸ uso : *${prefix}tts [cc] [text]*\nexemplo : *${prefix}gtts ja On2-chan*\n
+➸ Comando : *${prefix}cade*
+➸ útil em : mandar figurinha de algo que você escreveu
+➸ uso : *${prefix}cade [text]*\nexemplo : *${prefix}cade loli*\n
 ➸ Comando : *${prefix}loli*
 ➸ útil em : mandar imagens aleatórias de loli
 ➸ uso : basta enviar o comando\n
-➸ Comando : *${prefix}nsfwloli*
-➸ útil em : mandar imagens aleatórias de nsfw loli
+➸ Comando : *${prefix}hug*
+➸ útil em : mandar gifs aleatórias de abraço(anime)
 ➸ uso : basta enviar o comando\n
-➸ Comando : *${prefix}url2img*
-➸ útil em : tirar screenshots da web
-➸ uso : *${prefix}url2img [tipe] [url]*\n
-➸ Comando : *${prefix}simi*
-➸ útil em : responder sua mensagem por simi
-➸ uso : *${prefix}simi sua mensagem*\n
+➸ Comando : *${prefix}cry*
+➸ útil em : mandar gifs aleatórias chorando(anime)
+➸ uso : basta enviar o comando\n
 ➸ Comando : *${prefix}ocr*
 ➸ útil em : pegar o texto da foto e lhe enviar
 ➸ uso : responder imagem ou enviar mensagem com legenda\n
-➸ Comando : *${prefix}wait*
-➸ útil em : pesquisar sobre o anime por imagem [ Que anime é este/que ]
-➸ uso : responder imagem ou enviar imagem com legenda\n
 ➸ Comando : *${prefix}setprefix*
 ➸ útil em : alterar o prefixo do bot
 ➸ uso : *${prefix}setprefix [texto|opcional]*\nexemplo : *${prefix}setprefix ?*
@@ -77,11 +66,6 @@ const help = (prefix) => {
 ➸ Comando : *${prefix}marcar*
 ➸ útil em : marcar todos os membros do grupo, incluindo administradores
 ➸ uso : basta enviar o comando\n
-➸ Nota : Você precisa ser administrador do grupo\n
-➸ Comando : *${prefix}simih*
-➸ útil em : ativar o modo simi no grupo
-➸ uso : *${prefix}simih 1* para ativar o modo simi e *${prefix}simih 0* para 
-➸ desativar o modo simih
 ➸ Nota : Você precisa ser administrador do grupo\n
 ➸ Comando : *${prefix}add*
 ➸ útil em : adicionar membro ao grupo
