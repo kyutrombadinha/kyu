@@ -43,6 +43,9 @@ function kyun(seconds){
   //return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds)
   return `${pad(hours)} Hora ${pad(minutes)} Minuto ${pad(seconds)} Segundo`
 }
+const { 
+    rugaapi
+} = require('./lib')
 async function hug  () {
 		try {
 			//teks = body.slice(6)
@@ -746,6 +749,30 @@ async function starts() {
 						reply('digite 1 para ativar, 0 para desativar o recurso')
 					}
 					break	
+				case 'facebook':
+                if (args.length == 0) return aruga.reply(from, `Kirim perintah *${prefix}fb [linkfb]*`, id)
+                aruga.reply(from, '_Scrapping Metadata...._', id)
+                rugaapi.fb(args)
+                .then(async(res) => {
+                    await aruga.sendFileFromUrl(from, `${res.result.VideoUrl}`, '', '', id)
+                    .catch(() => {
+                        aruga.reply(from, `Error...`, id)
+                    })
+                })
+                break
+				case 'dare':
+				if (!isGroupMsg) return aruga.reply(from, 'Só funciona em grupo!', id)
+				fetch('https://raw.githubusercontent.com/kyutrombadinha/aleatorio/main/texto.txt')
+				.then(res => res.text())
+				.then(body => {
+					let darex = body.split('\n')
+					let darez = darex[Math.floor(Math.random() * darex.length)]
+					aruga.reply(from, darez, id)
+				})
+				.catch(() => {
+					aruga.reply(from, 'Hayolohhh, ada yang error!!', id)
+				})
+				break
 				case 'del':
 					client.deleteMessage(from, { id: mek.message.extendedTextMessage, remoteJid: from, fromMe: true })
 					break
