@@ -45,7 +45,7 @@ function kyun(seconds){
 }
 const { 
     rugaapi
-} = require('./lib')
+} = require('./lib/rugaapi')
 async function hug  () {
 		try {
 			//teks = body.slice(6)
