@@ -43,9 +43,9 @@ function kyun(seconds){
   //return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds)
   return `${pad(hours)} Hora ${pad(minutes)} Minuto ${pad(seconds)} Segundo`
 }
-const { 
-    rugaapi
-} = require('./lib/rugaapi')
+//const { 
+  //  rugaapi
+//} = require('./lib/rugaapi')
 async function hug  () {
 		try {
 			//teks = body.slice(6)
