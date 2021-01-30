@@ -1125,17 +1125,11 @@ async function starts() {
 					}
 					break
 				case 'aleatorio':
-						fetch('https://raw.githubusercontent.com/kyutrombadinha/aleatorio/main/texto.txt')
-						.then(res => res.text())
-						.then(body => {
-							let truthx = body.split('\n')
-							let truthz = truthx[Math.floor(Math.random() * truthx.length)]
-							reply(res.text())
-							reply(truthz)
-						})
-						.catch(() => {
-							reply(from, 'erro!!')
-						})
+						data = await fetchJson(`https://raw.githubusercontent.com/kyutrombadinha/aleatorio/main/texto.txt`)
+					//if (!isUser) return reply(mess.only.daftarB)
+						hasil = data.result.text()
+						//----
+						reply(hasil)
 						break
 				case 'wait':
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
