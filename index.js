@@ -639,6 +639,15 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
+				case 'setppbot':
+				client.updatePresence(from, Presence.composing) 
+				if (!isQuotedImage) return reply(`Envie fotos com legendas ${prefix}setbotpp ou tags de imagem que jÃ¡ foram enviadas`)
+					if (!isOwner) return reply(mess.only.ownerB)
+					enmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					media = await client.downloadAndSaveMediaMessage(enmedia)
+					await client.updateProfilePicture(botNumber, media)
+					reply('Obrigado pelo novo perfilðŸ˜—')
+					break
 				case 'kiss':
 				arqa = body.trim().split(' ')
 				if (args.length == 1) {
@@ -652,7 +661,7 @@ async function starts() {
 				} else {
 					await kill.reply(from, 'Marque ~apenas uma~ a pessoa quem vocÃª quer beijar hihihi', id)
 				}
-				case 'blowjb':
+				case 'ass':
 				
 					if(!isNsfw) return reply('*NSFW Desativado*')
 					reply(mess.wait)
@@ -671,13 +680,14 @@ async function starts() {
 					break
 				break
 				case 'ass2':
+					if(!isNsfw) return reply('*NSFW Desativado*')
 					reply(mess.wait)
 					anu = await fetchJson('https://meme-api.herokuapp.com/gimme/LegalTeens', {method: 'get'})
 					buffer = await getBuffer(anu.url)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
 				
-				case 'gifhentai':
+				case 'gifhentai'://FUNCIONOU
 				
 					if(!isNsfw) return reply('*NSFW Desativado*')
 					reply(mess.wait)
