@@ -31,6 +31,7 @@ const lolis = require('lolis.life')
 const loli = new lolis()
 const welkom = JSON.parse(fs.readFileSync('./src/welkom.json'))
 const nsfw = JSON.parse(fs.readFileSync('./src/nsfw.json'))
+const autostick = JSON.parse(fs.readFileSync('./src/autostick.json'))
 const samih = JSON.parse(fs.readFileSync('./src/simi.json'))
 prefix = '.'
 blocked = []
@@ -182,8 +183,10 @@ async function starts() {
 			const isGroupAdmins = groupAdmins.includes(sender) || false
 			const isWelkom = isGroup ? welkom.includes(from) : false
 			const isNsfw = isGroup ? nsfw.includes(from) : true
+			const isautostick = isGroup ? autostick.includes(from) : true
 			const isSimi = isGroup ? samih.includes(from) : false
 			const isOwner = ownerNumber.includes(sender)
+			const isImage = type === 'image'
 			const isUrl = (url) => {
 			    return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/, 'gi'))
 			}
@@ -197,7 +200,15 @@ async function starts() {
 			const mentions = (teks, memberr, id) => {
 				(id == null || id == undefined || id == false) ? client.sendMessage(from, teks.trim(), extendedText, {contextInfo: {"mentionedJid": memberr}}) : client.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": memberr}})
 			}
-
+			
+			if (isGroupMsg && isAutoStickerOn && isMedia && isImage) {
+				const mediaData = await decryptMedia(message, uaOverride)
+				const imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
+				
+					client.sendMessage(from, imageBase64, sticker, {quoted: mek})
+				console.log(`Sticker processed for ${processTime(t, moment())} seconds`)
+			}
+			
 			colors = ['red','white','black','blue','yellow','green']
 			const isMedia = (type === 'imageMessage' || type === 'videoMessage')
 			const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage')
@@ -823,6 +834,24 @@ async function starts() {
 						nsfw.splice(from, 1)
 						fs.writeFileSync('./database/json/nsfw.json', JSON.stringify(nsfw))
 						reply('❬ SUCESSO ❭ desativado o recurso nsfw neste grupo')
+					} else {
+						reply('digite 1 para ativar, 0 para desativar o recurso')
+					}
+					break	
+				
+				case 'atst':
+					if (!isGroup) return reply(mess.only.group)
+					if (!isGroupAdmins) return reply(mess.only.admin)
+					if (args.length < 1) return reply('digite 1 para ativar')
+					if (Number(args[0]) === 1) {
+						if (isautostick) return reply('o recurso está ativo')
+						autostick.push(from)
+						fs.writeFileSync('./database/json/autostick.json', JSON.stringify(nsfw))
+						reply('❬ _*SUCESSO*_ ❭ ativado o recurso autosticker neste grupo')
+					} else if (Number(args[0]) === 0) {
+						autostick.splice(from, 1)
+						fs.writeFileSync('./database/json/autostick.json', JSON.stringify(nsfw))
+						reply('❬ SUCESSO ❭ desativado o recurso autosticker neste grupo')
 					} else {
 						reply('digite 1 para ativar, 0 para desativar o recurso')
 					}
