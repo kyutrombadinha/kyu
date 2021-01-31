@@ -6,7 +6,6 @@ const {
     GroupSettingChange
 } = require('@adiwajshing/baileys')
 
-const { decryptMedia, Client } = require('@open-wa/wa-automate')
 const imageToBase64 = require('image-to-base64');
 const { color, bgcolor } = require('./lib/color')
 const axios = require('axios')
@@ -879,10 +878,10 @@ async function starts() {
                             await reply(from, 'Error!')
                         }
                     } else {
-                        await bocchi.reply(from, ind.nhFalse())
+                        await reply(from, ind.nhFalse())
                     }
                 } else {
-                    await bocchi.reply(from, ind.wait())
+                    await reply(from, ind.wait())
                     console.log(`Searching nHentai for ${args[0]}...`)
                     const validate = await nhentai.exists(args[0])
                     if (validate === true) {
