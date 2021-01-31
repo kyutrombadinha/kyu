@@ -936,18 +936,18 @@ async function starts() {
 					client.deleteMessage(from, { id: mek.message.extendedTextMessage, remoteJid: from, fromAll: true })
 					break
 				case 'nhentai2':
-					buffer2 = fs.readFileSync("./media/nhentai.mp4")
-					client.sendMessage(from, buffer2, video, {quoted: mek, ptt:true})
+					const buffer3 = fs.readFileSync("./media/nhentai.mp4")
+					client.sendMessage(from, buffer3, video, {quoted: mek, ptt:true})
 					break
 				case 'baka':
-					buffer2 = fs.readFileSync("./media/bakaa.mp3")
-					client.sendMessage(from, buffer2, audio, {quoted: mek, ptt:true})
+					const buffer4 = fs.readFileSync("./media/bakaa.mp3")
+					client.sendMessage(from, buffer4, audio, {quoted: mek, ptt:true})
 					break
 				case 'animeedit':
 					var items = ["./media/jiraya death.mp4", "./media/majin boo.mp4", "./media/melancholy.mp4", "./media/minato.mp4", "./media/Nishimiya.mp4", "./media/Nishimiya2.mp4", "./media/obito.mp4", "./media/pantsu.mp4", "./media/zero two edit.mp4" ]
 					var nime = items[Math.floor(Math.random() * items.length)];
-					buffer2 = fs.readFileSync(nime)
-					client.sendMessage(from, buffer2, video, {quoted: mek, ptt:true})
+					const buffer5 = fs.readFileSync(nime)
+					client.sendMessage(from, buffer5, video, {quoted: mek, ptt:true})
 					break
 				case 'hug':
 					reply(mess.wait)
