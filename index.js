@@ -357,7 +357,7 @@ async function starts() {
 								fs.unlinkSync(media)
 								fs.unlinkSync(ran)
 							})
-							.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(512,iw)':min'(512,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+							.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(512,iw)':min'(512,ih)':force_original_aspect_ratio=decrease,fps=15, pad=512:512:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
 							.toFormat('webp')
 							.save(ran)
 					} else if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
@@ -955,6 +955,17 @@ async function starts() {
                 }
             break
 					//----------------------------------------------------------
+				case 'beijor':
+					tels = body.slice(4)
+					if (args.length < 1) return reply('marque uma pessoa')
+					if (!isUser) return reply(mess.only.daftarB)
+					var nom = mek.participant
+					const tag1 = {
+							text: `@${nom.split("@s.whatsapp.net")[0]} *Deu um beijo em ${tels} eitar*`,
+							contextInfo: { mentionedJid: [nom] }
+					}
+					client.sendMessage(from, tag1, text, {quoted: mek})
+					break
 				case 'del':
 					client.deleteMessage(from, { id: mek.message.extendedTextMessage, remoteJid: from, fromAll: true })
 					break
@@ -1352,9 +1363,10 @@ async function starts() {
 						case 'ola':
 							reply('oi')
 							break
-						
+							
+						case 'Yumi':
 						case 'yumi':
-							var numero = getRandomIntInclusive(0,35).toString()
+							var numero = getRandomIntInclusive(0,100).toString()
 							var nome = './mp3/loli (' + numero +').mp3'
 							const buffer6 = fs.readFileSync(nome)
 							client.sendMessage(from, buffer6, audio, {quoted: mek, ptt:true})
