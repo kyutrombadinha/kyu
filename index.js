@@ -626,8 +626,8 @@ async function starts() {
 				   .then(buffer => {
 					   client.sendMessage(from, 'Aguarde...', MessageType.text)
 					   client.sendMessage(from, buffer, MessageType.image)
-					   const buffer = fs.readFileSync("./media/fbi.mp4")
-						client.sendMessage(from, buffer, video, {quoted: mek, ptt:true})
+					   const buffer2 = fs.readFileSync("./media/fbi.mp4")
+						client.sendMessage(from, buffer2, video, {quoted: mek, ptt:true})
 				   })
 				   .catch(err => {
 					   console.log(err)
