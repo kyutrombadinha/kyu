@@ -37,8 +37,10 @@ prefix = '.'
 blocked = []
 
 const { animPict, cewePict, cowoPict, loliPict, egirlstylePict, ghibliPict, kpopPict, animgif, nekoPict, perfilanime,waifuPict } = require('./lib/pict')
-function GetRandomNumber(min, max) {
-  return Math.random() * (max - min) + min;
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 function kyun(seconds){
   function pad(s){
@@ -941,7 +943,7 @@ async function starts() {
 					break
 				
 				case 'lolivoice':
-					var numero = GetRandomNumber(0,35).toString()
+					var numero = getRandomIntInclusive(0,35).toString()
 					var nome = './media/baka (' + numero +')'
 					const buffer6 = fs.readFileSync(nome)
 					client.sendMessage(from, buffer6, audio, {quoted: mek, ptt:true})
