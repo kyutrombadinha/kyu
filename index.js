@@ -201,13 +201,6 @@ async function starts() {
 				(id == null || id == undefined || id == false) ? client.sendMessage(from, teks.trim(), extendedText, {contextInfo: {"mentionedJid": memberr}}) : client.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": memberr}})
 			}
 			
-			if (isGroup && isAutoStickerOn && isMedia && isImage) {
-				const mediaData = await decryptMedia(message, uaOverride)
-				const imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
-				
-					client.sendMessage(from, imageBase64, sticker, {quoted: mek})
-				console.log(`Sticker processed for ${processTime(t, moment())} seconds`)
-			}
 			
 			colors = ['red','white','black','blue','yellow','green']
 			const isMedia = (type === 'imageMessage' || type === 'videoMessage')
@@ -218,6 +211,14 @@ async function starts() {
 			if (!isGroup && !isCmd) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;31mRECV\x1b[1;37m]', time, color('Message'), 'from', color(sender.split('@')[0]), 'args :', color(args.length))
 			if (isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
 			if (!isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;31mRECV\x1b[1;37m]', time, color('Message'), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
+			
+			if (isGroup && isautostick && isMedia && isImage) {
+				const mediaData = await decryptMedia(message, uaOverride)
+				const imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
+				
+					client.sendMessage(from, imageBase64, sticker, {quoted: mek})
+				console.log(`Sticker processed for ${processTime(t, moment())} seconds`)
+			}
 			switch(command) {
 				case 'help':
 				case 'menu':
