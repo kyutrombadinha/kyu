@@ -944,7 +944,8 @@ async function starts() {
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					//reply(mess.wait)
 					//client.sendPtt(from, ./media/bakaa.mp3)
-					client.sendPtt(from, './media/bakaa.mp3', id)
+					const buffer = fs.readFileSync("./media/bakaa.mp3")
+					client.sendMessage(from, buffer, audio, {quoted: mek, ptt:true})
 					break
 				case 'hug':
 					reply(mess.wait)
