@@ -1316,7 +1316,7 @@ async function starts() {
 						reply(muehe)
 					}
 					else {
-						switch(command2) {
+						switch(budy) {
 						case 'oi':
 						case 'ola':
 						reply('oi')
