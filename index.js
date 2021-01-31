@@ -6,6 +6,7 @@ const {
     GroupSettingChange
 } = require('@adiwajshing/baileys')
 
+const { decryptMedia } = require('@open-wa/wa-automate')
 const imageToBase64 = require('image-to-base64');
 const { color, bgcolor } = require('./lib/color')
 const axios = require('axios')
@@ -944,7 +945,7 @@ async function starts() {
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					//reply(mess.wait)
 					//client.sendPtt(from, ./media/bakaa.mp3)
-					client.sendMessage(from, './media/bakaa.mp3', audio, {quoted: mek})
+					client.sendPtt(from, './media/bakaa.mp3', id)
 					break
 				case 'hug':
 					reply(mess.wait)
