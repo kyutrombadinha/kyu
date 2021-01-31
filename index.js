@@ -6,12 +6,15 @@ const {
     GroupSettingChange
 } = require('@adiwajshing/baileys')
 
+const { decryptMedia, Client } = require('@open-wa/wa-automate')
 const imageToBase64 = require('image-to-base64');
 const { color, bgcolor } = require('./lib/color')
 const axios = require('axios')
 const { help } = require('./src/help')
 const { help1 } = require('./src/help1')
 
+const nhentai = require('nhentai-js')
+const { API } = require('nhentai-api')
 const kill = require('./src/kill')
 const { wait, simih, getBuffer, h2k, generateMessageID, getGroupAdmins, getRandom, banner, start, info, success, close } = require('./lib/functions')
 const { fetchJson } = require('./lib/fetcher')
@@ -842,22 +845,68 @@ async function starts() {
 				.then(body => {
 					let darex = body.split('\n')
 					let darez = darex[Math.floor(Math.random() * darex.length)]
-					client.reply(from, darez, id)
+					client.reply(from, darez)
 				})
 				.catch(() => {
 					client.reply(from, 'Hayolohhh, ada yang error!!')
 				})
 				break
-				case 'phlogo':
-					var gh = body.slice(7)
-					var gbl1 = gh.split("|")[0];
-					var gbl2 = gh.split("|")[1];
-					if (args.length < 1) return reply(`CadÃª o texto, hum\nExemplo: ${prefix}phlogo |Toin|BOT`)
-					reply(mess.wait)
-					anu = await fetchJson(`https://mhankbarbars.herokuapp.com/api/textpro?theme=pornhub&text1=${gbl1}&text2=${gbl2}`, {method: 'get'})
-					buffer = await getBuffer(anu.result)
-					client.sendMessage(from, buffer, image, {quoted: mek})
-					break
+				
+					//----------------------------------------------------------
+				case 'nhentai':
+            case 'nh':
+                //if (args.length !== 1) return await bocchi.reply(from, ind.wrongFormat(), id)
+                //if (isNaN(Number(args[0]))) return await bocchi.reply(from, ind.wrongFormat(), id)
+                if (isGroupMsg) {
+                    if (!isNsfw) return await reply(from, ind.notNsfw())
+                    await reply(from, ind.wait(), id)
+                    console.log(`Searching nHentai for ${args[0]}...`)
+                    const validate = await nhentai.exists(args[0])
+                    if (validate === true) {
+                        try {
+                            const pic = await api.getBook(args[0])
+                                .then((book) => {
+                                     return api.getImageURL(book.cover)
+                                })
+                            const dojin = await nhentai.getDoujin(args[0])
+                            const { title, details, link } = dojin
+                            const { tags, artists, languages, categories } = details
+                            let teks = `*Title*: ${title}\n\n*Tags*: ${tags.join(', ')}\n\n*Artists*: ${artists}\n\n*Languages*: ${languages.join(', ')}\n\n*Categories*: ${categories}\n\n*Link*: ${link}`
+                            await client.sendFileFromUrl(from, pic, 'nhentai.jpg', teks, id)
+                            console.log('Success sending nHentai info!')
+                        } catch (err) {
+                            console.error(err)
+                            await reply(from, 'Error!')
+                        }
+                    } else {
+                        await bocchi.reply(from, ind.nhFalse())
+                    }
+                } else {
+                    await bocchi.reply(from, ind.wait())
+                    console.log(`Searching nHentai for ${args[0]}...`)
+                    const validate = await nhentai.exists(args[0])
+                    if (validate === true) {
+                        try {
+                            const pic = await api.getBook(args[0])
+                                .then((book) => {
+                                     return api.getImageURL(book.cover)
+                                })
+                            const dojin = await nhentai.getDoujin(args[0])
+                            const { title, details, link } = dojin
+                            const { tags, artists, languages, categories } = details
+                            let teks = `*Title*: ${title}\n\n*Tags*: ${tags.join(', ')}\n\n*Artists*: ${artists}\n\n*Languages*: ${languages.join(', ')}\n\n*Categories*: ${categories}\n\n*Link*: ${link}`
+                            await client.sendFileFromUrl(from, pic, 'nhentai.jpg', teks, id)
+                            console.log('Success sending nHentai info!')
+                        } catch (err) {
+                            console.error(err)
+                            await reply(from, 'Error!')
+                        }
+                    } else {
+                        await reply(from, ind.nhFalse())
+                    }
+                }
+            break
+					//----------------------------------------------------------
 				case 'del':
 					client.deleteMessage(from, { id: mek.message.extendedTextMessage, remoteJid: from, fromAll: true })
 					break
