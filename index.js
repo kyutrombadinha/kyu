@@ -652,37 +652,65 @@ async function starts() {
 				} else {
 					await kill.reply(from, 'Marque ~apenas uma~ a pessoa quem vocÃª quer beijar hihihi', id)
 				}
-				break
-				 case 'ass':
+				case 'blowjb':
+				
+					if(!isNsfw) return reply('*NSFW Desativado*')
 					reply(mess.wait)
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
-					var url = 'https://meme-api.herokuapp.com/gimme/LegalTeens'
-					anu = await fetchJson(url, {method: 'get'})
-					axios.get(url)
-					.then(res => {
-						var acak = res.result.url
-						exec(`wget ${acak} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+					anu = await fetchJson('https://meme-api.herokuapp.com/gimme/LegalTeens', {method: 'get'})
+                                        //if (!isUser) return reply(mess.only.daftarB)
+					//if (anu.error) return reply(anu.error)
+					exec(`wget ${anu.result.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 						fs.unlinkSync(ranp)
+						//if (err) return reply(mess.error.stick)
 						buffer = fs.readFileSync(rano)
-						client.sendMessage(from, buffer, image, {quoted: mek})
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
 						fs.unlinkSync(rano)
-							})
 					})
 					break
+				break
 				case 'ass2':
 					reply(mess.wait)
 					anu = await fetchJson('https://meme-api.herokuapp.com/gimme/LegalTeens', {method: 'get'})
 					buffer = await getBuffer(anu.result.url)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
+				
 				case 'gifhentai':
 				
 					if(!isNsfw) return reply('*NSFW Desativado*')
 					reply(mess.wait)
-					axios.get('https://nekos.life/api/v2/img/Random_hentai_gif').then(res => {
-                	client.sendFileFromUrl(from, res.data.result, '.gif');
-                });
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson('https://nekos.life/api/v2/img/Random_hentai_gif', {method: 'get'})
+                                        //if (!isUser) return reply(mess.only.daftarB)
+					//if (anu.error) return reply(anu.error)
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						//if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					break
+				
+				case 'bjanime':
+				
+					if(!isNsfw) return reply('*NSFW Desativado*')
+					reply(mess.wait)
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson('https://tobz-api.herokuapp.com/api/nsfwblowjob?&apikey=BotWeA', {method: 'get'})
+                                        //if (!isUser) return reply(mess.only.daftarB)
+					//if (anu.error) return reply(anu.error)
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						//if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
 					break
 				case 'bjanime':
 				
