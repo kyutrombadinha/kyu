@@ -470,13 +470,6 @@ async function starts() {
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
 					break
 
-				/*case 'loli':
-					loli.getSFWLoli(async (err, res) => {
-						if (err) return reply('❌ *ERROR* ❌')
-						buffer = await getBuffer(res.url)
-						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'heher boy🙉'})
-					})
-					break*/
 				case 'fml':
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fml`)
 					//if (!isUser) return reply(mess.only.daftarB)
@@ -633,6 +626,8 @@ async function starts() {
 				   .then(buffer => {
 					   client.sendMessage(from, 'Aguarde...', MessageType.text)
 					   client.sendMessage(from, buffer, MessageType.image)
+					   const buffer = fs.readFileSync("./media/fbi.mp4")
+						client.sendMessage(from, buffer, video, {quoted: mek, ptt:true})
 				   })
 				   .catch(err => {
 					   console.log(err)
@@ -940,13 +935,19 @@ async function starts() {
 				case 'del':
 					client.deleteMessage(from, { id: mek.message.extendedTextMessage, remoteJid: from, fromAll: true })
 					break
+				case 'nhentai':
+					const buffer = fs.readFileSync("./media/nhentai.mp4")
+					client.sendMessage(from, buffer, video, {quoted: mek, ptt:true})
+					break
 				case 'baka':
-					//teks = body.slice(6)
-					/*if (!isDaftar) return reply(mess.only.daftarB)*/
-					//reply(mess.wait)
-					//client.sendPtt(from, ./media/bakaa.mp3)
 					const buffer = fs.readFileSync("./media/bakaa.mp3")
 					client.sendMessage(from, buffer, audio, {quoted: mek, ptt:true})
+					break
+				case 'animeedit':
+					var items = ["./media/jiraya death.mp4", "./media/majin boo.mp4", "./media/melancholy.mp4", "./media/minato.mp4", "./media/Nishimiya.mp4", "./media/Nishimiya2.mp4", "./media/obito.mp4", "./media/pantsu.mp4", "./media/zero two edit.mp4" ]
+					var nime = items[Math.floor(Math.random() * items.length)];
+					const buffer = fs.readFileSync(nime)
+					client.sendMessage(from, buffer, video, {quoted: mek, ptt:true})
 					break
 				case 'hug':
 					reply(mess.wait)
