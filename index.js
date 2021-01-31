@@ -958,7 +958,7 @@ async function starts() {
 				case 'beijor':
 					tels = body.slice(4)
 					if (args.length < 1) return reply('marque uma pessoa')
-					if (!isUser) return reply(mess.only.daftarB)
+					//if (!isUser) return reply(mess.only.daftarB)
 					var nom = mek.participant
 					const tag1 = {
 							text: `@${nom.split("@s.whatsapp.net")[0]} *Deu um beijo em ${tels} eitar*`,
