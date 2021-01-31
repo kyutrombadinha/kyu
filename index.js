@@ -631,12 +631,17 @@ async function starts() {
 				   .then(buffer => {
 					   client.sendMessage(from, 'Aguarde...', MessageType.text)
 					   client.sendMessage(from, buffer, MessageType.image)
-					   const buffer2 = fs.readFileSync("./media/fbi.mp4")
-						client.sendMessage(from, buffer2, video, {quoted: mek, ptt:true})
 				   })
 				   .catch(err => {
 					   console.log(err)
 				   })
+					break
+				
+				case 'fbi':
+					   client.sendMessage(from, 'Ligando para a policia...', MessageType.text)
+					   const buffer2 = fs.readFileSync("./media/fbi.mp4")
+						client.sendMessage(from, buffer2, video, {quoted: mek, ptt:true})
+
 					break
 				case 'play':   
 					reply(mess.wait)
@@ -822,13 +827,13 @@ async function starts() {
 					if (args.length < 1) return reply('digite 1 para ativar')
 					if (Number(args[0]) === 1) {
 						if (isNsfw) return reply('o recurso está ativo')
-						nsfw.push(from)
-						fs.writeFileSync('./database/json/nsfw.json', JSON.stringify(nsfw))
 						reply('❬ _*SUCESSO*_ ❭ ativado o recurso nsfw neste grupo')
+						nsfw.push(from)
+						fs.writeFileSync('./src/json/nsfw.json', JSON.stringify(nsfw))
 					} else if (Number(args[0]) === 0) {
-						nsfw.splice(from, 1)
-						fs.writeFileSync('./database/json/nsfw.json', JSON.stringify(nsfw))
 						reply('❬ SUCESSO ❭ desativado o recurso nsfw neste grupo')
+						nsfw.splice(from, 1)
+						fs.writeFileSync('./src/json/nsfw.json', JSON.stringify(nsfw))
 					} else {
 						reply('digite 1 para ativar, 0 para desativar o recurso')
 					}
@@ -841,11 +846,11 @@ async function starts() {
 					if (Number(args[0]) === 1) {
 						if (isautostick) return reply('o recurso está ativo')
 						autostick.push(from)
-						fs.writeFileSync('./database/json/autostick.json', JSON.stringify(nsfw))
+						fs.writeFileSync('./src/json/autostick.json', JSON.stringify(nsfw))
 						reply('❬ _*SUCESSO*_ ❭ ativado o recurso autosticker neste grupo')
 					} else if (Number(args[0]) === 0) {
 						autostick.splice(from, 1)
-						fs.writeFileSync('./database/json/autostick.json', JSON.stringify(nsfw))
+						fs.writeFileSync('./src/json/autostick.json', JSON.stringify(nsfw))
 						reply('❬ SUCESSO ❭ desativado o recurso autosticker neste grupo')
 					} else {
 						reply('digite 1 para ativar, 0 para desativar o recurso')
@@ -868,7 +873,7 @@ async function starts() {
 				.then(body => {
 					let darex = body.split('\n')
 					let darez = darex[Math.floor(Math.random() * darex.length)]
-					reply(from, darez)
+					reply(darez)
 				})
 				.catch(() => {
 					reply(from, 'Hayolohhh, ada yang error!!')
