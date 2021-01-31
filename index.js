@@ -11,6 +11,8 @@ const { color, bgcolor } = require('./lib/color')
 const axios = require('axios')
 const { help } = require('./src/help')
 const { help1 } = require('./src/help1')
+
+const kill = require('./src/kill')
 const { wait, simih, getBuffer, h2k, generateMessageID, getGroupAdmins, getRandom, banner, start, info, success, close } = require('./lib/functions')
 const { fetchJson } = require('./lib/fetcher')
 const { recognize } = require('./lib/ocr')
@@ -640,19 +642,19 @@ async function starts() {
 					break
 				case 'ass':
 				if (isGroup) {
-					if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+					if (!isNsfw) return reply(from, mess.error.Ac, id)
 					if (triple == 1) {
 						const bows1 = await axios.get('https://meme-api.herokuapp.com/gimme/LegalTeens');
 						let { postlink, title, subreddit, url, nsfw, spoiler } = bows1.data
-						await kill.sendFileFromUrl(from, `${url}`, '', `${title}`, id)
+						await sendFileFromUrl(from, `${url}`, '', `${title}`, id)
 					}else if (triple == 2) {
 						const bows1 = await axios.get('https://meme-api.herokuapp.com/gimme/ass');
 						let { postlink, title, subreddit, url, nsfw, spoiler } = bows1.data
-						await kill.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`, id)
+						await sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`, id)
 					}else if (triple == 3) {
 						const bows1 = await axios.get('https://meme-api.herokuapp.com/gimme/bigasses');
 						let { postlink, title, subreddit, url, nsfw, spoiler } = bows1.data
-						await kill.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`, id)
+						await sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`, id)
 					}	
 				 }
 				case 'gifhentai':
@@ -660,7 +662,7 @@ async function starts() {
 					if(!isNsfw) return reply('*NSFW Desativado*')
 					reply(mess.wait)
 					axios.get('https://nekos.life/api/v2/img/Random_hentai_gif').then(res => {
-                	aruga.sendFileFromUrl(from, res.data.result, '.gif');
+                	kill.sendFileFromUrl(from, res.data.result, '.gif');
                 });
 					break
 				case 'bjanime':
