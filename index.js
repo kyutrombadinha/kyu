@@ -6,7 +6,6 @@ const {
     GroupSettingChange
 } = require('@adiwajshing/baileys')
 
-const { decryptMedia } = require('@open-wa/wa-automate')
 const imageToBase64 = require('image-to-base64');
 const { color, bgcolor } = require('./lib/color')
 const axios = require('axios')
