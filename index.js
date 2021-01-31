@@ -1320,7 +1320,8 @@ async function starts() {
 						case 'oi':
 						case 'ola':
 						reply('oi')
-							break
+						break
+						}
 							console.log(color('[ERROR]','red'), 'Unregistered Command from', color(sender.split('@')[0]))
 						}
                            }
