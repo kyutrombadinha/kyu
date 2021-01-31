@@ -640,7 +640,7 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
-				case 'ass':
+				/*case 'ass':
 				if (isGroup) {
 					if (!isNsfw) return reply(from, mess.error.Ac, id)
 					if (triple == 1) {
@@ -656,7 +656,27 @@ async function starts() {
 						let { postlink, title, subreddit, url, nsfw, spoiler } = bows1.data
 						await sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`, id)
 					}	
-				 }
+				 }*/
+				 case 'ass':
+					reply(mess.wait)
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					
+					//var items = [tels]
+					//var cowo = items[Math.floor(Math.random() * items.length)];
+					var url = 'https://meme-api.herokuapp.com/gimme/LegalTeens'
+					anu = await fetchJson(url, {method: 'get'})
+					axios.get(url)
+					.then(res => {
+						//var acak = res.data[Math.floor(Math.random() * res.data.length )]
+						exec(`wget ${acak} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						//if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+							})
+					})
 				case 'gifhentai':
 				
 					if(!isNsfw) return reply('*NSFW Desativado*')
@@ -769,34 +789,33 @@ async function starts() {
 					}
 					break	
 				case 'facebook':
-                if (args.length == 0) return aruga.reply(from, `Kirim perintah *${prefix}fb [linkfb]*`, id)
-                aruga.reply(from, '_Scrapping Metadata...._', id)
+                if (args.length == 0) return reply(from, `Kirim perintah *${prefix}fb [linkfb]*`)
+                reply(from, '_Scrapping Metadata...._')
                 rugaapi.fb(args)
                 .then(async(res) => {
-                    await aruga.sendFileFromUrl(from, `${res.result.VideoUrl}`, '', '', id)
+                    await client.sendFileFromUrl(from, `${res.result.VideoUrl}`, '', '', id)
                     .catch(() => {
-                        aruga.reply(from, `Error...`, id)
+                        client.reply(from, `Error...`, id)
                     })
                 })
                 break
 				case 'dare':
-				if (!isGroupMsg) return aruga.reply(from, 'Só funciona em grupo!', id)
 				fetch('https://raw.githubusercontent.com/kyutrombadinha/aleatorio/main/texto.txt')
 				.then(res => res.text())
 				.then(body => {
 					let darex = body.split('\n')
 					let darez = darex[Math.floor(Math.random() * darex.length)]
-					aruga.reply(from, darez, id)
+					client.reply(from, darez, id)
 				})
 				.catch(() => {
-					aruga.reply(from, 'Hayolohhh, ada yang error!!', id)
+					client.reply(from, 'Hayolohhh, ada yang error!!', id)
 				})
 				break
 				case 'del':
 					client.deleteMessage(from, { id: mek.message.extendedTextMessage, remoteJid: from, fromMe: true })
 					break
 				case 'baka':
-					teks = body.slice(6)
+					//teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					//reply(mess.wait)
 					//client.sendPtt(from, ./media/bakaa.mp3)
