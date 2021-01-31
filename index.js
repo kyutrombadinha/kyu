@@ -640,23 +640,7 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
-				/*case 'ass':
-				if (isGroup) {
-					if (!isNsfw) return reply(from, mess.error.Ac, id)
-					if (triple == 1) {
-						const bows1 = await axios.get('https://meme-api.herokuapp.com/gimme/LegalTeens');
-						let { postlink, title, subreddit, url, nsfw, spoiler } = bows1.data
-						await sendFileFromUrl(from, `${url}`, '', `${title}`, id)
-					}else if (triple == 2) {
-						const bows1 = await axios.get('https://meme-api.herokuapp.com/gimme/ass');
-						let { postlink, title, subreddit, url, nsfw, spoiler } = bows1.data
-						await sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`, id)
-					}else if (triple == 3) {
-						const bows1 = await axios.get('https://meme-api.herokuapp.com/gimme/bigasses');
-						let { postlink, title, subreddit, url, nsfw, spoiler } = bows1.data
-						await sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`, id)
-					}	
-				 }*/
+				
 				 case 'ass':
 					reply(mess.wait)
 					ranp = getRandom('.gif')
@@ -682,7 +666,7 @@ async function starts() {
 					if(!isNsfw) return reply('*NSFW Desativado*')
 					reply(mess.wait)
 					axios.get('https://nekos.life/api/v2/img/Random_hentai_gif').then(res => {
-                	kill.sendFileFromUrl(from, res.data.result, '.gif');
+                	client.sendFileFromUrl(from, res.data.result, '.gif');
                 });
 					break
 				case 'bjanime':
