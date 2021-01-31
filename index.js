@@ -201,7 +201,7 @@ async function starts() {
 				(id == null || id == undefined || id == false) ? client.sendMessage(from, teks.trim(), extendedText, {contextInfo: {"mentionedJid": memberr}}) : client.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": memberr}})
 			}
 			
-			if (isGroupMsg && isAutoStickerOn && isMedia && isImage) {
+			if (isGroup && isAutoStickerOn && isMedia && isImage) {
 				const mediaData = await decryptMedia(message, uaOverride)
 				const imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
 				
