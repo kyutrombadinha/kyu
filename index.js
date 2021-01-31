@@ -941,7 +941,7 @@ async function starts() {
 					break
 				
 				case 'lolivoice':
-					var numero = `${GetRandomNumber(0,35))`
+					var numero = GetRandomNumber(0,35).toString()
 					var nome = './media/baka (' + numero +')'
 					const buffer6 = fs.readFileSync(nome)
 					client.sendMessage(from, buffer6, audio, {quoted: mek, ptt:true})
