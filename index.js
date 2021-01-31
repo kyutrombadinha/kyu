@@ -866,10 +866,10 @@ async function starts() {
 				.then(body => {
 					let darex = body.split('\n')
 					let darez = darex[Math.floor(Math.random() * darex.length)]
-					client.reply(from, darez)
+					reply(from, darez)
 				})
 				.catch(() => {
-					client.reply(from, 'Hayolohhh, ada yang error!!')
+					reply(from, 'Hayolohhh, ada yang error!!')
 				})
 				break
 				
@@ -941,7 +941,7 @@ async function starts() {
 					break
 				
 				case 'lolivoice':
-					var numero = `GetRandomNumber(0,35)`
+					var numero = `${GetRandomNumber(0,35))`
 					var nome = './media/baka (' + numero +')'
 					const buffer6 = fs.readFileSync(nome)
 					client.sendMessage(from, buffer6, audio, {quoted: mek, ptt:true})
