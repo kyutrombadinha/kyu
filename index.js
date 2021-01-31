@@ -100,7 +100,7 @@ async function starts() {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `Olá @${num.split('@')[0]}\nBem vindo ao grupoo *${mdata.subject}*\nPor favor não seja um ghost❤️`
+				teks = `Olá @${num.split('@')[0]}\nBem vindo ao grupo *${mdata.subject}*\nPor favor não seja um ghost❤️`
 				let buff = await getBuffer(ppimg)
 				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			} else if (anu.action == 'remove') {
@@ -638,6 +638,23 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
+				case 'ass':
+				if (isGroup) {
+					if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+					if (triple == 1) {
+						const bows1 = await axios.get('https://meme-api.herokuapp.com/gimme/LegalTeens');
+						let { postlink, title, subreddit, url, nsfw, spoiler } = bows1.data
+						await kill.sendFileFromUrl(from, `${url}`, '', `${title}`, id)
+					}else if (triple == 2) {
+						const bows1 = await axios.get('https://meme-api.herokuapp.com/gimme/ass');
+						let { postlink, title, subreddit, url, nsfw, spoiler } = bows1.data
+						await kill.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`, id)
+					}else if (triple == 3) {
+						const bows1 = await axios.get('https://meme-api.herokuapp.com/gimme/bigasses');
+						let { postlink, title, subreddit, url, nsfw, spoiler } = bows1.data
+						await kill.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`, id)
+					}	
+				 }
 				case 'gifhentai':
 				
 					if(!isNsfw) return reply('*NSFW Desativado*')
@@ -674,7 +691,7 @@ async function starts() {
 						})
 					})
 					break
-				case 'images':
+				case 'imagens':
                                         //tels = body.slice(11)
 					tels = body.slice(7)
 					client.updatePresence(from, Presence.composing) 
@@ -1124,13 +1141,6 @@ async function starts() {
 						reply('falhou')
 					}
 					break
-				case 'aleatorio':
-						data = await fetchJson(`https://raw.githubusercontent.com/kyutrombadinha/aleatorio/main/texto.txt`)
-					//if (!isUser) return reply(mess.only.daftarB)
-						hasil = data.result.text()
-						//----
-						reply(hasil)
-						break
 				case 'wait':
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 						reply(mess.wait)
