@@ -37,6 +37,9 @@ prefix = '.'
 blocked = []
 
 const { animPict, cewePict, cowoPict, loliPict, egirlstylePict, ghibliPict, kpopPict, animgif, nekoPict, perfilanime,waifuPict } = require('./lib/pict')
+function GetRandomNumber(min, max) {
+  return Math.random() * (max - min) + min;
+}
 function kyun(seconds){
   function pad(s){
     return (s < 10 ? '0' : '') + s;
@@ -732,14 +735,6 @@ async function starts() {
 						fs.unlinkSync(rano)
 					})
 					break
-				case 'bjanime':
-				
-					if(!isNsfw) return reply('*NSFW Desativado*')
-					reply(from, mess.wait)
-					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwblowjob?&apikey=BotWeA`, {method: 'get'})
-					buffer = await getBuffer(anu.result)
-					reply(buffer)
-					break
 				case 'tts':
 				   client.updatePresence(from, Presence.recording) 
 				   if (args.length < 1) return client.sendMessage(from, 'Qual Ã© o cÃ³digo da linguagem?', text, {quoted: mek})
@@ -806,6 +801,7 @@ async function starts() {
 					reply(mess.wait)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwneko?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
+					buffer = api.getImageURL("https://tobz-api.herokuapp.com/api/nsfwneko?apikey=BotWeA")
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
 				case 'nfblow':
@@ -942,6 +938,13 @@ async function starts() {
 				case 'baka':
 					const buffer4 = fs.readFileSync("./media/bakaa.mp3")
 					client.sendMessage(from, buffer4, audio, {quoted: mek, ptt:true})
+					break
+				
+				case 'lolivoice':
+					var numero = `GetRandomNumber(0,35)`
+					var nome = './media/baka (' + numero +')'
+					const buffer6 = fs.readFileSync(nome)
+					client.sendMessage(from, buffer6, audio, {quoted: mek, ptt:true})
 					break
 				case 'animeedit':
 					var items = ["./media/jiraya death.mp4", "./media/majin boo.mp4", "./media/melancholy.mp4", "./media/minato.mp4", "./media/Nishimiya.mp4", "./media/Nishimiya2.mp4", "./media/obito.mp4", "./media/pantsu.mp4", "./media/zero two edit.mp4" ]
