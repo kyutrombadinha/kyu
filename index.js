@@ -956,7 +956,7 @@ async function starts() {
             break
 					//----------------------------------------------------------
 				case 'beijor':
-					tels = body.slice(4)
+					tels = body.slice(8)
 					if (args.length < 1) return reply('marque uma pessoa')
 					//if (!isUser) return reply(mess.only.daftarB)
 					var nom = mek.participant
