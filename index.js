@@ -944,7 +944,7 @@ async function starts() {
 				
 				case 'lolivoice':
 					var numero = getRandomIntInclusive(0,35).toString()
-					var nome = './mp3/baka (' + numero +').mp3'
+					var nome = './mp3/loli (' + numero +').mp3'
 					const buffer6 = fs.readFileSync(nome)
 					client.sendMessage(from, buffer6, audio, {quoted: mek, ptt:true})
 					break
