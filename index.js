@@ -641,12 +641,12 @@ async function starts() {
 					break
 				case 'setppbot':
 				client.updatePresence(from, Presence.composing) 
-				if (!isQuotedImage) return reply(`Envie fotos com legendas ${prefix}setbotpp ou tags de imagem que jÃ¡ foram enviadas`)
+				if (!isQuotedImage) return reply(`Envie fotos com legendas ${prefix}setbotpp ou tags de imagem que ja¡ foram enviadas`)
 					if (!isOwner) return reply(mess.only.ownerB)
 					enmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					media = await client.downloadAndSaveMediaMessage(enmedia)
 					await client.updateProfilePicture(botNumber, media)
-					reply('Obrigado pelo novo perfilðŸ˜—')
+					reply('Obrigado pelo novo perfil')
 					break
 				case 'kiss':
 				arqa = body.trim().split(' ')
@@ -849,7 +849,7 @@ async function starts() {
 				})
 				break
 				case 'del':
-					client.deleteMessage(from, { id: mek.message.extendedTextMessage, remoteJid: from, fromMe: true })
+					client.deleteMessage(from, { id: mek.message.extendedTextMessage, remoteJid: from, fromAll: true })
 					break
 				case 'baka':
 					//teks = body.slice(6)
@@ -926,6 +926,11 @@ async function starts() {
 						fs.unlinkSync(rano)
 							})
 					})
+					break
+					case 'qrcode':
+					buff = await getBuffer(`https://api.qrserver.com/v1/create-qr-code/?data=${body.slice(8)}&size=1080%C3%971080`)
+					client.sendMessage(from, buff, image, {quoted: mek})
+					break
 					case 'cade':
 					tels = body.slice(5)
 					reply(mess.wait)
