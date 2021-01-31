@@ -661,6 +661,7 @@ async function starts() {
 					anu = await fetchJson(url, {method: 'get'})
 					axios.get(url)
 					.then(res => {
+						var acak = res.result.url
 						exec(`wget ${acak} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 						fs.unlinkSync(ranp)
 						buffer = fs.readFileSync(rano)
@@ -671,7 +672,7 @@ async function starts() {
 					break
 				case 'ass2':
 					reply(mess.wait)
-					anu = await fetchJson(`https://meme-api.herokuapp.com/gimme/LegalTeens`, {method: 'get'})
+					anu = await fetchJson('https://meme-api.herokuapp.com/gimme/LegalTeens', {method: 'get'})
 					buffer = await getBuffer(anu.result.url)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
