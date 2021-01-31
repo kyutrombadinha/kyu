@@ -357,7 +357,7 @@ async function starts() {
 								fs.unlinkSync(media)
 								fs.unlinkSync(ran)
 							})
-							.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+							.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(512,iw)':min'(512,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
 							.toFormat('webp')
 							.save(ran)
 					} else if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
@@ -829,7 +829,7 @@ async function starts() {
 						if (isNsfw) return reply('o recurso está ativo')
 						reply('❬ _*SUCESSO*_ ❭ ativado o recurso nsfw neste grupo')
 						nsfw.push(from)
-						fs.writeFileSync('./src/json/nsfw.json', JSON.stringify(nsfw))
+						fs.writeFileSync('./src/nsfw.json', JSON.stringify(nsfw))
 					} else if (Number(args[0]) === 0) {
 						reply('❬ SUCESSO ❭ desativado o recurso nsfw neste grupo')
 						nsfw.splice(from, 1)
@@ -867,8 +867,28 @@ async function starts() {
                     })
                 })
                 break
+				case 'egirls'://FUNCIONOU
+					reply(mess.wait)
+					
+					fetch('https://raw.githubusercontent.com/kyutrombadinha/aleatorio/main/egirls.txt')
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					
+					let darex = body.split('\n')
+					let darez = darex[Math.floor(Math.random() * darex.length)]
+					anu = await fetchJson('https://tobz-api.herokuapp.com/api/nsfwblowjob?&apikey=BotWeA', {method: 'get'})
+                                        //if (!isUser) return reply(mess.only.daftarB)
+					//if (anu.error) return reply(anu.error)
+					exec(`wget ${darez} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						//if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					break
 				case 'dare':
-				fetch('https://raw.githubusercontent.com/kyutrombadinha/aleatorio/main/texto.txt')
+				fetch('https://raw.githubusercontent.com/kyutrombadinha/aleatorio/main/egirls.txt')
 				.then(res => res.text())
 				.then(body => {
 					let darex = body.split('\n')
