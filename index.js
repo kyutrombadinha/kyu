@@ -102,7 +102,7 @@ async function starts() {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `Olá @${num.split('@')[0]}\nBem vindo ao grupo *${mdata.subject}*\nPor favor não seja um ghost❤️`
+				teks = `Olá @${num.split('@')[0]}\nBem vindo ao grupo *${mdata.subject}*Seja amigavel❤️`
 				let buff = await getBuffer(ppimg)
 				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			} else if (anu.action == 'remove') {
@@ -112,7 +112,7 @@ async function starts() {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `Tchau @${num.split('@')[0]} ja foi tarde 😂👋`
+				teks = `Tchau @${num.split('@')[0]}`
 				let buff = await getBuffer(ppimg)
 				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			}
@@ -639,7 +639,20 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
-				
+				case 'kiss':
+				arqa = body.trim().split(' ')
+				if (args.length == 1) {
+					const persona = author.replace('@c.us', '')
+					kill.sendTextWithMentions(from, 'Minha nossa! @' + persona + ' deu um beijo em ' + arqa[1] + ' !')
+					if (double == 1) {
+					await kill.sendGiphyAsSticker(from, 'https://media.giphy.com/media/vUrwEOLtBUnJe/giphy.gif')
+					} else {
+					await kill.sendGiphyAsSticker(from, 'https://media.giphy.com/media/1wmtU5YhqqDKg/giphy.gif')
+					}
+				} else {
+					await kill.reply(from, 'Marque ~apenas uma~ a pessoa quem vocÃª quer beijar hihihi', id)
+				}
+				break
 				 case 'ass':
 					reply(mess.wait)
 					ranp = getRandom('.gif')
@@ -651,10 +664,17 @@ async function starts() {
 						exec(`wget ${acak} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 						fs.unlinkSync(ranp)
 						buffer = fs.readFileSync(rano)
-						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						client.sendMessage(from, buffer, image, {quoted: mek})
 						fs.unlinkSync(rano)
 							})
 					})
+					break
+				case 'ass2':
+					reply(mess.wait)
+					anu = await fetchJson(`https://meme-api.herokuapp.com/gimme/LegalTeens`, {method: 'get'})
+					buffer = await getBuffer(anu.result.url)
+					client.sendMessage(from, buffer, image, {quoted: mek})
+					break
 				case 'gifhentai':
 				
 					if(!isNsfw) return reply('*NSFW Desativado*')
