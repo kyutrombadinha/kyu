@@ -151,6 +151,7 @@ async function starts() {
 			body = (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption.startsWith(prefix) ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption.startsWith(prefix) ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text.startsWith(prefix) ? mek.message.extendedTextMessage.text : ''
 			budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
 			const command = body.slice(1).trim().split(/ +/).shift().toLowerCase()
+			const command2 = body.slice(0).trim().split(/ +/).shift().toLowerCase()
 			const args = body.trim().split(/ +/).slice(1)
 			const isCmd = body.startsWith(prefix)
 
@@ -1313,9 +1314,15 @@ async function starts() {
 						muehe = await simih(budy)
 						console.log(muehe)
 						reply(muehe)
-					} else {
-						console.log(color('[ERROR]','red'), 'Unregistered Command from', color(sender.split('@')[0]))
 					}
+					else {
+						switch(command2) {
+						case 'oi':
+						case 'ola':
+						reply('oi')
+							break
+							console.log(color('[ERROR]','red'), 'Unregistered Command from', color(sender.split('@')[0]))
+						}
                            }
 		} catch (e) {
 			console.log('Error : %s', color(e, 'red'))
