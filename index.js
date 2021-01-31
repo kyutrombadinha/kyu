@@ -1350,8 +1350,15 @@ async function starts() {
 						switch(budy) {
 						case 'oi':
 						case 'ola':
-						reply('oi')
-						break
+							reply('oi')
+							break
+						
+						case 'yumi':
+							var numero = getRandomIntInclusive(0,35).toString()
+							var nome = './mp3/loli (' + numero +').mp3'
+							const buffer6 = fs.readFileSync(nome)
+							client.sendMessage(from, buffer6, audio, {quoted: mek, ptt:true})
+							break
 						}
 							console.log(color('[ERROR]','red'), 'Unregistered Command from', color(sender.split('@')[0]))
 						}
