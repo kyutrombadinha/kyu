@@ -634,7 +634,6 @@ async function starts() {
 					client.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
 					break
 				case 'kpop':
-					/*if (!isDaftar) return reply(mess.only.daftarB)*/
 					reply(mess.wait)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomkpop?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
@@ -645,17 +644,12 @@ async function starts() {
 					reply(mess.wait)
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
-					
-					//var items = [tels]
-					//var cowo = items[Math.floor(Math.random() * items.length)];
 					var url = 'https://meme-api.herokuapp.com/gimme/LegalTeens'
 					anu = await fetchJson(url, {method: 'get'})
 					axios.get(url)
 					.then(res => {
-						//var acak = res.data[Math.floor(Math.random() * res.data.length )]
 						exec(`wget ${acak} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 						fs.unlinkSync(ranp)
-						//if (err) return reply(mess.error.stick)
 						buffer = fs.readFileSync(rano)
 						client.sendMessage(from, buffer, sticker, {quoted: mek})
 						fs.unlinkSync(rano)
