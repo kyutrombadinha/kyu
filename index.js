@@ -845,9 +845,19 @@ async function starts() {
 					client.reply(from, darez, id)
 				})
 				.catch(() => {
-					client.reply(from, 'Hayolohhh, ada yang error!!', id)
+					client.reply(from, 'Hayolohhh, ada yang error!!')
 				})
 				break
+				case 'phlogo':
+					var gh = body.slice(7)
+					var gbl1 = gh.split("|")[0];
+					var gbl2 = gh.split("|")[1];
+					if (args.length < 1) return reply(`CadÃª o texto, hum\nExemplo: ${prefix}phlogo |Toin|BOT`)
+					reply(mess.wait)
+					anu = await fetchJson(`https://mhankbarbars.herokuapp.com/api/textpro?theme=pornhub&text1=${gbl1}&text2=${gbl2}`, {method: 'get'})
+					buffer = await getBuffer(anu.result)
+					client.sendMessage(from, buffer, image, {quoted: mek})
+					break
 				case 'del':
 					client.deleteMessage(from, { id: mek.message.extendedTextMessage, remoteJid: from, fromAll: true })
 					break
