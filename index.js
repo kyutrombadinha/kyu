@@ -1358,19 +1358,27 @@ async function starts() {
 						reply(muehe)
 					}
 					else {
-						switch(budy) {
-						case 'oi':
-						case 'ola':
-							reply('oi')
-							break
+						switch(budy) 
+						{
+							case 'oi':
+							case 'ola':
+								reply('oi')
+								break
 							
-						case 'Yumi':
-						case 'yumi':
-							var numero = getRandomIntInclusive(0,100).toString()
-							var nome = './mp3/loli (' + numero +').mp3'
-							const buffer6 = fs.readFileSync(nome)
-							client.sendMessage(from, buffer6, audio, {quoted: mek, ptt:true})
-							break
+							case 'Yumi':
+							case 'yumi':
+								
+								ranm = getRandom('.mp3')
+								rano = getRandom('.ogg')
+								var numero = getRandomIntInclusive(0,100).toString()
+								var nome = './mp3/loli (' + numero +').mp3'
+								const buffer6 = fs.readFileSync(nome)
+								ranm = fs.readFileSync(nome)
+								exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
+									fs.unlinkSync(ranm)
+									buff = fs.readFileSync(rano)
+								client.sendMessage(from, buff, audio, {quoted: mek, ptt:true})
+								break
 						}
 							console.log(color('[ERROR]','red'), 'Unregistered Command from', color(sender.split('@')[0]))
 						}
