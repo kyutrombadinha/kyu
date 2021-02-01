@@ -762,9 +762,8 @@ async function starts() {
 						})
 					})
 					break
-				case 'imagens':
-                                        //tels = body.slice(11)
-					tels = body.slice(7)
+				case 'images':
+                                        tels = body.slice(11)
 					client.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=${tels}`, {method: 'get'})
 					reply(mess.wait)
@@ -1305,6 +1304,20 @@ async function starts() {
 						if (err) return reply('❌ Falha ao converter adesivos em imagens ❌')
 						buffer = fs.readFileSync(ran)
 						client.sendMessage(from, buffer, image, {quoted: mek, caption: '>//<'})
+						fs.unlinkSync(ran)
+					})
+					break
+				case 'tovdo':
+					if (!isQuotedSticker) return reply('❌ responder sticker hum ❌')
+					reply(mess.wait)
+					encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					media = await client.downloadAndSaveMediaMessage(encmedia)
+					ran = getRandom('.mp4')
+					exec(`ffmpeg -i ${media} ${ran}`, (err) => {
+						fs.unlinkSync(media)
+						if (err) return reply('❌ Falha ao converter adesivos em imagens ❌')
+						buffer = fs.readFileSync(ran)
+						client.sendMessage(from, buffer, video, {quoted: mek, caption: '>//<'})
 						fs.unlinkSync(ran)
 					})
 					break
