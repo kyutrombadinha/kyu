@@ -979,8 +979,8 @@ async function starts() {
 					break
 				
 				case 'loli1':
-					const buffer4 = fs.readFileSync("./mp3/loli (1).ogg")
-					client.sendMessage(from, buffer4, audio, {quoted: mek, ptt:true})
+					const buffer7 = fs.readFileSync("./mp3/loli (1).ogg")
+					client.sendMessage(from, buffer7, audio, {quoted: mek, ptt:true})
 					break
 				
 				case 'lolivoice':
