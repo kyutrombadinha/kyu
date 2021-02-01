@@ -1312,7 +1312,7 @@ async function starts() {
 					reply(mess.wait)
 					encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					media = await client.downloadAndSaveMediaMessage(encmedia)
-					ran = getRandom('.mp4')
+					ran = getRandom('.gif')
 					exec(`ffmpeg -i ${media} ${ran}`, (err) => {
 						fs.unlinkSync(media)
 						if (err) return reply('❌ Falha ao converter adesivos em imagens ❌')
