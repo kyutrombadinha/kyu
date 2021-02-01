@@ -1377,7 +1377,7 @@ async function starts() {
 								exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
 									fs.unlinkSync(ranm)
 									buff = fs.readFileSync(rano)
-								client.sendMessage(from, buff, audio, {quoted: mek, ptt:true})}
+								client.sendMessage(from, buff, audio, {quoted: mek, ptt:true})})
 								break
 						}
 							console.log(color('[ERROR]','red'), 'Unregistered Command from', color(sender.split('@')[0]))
