@@ -1371,7 +1371,7 @@ async function starts() {
 								ranm = getRandom('.mp3')
 								rano = getRandom('.ogg')
 								var numero = getRandomIntInclusive(0,100).toString()
-								var nome = './mp3/loli (' + numero +').mp3'
+								var nome = './mp3/loli (' + numero+').mp3'
 								const buffer6 = fs.readFileSync(nome)
 								ranm = fs.readFileSync(nome)
 								exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
