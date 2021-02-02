@@ -472,7 +472,7 @@ async function starts() {
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
                     break
 				case 'conselho':
-					anu = await fetchJson(`https://api.adviceslip.com/advice`, {method: 'get'})
+					anu = await fetchJson("https://api.adviceslip.com/advice", {method: 'get'})
 					buffer = await getBuffer(anu.advice)
 					client.sendMessage(from, buffer, MessageType.text, {quoted: mek, caption: '.......'})
                     break
