@@ -455,6 +455,34 @@ async function starts() {
                     buffer = await getBuffer(`https://api.zeks.xyz/api/phub?apikey=apivinz&img=https://1.bp.blogspot.com/-x8KhcOBG-yw/XiU4pi1yWVI/AAAAAAAADBA/gK8tsLyc1lQ808A348IKzDCjf6fUBKONwCLcBGAsYHQ/s1600/cara%2Bbuat%2Bfoto%2Bprofil%2Bdi%2Bwhatsapp%2Bmenjadi%2Bunik.jpg&username=${teks12}&msg=${teks22}`)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
                     break
+				
+				case 'pornhb2':
+                    gh2 = body.slice(8)
+                    teks12 = gh2.split("|")[0];
+                    teks22 = gh2.split("|")[1];
+					anu = await fetchJson(`https://api.zeks.xyz/api/phlogo?text1=${teks12}&text2=${teks22}&apikey=apivinz`, {method: 'get'})
+					buffer = await getBuffer(anu.result)
+					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
+                    break
+				
+				case 'mafia':
+                    gh2 = body.slice(6)
+					anu = await fetchJson(`https://api.zeks.xyz/api/mafialogo?text=${gh2}&apikey=apivinz`, {method: 'get'})
+					buffer = await getBuffer(anu.result)
+					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
+                    break
+				case 'print':
+                    gh2 = body.slice(6)
+					anu = await fetchJson(`https://api.zeks.xyz/api/ssweb?url=${gh2}&apikey=apivinz`, {method: 'get'})
+					buffer = await getBuffer(anu.result)
+					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
+                    break
+				case 'pinte':
+                    gh2 = body.slice(6)
+					anu = await fetchJson(`https://api.zeks.xyz/api/pin?q=${gh2}&apikey=apivinz`, {method: 'get'})
+					buffer = await getBuffer(anu.result)
+					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
+                    break
 				case 'dono':
 					memein = await kagApi.memeindo()
 					buffer = await getBuffer(`https://imgur.com/NgpUuz6.jpg`)
