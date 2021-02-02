@@ -448,7 +448,7 @@ async function starts() {
 					buffer = await getBuffer(`https://imgur.com/${meme.hash}.jpg`)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
 					break
-				case 'glitcp':
+				case 'pornhb':
                     gh2 = body.slice(7)
                     teks12 = gh2.split("|")[0];
                     teks22 = gh2.split("|")[1];
