@@ -448,6 +448,15 @@ async function starts() {
 					buffer = await getBuffer(`https://imgur.com/${meme.hash}.jpg`)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
 					break
+				case 'glitcp':
+                    gh2 = body.slice(7)
+                    if (!isUser) return reply(mess.only.daftarB)
+                    teks12 = gh2.split("|")[0];
+                    teks22 = gh2.split("|")[1];
+                    data = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=glitch&text1=${teks1}&text2=${teks2}&apikey=BotWeA`, {method: 'get'})
+                    buffer = await getBuffer(`https://api.zeks.xyz/api/phub?apikey=apivinz&img=https://1.bp.blogspot.com/-x8KhcOBG-yw/XiU4pi1yWVI/AAAAAAAADBA/gK8tsLyc1lQ808A348IKzDCjf6fUBKONwCLcBGAsYHQ/s1600/cara%2Bbuat%2Bfoto%2Bprofil%2Bdi%2Bwhatsapp%2Bmenjadi%2Bunik.jpg&username=${teks12}&msg=${teks22}`)
+					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
+                    break
 				case 'dono':
 					memein = await kagApi.memeindo()
 					buffer = await getBuffer(`https://imgur.com/NgpUuz6.jpg`)
