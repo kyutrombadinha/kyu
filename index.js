@@ -472,10 +472,20 @@ async function starts() {
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
                     break
 				case 'conselho':
-					anu = await fetchJson("https://api.adviceslip.com/advice", {method: 'get'})
+					anu = await fetch("https://api.adviceslip.com/advice", {method: 'get'})
 					buffer = await getBuffer(anu.advice)
 					client.sendMessage(from, buffer, MessageType.text, {quoted: mek, caption: '.......'})
                     break
+				case 'conselho2':
+				fetch('https://api.adviceslip.com/advice')
+				.then(res => res.text())
+				.then(body => {
+					reply(darez)
+				})
+				.catch(() => {
+					reply(from, 'Hayolohhh, ada yang error!!')
+				})
+				break
 				case 'print':
                     gh2 = body.slice(6)
 					anu = await fetchJson(`https://api.zeks.xyz/api/ssweb?url=${gh2}&apikey=apivinz`, {method: 'get'})
