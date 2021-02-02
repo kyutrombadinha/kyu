@@ -480,7 +480,7 @@ async function starts() {
 				fetch('https://api.adviceslip.com/advice')
 				.then(res => res.text())
 				.then(body => {
-					reply(darez)
+					reply(res.text)
 				})
 				.catch(() => {
 					reply(from, 'Hayolohhh, ada yang error!!')
