@@ -482,10 +482,19 @@ async function starts() {
 					reply(from, 'Hayolohhh, ada yang error!!')
 				})
 				break
-				case 'conselho3':
-				const res = await fetch('https://api.adviceslip.com/advice');
-				const items2 = await res.json();
+				case 'conselho3': //FUNCIONOU
+					const res = await fetch('https://api.adviceslip.com/advice');
+					const items2 = await res.json();
 					client.sendMessage(from, JSON.stringify(items2), text, {quoted: mek, caption: '.......'})
+				break
+				
+				case 'conselho4': //FUNCIONOU
+					const res = await fetch('https://api.adviceslip.com/advice');
+					const items2 = await res.json();
+					
+					await axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+JSON.stringify(items2)).then(res => {
+					const resalt = `${res.data.text}`
+					client.sendMessage(from, resalt, text, {quoted: mek, caption: '.......'})
 				break
 				case 'print':
                     gh2 = body.slice(6)
