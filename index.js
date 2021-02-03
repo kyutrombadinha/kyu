@@ -489,11 +489,11 @@ async function starts() {
 				break
 				
 				case 'conselho4': //FUNCIONOU
-					const res = await fetch('https://api.adviceslip.com/advice');
-					const items2 = await res.json();
+					res = await fetch('https://api.adviceslip.com/advice');
+					items2 = await res.json();
 					
 					await axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+JSON.stringify(items2)).then(res => {
-					const resalt = `${res.data.text}`
+					resalt = `${res.data.text}`
 					client.sendMessage(from, resalt, text, {quoted: mek, caption: '.......'})
 				break
 				case 'print':
