@@ -490,11 +490,11 @@ async function starts() {
 				
 				case 'conselho4': //FUNCIONOU
 					res = await fetch('https://api.adviceslip.com/advice');
-					items2 = await res.json();
+					const items3 = await res.json();
 					
-					await axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+JSON.stringify(items2)).then(res => {
-					resalt = `${res.data.text}`
-					client.sendMessage(from, resalt, text, {quoted: mek, caption: '.......'})
+					await axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+JSON.stringify(items3)).then(res => {
+					const resalt3 = `${res.data.text}`
+					client.sendMessage(from, resalt3, text, {quoted: mek, caption: '.......'})
 				break
 				case 'print':
                     gh2 = body.slice(6)
