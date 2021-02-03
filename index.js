@@ -486,7 +486,7 @@ async function starts() {
 					const url = Deno.args[0];
 				const res = await fetch('https://api.adviceslip.com/advice');
 				const items = await res.json();
-					client.sendMessage(from, ${items}, text, {quoted: mek, caption: '.......'})
+					client.sendMessage(from, items, text, {quoted: mek, caption: '.......'})
 				break
 				case 'print':
                     gh2 = body.slice(6)
