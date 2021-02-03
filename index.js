@@ -490,7 +490,7 @@ async function starts() {
 				
 				case 'conselho4': //FUNCIONOU
 					const res3 = await fetch('https://api.adviceslip.com/advice');
-					const items3 = await res.json();
+					const items3 = await res3.json();
 					
 					await axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+JSON.stringify(items3)).then(res3 => {
 					const resalt3 = `${res3.data.text}`
