@@ -525,7 +525,7 @@ async function starts() {
 					anu = await fetchJson(`https://api.zeks.xyz/api/ssweb?url=https://api.adviceslip.com/advice&apikey=apivinz`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					//-----------------------------
-					const encmedia = isQuotedImage ! JSON.parse(JSON.stringify(buffer).replace('quotedM','m')).message.extendedTextMessage.contextInfo : buffer
+					const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(buffer).replace('quotedM','m')).message.extendedTextMessage.contextInfo : buffer
 						const media = await client.downloadAndSaveMediaMessage(encmedia)
 						reply(mess.wait)
 						await recognize(media, {lang: 'eng+ind', oem: 1, psm: 3})
