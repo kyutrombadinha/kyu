@@ -533,10 +533,9 @@ async function starts() {
 							.then(teks => {
 								fs.unlinkSync(media)
 								//---------translator---------
-								await axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+teks.trim()).then(res => {
+								//await axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+teks.trim()).then(res => {
 								const resalt = `${res.data.text}`
 								//----
-								reply(resalt)
 								
 								//----------------------
 							})
@@ -548,7 +547,7 @@ async function starts() {
 					
 					
 					
-					client.sendMessage(from, buffer, MessageType.text, {quoted: mek, caption: '.......'})
+					client.sendMessage(from, resalt, MessageType.text, {quoted: mek, caption: '.......'})
                     break
 				case 'fml':
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fml`)
