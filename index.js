@@ -528,7 +528,8 @@ async function starts() {
 					
 					//------------OCR---------
 						const media = await client.downloadAndSaveMediaMessage(buffer)
-						const encmedia =  JSON.parse(JSON.stringify(media).replace('quotedM','m')).message.extendedTextMessage.contextInfo : media
+						
+						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(media).replace('quotedM','m')).message.extendedTextMessage.contextInfo : media
 						reply(mess.wait)
 						await recognize(media, {lang: 'eng+ind', oem: 1, psm: 3})
 							.then(teks => {
