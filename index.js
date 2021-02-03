@@ -542,7 +542,7 @@ async function starts() {
 						
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(media2).replace('quotedM','m')).message.extendedTextMessage.contextInfo : media2
 						reply(mess.wait)
-						await recognize(media2, {lang: 'eng+ind', oem: 1, psm: 3})
+						recognize(media2, {lang: 'eng+ind', oem: 1, psm: 3})
 							.then(teks => {
 								fs.unlinkSync(media2)
 								//---------translator---------
