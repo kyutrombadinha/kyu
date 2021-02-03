@@ -473,7 +473,7 @@ async function starts() {
                     break
 				
 				case 'conselho2':
-				fetch('https://api.adviceslip.com/advice')
+				fetch(`https://api.adviceslip.com/advice`)
 				.then(res => reply(res))
 				.then(body => {
 					reply(res)
@@ -483,10 +483,10 @@ async function starts() {
 				})
 				break
 				case 'conselho3':
-					var xmlHttp = new XMLHttpRequest()
-					xmlHttp.open( "GET", 'https://api.adviceslip.com/advice', false ) // false for synchronous request
-					xmlHttp.send( null )
-					client.sendMessage(from, xmlHttp.responseText, text, {quoted: mek, caption: '.......'})
+					const url = Deno.args[0];
+				const res = await fetch('https://api.adviceslip.com/advice');
+				const items = await res.json();
+					client.sendMessage(from, ${items}, text, {quoted: mek, caption: '.......'})
 				break
 				case 'print':
                     gh2 = body.slice(6)
