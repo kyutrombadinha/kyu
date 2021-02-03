@@ -482,6 +482,11 @@ async function starts() {
 					reply(from, 'Hayolohhh, ada yang error!!')
 				})
 				break
+				case 'conselho3':
+				anu = await fetchJson(`https://api.adviceslip.com/advice`, {method: 'get'})
+					buffer = await getBuffer(anu)
+					client.sendMessage(from, buffer, text, {quoted: mek, caption: '.......'})
+				break
 				case 'print':
                     gh2 = body.slice(6)
 					anu = await fetchJson(`https://api.zeks.xyz/api/ssweb?url=${gh2}&apikey=apivinz`, {method: 'get'})
