@@ -538,7 +538,7 @@ async function starts() {
 						fs.unlinkSync(ran)
 					
 					//------------OCR---------
-						const media2 = await client.downloadAndSaveMediaMessage(buffer3)
+						const media2 =  client.downloadAndSaveMediaMessage(buffer3)
 						
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(media2).replace('quotedM','m')).message.extendedTextMessage.contextInfo : media2
 						reply(mess.wait)
