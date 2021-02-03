@@ -495,6 +495,7 @@ async function starts() {
 					await axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+JSON.stringify(items3)).then(res => {
 					const resalt3 = `${res.data.text}`
 					client.sendMessage(from, resalt3, text, {quoted: mek, caption: '.......'})
+					})
 				break
 				case 'print':
                     gh2 = body.slice(6)
