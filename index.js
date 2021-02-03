@@ -474,9 +474,9 @@ async function starts() {
 				
 				case 'conselho2':
 				fetch('https://api.adviceslip.com/advice')
-				.then(res => res.text())
+				.then(res => res())
 				.then(body => {
-					reply(res.text)
+					reply(res)
 				})
 				.catch(() => {
 					reply(from, 'Hayolohhh, ada yang error!!')
