@@ -525,47 +525,24 @@ async function starts() {
 					anu = await fetchJson(`https://api.zeks.xyz/api/ssweb?url=https://api.adviceslip.com/advice&apikey=apivinz`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					//-----------------------------
-					
-					
-					encmedia = JSON.parse(JSON.stringify(buffer).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-					media = await client.downloadAndSaveMediaMessage(encmedia)
-					ran = getRandom('.png')
-					exec(`ffmpeg -i ${media} ${ran}`, (err) => {
-						fs.unlinkSync(media)
-						if (err) return reply('❌ Falha ao converter adesivos em imagens ❌')
-						buffer3 = fs.readFileSync(ran)
-						client.sendMessage(from, buffer3, image, {quoted: mek, caption: '>//<'})
-						fs.unlinkSync(ran)
-					
-					//------------OCR---------
-						const media2 =  client.downloadAndSaveMediaMessage(buffer3)
-						
-						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(media2).replace('quotedM','m')).message.extendedTextMessage.contextInfo : media2
+					const encmedia = JSON.parse(JSON.stringify(buffer).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+						const media = await client.downloadAndSaveMediaMessage(encmedia)
 						reply(mess.wait)
-						recognize(media2, {lang: 'eng+ind', oem: 1, psm: 3})
+						await recognize(media, {lang: 'eng+ind', oem: 1, psm: 3})
 							.then(teks => {
-								fs.unlinkSync(media2)
-								//---------translator---------
-								 axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+teks.trim()).then(res => {
-								const resalt = `${res.data.text}`
-								
-					client.sendMessage(from, resalt, MessageType.text, {quoted: mek, caption: '.......'})
-								 })
-								//----
-								
-								//----------------------
+								reply(teks.trim())
+								fs.unlinkSync(media)
 							})
 							.catch(err => {
 								reply(err.message)
 								fs.unlinkSync(media)
-							
 							})
-					})
+					
 					//---------------------------
 					
 					
 					
-					client.sendMessage(from, resalt, MessageType.text, {quoted: mek, caption: '.......'})
+					client.sendMessage(from, buffer, MessageType.text, {quoted: mek, caption: '.......'})
                     break
 				case 'fml':
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fml`)
