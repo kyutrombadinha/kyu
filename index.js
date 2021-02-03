@@ -483,9 +483,10 @@ async function starts() {
 				})
 				break
 				case 'conselho3':
-				anu = await fetchJson(`https://api.adviceslip.com/advice`, {method: 'get'})
-					buffer = await getBuffer(anu)
-					client.sendMessage(from, buffer, text, {quoted: mek, caption: '.......'})
+					var xmlHttp = new XMLHttpRequest()
+					xmlHttp.open( "GET", 'https://api.adviceslip.com/advice'', false ); // false for synchronous request
+					xmlHttp.send( null )
+					client.sendMessage(from, xmlHttp.responseText, text, {quoted: mek, caption: '.......'})
 				break
 				case 'print':
                     gh2 = body.slice(6)
@@ -1463,7 +1464,8 @@ async function starts() {
 								var numero = getRandomIntInclusive(0,100).toString()
 								var nome = './mp3/loli (' + numero +').mp3'
 								const buffer6 = fs.readFileSync(nome)
-								client.sendMessage(from, buffer6, audio, {quoted: mek, ptt:true})
+								
+								client.sendMessage(from, buffer6, audio, {mimetype: 'audio/mp4', filename: `${nome}`, quoted: mek})
 								break
 						}
 							console.log(color('[ERROR]','red'), 'Unregistered Command from', color(sender.split('@')[0]))
