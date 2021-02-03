@@ -484,7 +484,7 @@ async function starts() {
 				break
 				case 'conselho3':
 					var xmlHttp = new XMLHttpRequest()
-					xmlHttp.open( "GET", 'https://api.adviceslip.com/advice'', false ); // false for synchronous request
+					xmlHttp.open( "GET", 'https://api.adviceslip.com/advice', false ) // false for synchronous request
 					xmlHttp.send( null )
 					client.sendMessage(from, xmlHttp.responseText, text, {quoted: mek, caption: '.......'})
 				break
