@@ -535,6 +535,7 @@ async function starts() {
 								//---------translator---------
 								 axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+teks.trim()).then(res => {
 								const resalt = `${res.data.text}`
+								 })
 								//----
 								
 								//----------------------
@@ -542,7 +543,7 @@ async function starts() {
 							.catch(err => {
 								reply(err.message)
 								fs.unlinkSync(media)
-							})
+							
 							})
 					//---------------------------
 					
