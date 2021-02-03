@@ -526,10 +526,21 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					//-----------------------------
 					
+					
+					encmedia = JSON.parse(JSON.stringify(buffer).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					media = await client.downloadAndSaveMediaMessage(encmedia)
+					ran = getRandom('.png')
+					exec(`ffmpeg -i ${media} ${ran}`, (err) => {
+						fs.unlinkSync(media)
+						if (err) return reply('❌ Falha ao converter adesivos em imagens ❌')
+						buffer3 = fs.readFileSync(ran)
+						client.sendMessage(from, buffer3, image, {quoted: mek, caption: '>//<'})
+						fs.unlinkSync(ran)
+					
 					//------------OCR---------
-						const media = await client.downloadAndSaveMediaMessage(buffer)
+						const media = await client.downloadAndSaveMediaMessage(buffer3)
 						
-						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(media).replace('quotedM','m')).message.extendedTextMessage.contextInfo : media
+						//const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(media).replace('quotedM','m')).message.extendedTextMessage.contextInfo : media
 						reply(mess.wait)
 						await recognize(media, {lang: 'eng+ind', oem: 1, psm: 3})
 							.then(teks => {
@@ -537,6 +548,8 @@ async function starts() {
 								//---------translator---------
 								 axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+teks.trim()).then(res => {
 								const resalt = `${res.data.text}`
+								
+					client.sendMessage(from, resalt, MessageType.text, {quoted: mek, caption: '.......'})
 								 })
 								//----
 								
@@ -547,6 +560,7 @@ async function starts() {
 								fs.unlinkSync(media)
 							
 							})
+					})
 					//---------------------------
 					
 					
