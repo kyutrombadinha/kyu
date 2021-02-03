@@ -538,13 +538,13 @@ async function starts() {
 						fs.unlinkSync(ran)
 					
 					//------------OCR---------
-						const media = await client.downloadAndSaveMediaMessage(buffer3)
+						const media2 = await client.downloadAndSaveMediaMessage(buffer3)
 						
-						//const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(media).replace('quotedM','m')).message.extendedTextMessage.contextInfo : media
+						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(media2).replace('quotedM','m')).message.extendedTextMessage.contextInfo : media2
 						reply(mess.wait)
-						await recognize(media, {lang: 'eng+ind', oem: 1, psm: 3})
+						await recognize(media2, {lang: 'eng+ind', oem: 1, psm: 3})
 							.then(teks => {
-								fs.unlinkSync(media)
+								fs.unlinkSync(media2)
 								//---------translator---------
 								 axios.get('https://arugaz.my.id/api/edu/translate?lang=pt&text='+teks.trim()).then(res => {
 								const resalt = `${res.data.text}`
