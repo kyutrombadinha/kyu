@@ -60,7 +60,7 @@ async function hug  () {
 		try {
 			//teks = body.slice(6)
 			/*if (!isDaftar) return reply(mess.only.daftarB)*/
-			//reply(mess.wait)
+			//
 				reply('cons hug')
 				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA`, {method: 'get'})
 				buffer = await getBuffer(anu.result)
@@ -253,7 +253,7 @@ async function starts() {
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 						const media = await client.downloadAndSaveMediaMessage(encmedia)
-						reply(mess.wait)
+						
 						await recognize(media, {lang: 'eng+ind', oem: 1, psm: 3})
 							.then(teks => {
 								reply(teks.trim())
@@ -311,7 +311,7 @@ async function starts() {
 						const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 						const media = await client.downloadAndSaveMediaMessage(encmedia)
 						ran = getRandom('.webp')
-						reply(mess.wait)
+						
 						await ffmpeg(`./${media}`)
 							.inputFormat(media.split('.')[1])
 							.on('start', function (cmd) {
@@ -364,7 +364,7 @@ async function starts() {
 						const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 						const media = await client.downloadAndSaveMediaMessage(encmedia)
 						ran = getRandom('.webp')
-						reply(mess.wait)
+						
 						await ffmpeg(`./${media}`)
 							.inputFormat(media.split('.')[1])
 							.on('start', function (cmd) {
@@ -390,7 +390,7 @@ async function starts() {
 						const media = await client.downloadAndSaveMediaMessage(encmedia)
 						ranw = getRandom('.webp')
 						ranp = getRandom('.png')
-						reply(mess.wait)
+						
 						keyrmbg = 'Your-ApiKey'
 						await removeBackgroundFromImageFile({path: media, apiKey: keyrmbg.result, size: 'auto', type: 'auto', ranp}).then(res => {
 							fs.unlinkSync(media)
@@ -586,7 +586,7 @@ async function starts() {
 					break*/
 				case 'hentai':
 					if(!isNsfw) return reply('*NSFW Desativado*')
-					reply(mess.wait)
+					
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hentai?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
@@ -694,7 +694,7 @@ async function starts() {
 
 					break
 				case 'play':   
-					reply(mess.wait)
+					
 					play = body.slice(5)
 					anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?q=${play}&apikey=apivinz`)
 					 infomp3 = `*Musica encontrada!!!*\nJudul : ${anu.result.title}\nFonte : ${anu.result.source}\nTamanho : ${anu.result.size}\n\n*ESPERE ENVIANDO POR FAVOR, NÃƒO SPAM YA PAI*`
@@ -704,7 +704,7 @@ async function starts() {
 					client.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
 					break
 				case 'kpop':
-					reply(mess.wait)
+					
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomkpop?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
@@ -734,7 +734,7 @@ async function starts() {
 				case 'ass':
 				
 					if(!isNsfw) return reply('*NSFW Desativado*')
-					reply(mess.wait)
+					
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://meme-api.herokuapp.com/gimme/LegalTeens', {method: 'get'})
@@ -751,7 +751,7 @@ async function starts() {
 				break
 				case 'ass2':
 					if(!isNsfw) return reply('*NSFW Desativado*')
-					reply(mess.wait)
+					
 					anu = await fetchJson('https://meme-api.herokuapp.com/gimme/LegalTeens', {method: 'get'})
 					buffer = await getBuffer(anu.url)
 					client.sendMessage(from, buffer, image, {quoted: mek})
@@ -760,7 +760,7 @@ async function starts() {
 				case 'gifhentai'://FUNCIONOU
 				
 					if(!isNsfw) return reply('*NSFW Desativado*')
-					reply(mess.wait)
+					
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://nekos.life/api/v2/img/Random_hentai_gif', {method: 'get'})
@@ -778,7 +778,7 @@ async function starts() {
 				case 'bjanime'://FUNCIONOU
 					
 					if(!isNsfw) return reply('*NSFW Desativado*')
-					reply(mess.wait)
+					
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://tobz-api.herokuapp.com/api/nsfwblowjob?&apikey=BotWeA', {method: 'get'})
@@ -816,7 +816,7 @@ async function starts() {
                                         tels = body.slice(11)
 					client.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=${tels}`, {method: 'get'})
-					reply(mess.wait)
+					
 					n = JSON.parse(JSON.stringify(data));
 					nimek =  n[Math.floor(Math.random() * n.length)];
 					pok = await getBuffer(nimek)
@@ -825,7 +825,7 @@ async function starts() {
 				case 'loli':
 					teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
-					reply(mess.wait)
+					
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomloli?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
@@ -833,7 +833,7 @@ async function starts() {
 				case 'neko':
 					teks = body.slice(6)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
-					reply(mess.wait)
+					
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nekonime?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
@@ -843,7 +843,7 @@ async function starts() {
 					if(!isNsfw) return reply('*NSFW Desativado*')
 					teks = body.slice(8)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
-					reply(mess.wait)
+					
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwtrap?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
@@ -854,7 +854,7 @@ async function starts() {
 					if(!isNsfw) return reply('*NSFW Desativado*')
 					teks = body.slice(8)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
-					reply(mess.wait)
+					
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwneko?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					buffer = api.getImageURL("https://tobz-api.herokuapp.com/api/nsfwneko?apikey=BotWeA")
@@ -865,7 +865,7 @@ async function starts() {
 					if(!isNsfw) return reply('*NSFW Desativado*')
 					teks = body.slice(8)
 					/*if (!isDaftar) return reply(mess.only.daftarB)*/
-					reply(mess.wait)
+					
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwblowjob?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
@@ -917,7 +917,7 @@ async function starts() {
                 })
                 break
 				case 'egirls'://FUNCIONOU
-					reply(mess.wait)
+					
 					
 					fetch('https://raw.githubusercontent.com/kyutrombadinha/aleatorio/main/egirls.txt')
 					ranp = getRandom('.gif')
@@ -1056,7 +1056,7 @@ async function starts() {
 					client.sendMessage(from, buffer5, video, {quoted: mek, ptt:true})
 					break
 				case 'hug':
-					reply(mess.wait)
+					
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA', {method: 'get'})
@@ -1071,7 +1071,7 @@ async function starts() {
 					})
 					break
 				case 'cry':
-					reply(mess.wait)
+					
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://tobz-api.herokuapp.com/api/cry?apikey=BotWeA', {method: 'get'})
@@ -1088,7 +1088,7 @@ async function starts() {
 				case 'blowjb':
 				
 					if(!isNsfw) return reply('*NSFW Desativado*')
-					reply(mess.wait)
+					
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://tobz-api.herokuapp.com/api/nsfwblowjob?apikey=BotWeA', {method: 'get'})
@@ -1104,7 +1104,7 @@ async function starts() {
 					break
 				
 				case 'egirlgif':
-					reply(mess.wait)
+					
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					
@@ -1130,7 +1130,7 @@ async function starts() {
 					break
 					case 'cade':
 					tels = body.slice(5)
-					reply(mess.wait)
+					
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					
@@ -1356,7 +1356,7 @@ async function starts() {
 							break
 				case 'toimg':
 					if (!isQuotedSticker) return reply('❌ responder sticker hum ❌')
-					reply(mess.wait)
+					
 					encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					media = await client.downloadAndSaveMediaMessage(encmedia)
 					ran = getRandom('.png')
@@ -1370,7 +1370,7 @@ async function starts() {
 					break
 				case 'tovdo':
 					if (!isQuotedSticker) return reply('❌ responder sticker hum ❌')
-					reply(mess.wait)
+					
 					encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					media = await client.downloadAndSaveMediaMessage(encmedia)
 					ran = getRandom('.webp')
@@ -1417,7 +1417,7 @@ async function starts() {
 					break
 				case 'wait':
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-						reply(mess.wait)
+						
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 						media = await client.downloadMediaMessage(encmedia)
 						await wait(media).then(res => {
