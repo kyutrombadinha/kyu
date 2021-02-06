@@ -982,7 +982,18 @@ async function starts() {
 					reply(from, 'Hayolohhh, ada yang error!!')
 				})
 				break
-				
+				case 'conselho':
+				fetch('https://raw.githubusercontent.com/kyutrombadinha/aleatorio/main/conselho.txt')
+				.then(res => res.text())
+				.then(body => {
+					let darex = body.split('\n')
+					let darez = darex[Math.floor(Math.random() * darex.length)]
+					reply(darez)
+				})
+				.catch(() => {
+					//reply(from, 'Hayolohhh, ada yang error!!')
+				})
+				break
 					//----------------------------------------------------------
 				case 'nhentai':
             case 'nh':
