@@ -1460,9 +1460,9 @@ async function starts() {
 							case 'Yamete kudasai':
 								var numero = getRandomIntInclusive(0,100).toString()
 								var nome = './mp3/yah.mp3'
-								buffer6 = fs.readFileSync(nome)
+								const buffer7 = fs.readFileSync(nome)
 								
-								client.sendMessage(from, buffer6, audio, {mimetype: 'audio/mp4', filename: `${nome}`, quoted: mek})
+								client.sendMessage(from, buffer7, audio, {mimetype: 'audio/mp4', filename: `${nome}`, quoted: mek})
 								break
 							case 'Yumi':
 							case 'yumi':
