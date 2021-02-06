@@ -1460,7 +1460,7 @@ async function starts() {
 							case 'Yamete kudasai':
 								var numero = getRandomIntInclusive(0,100).toString()
 								var nome = './mp3/yah.mp3'
-								const buffer6 = fs.readFileSync(nome)
+								buffer6 = fs.readFileSync(nome)
 								
 								client.sendMessage(from, buffer6, audio, {mimetype: 'audio/mp4', filename: `${nome}`, quoted: mek})
 								break
@@ -1469,7 +1469,7 @@ async function starts() {
 							
 								var numero = getRandomIntInclusive(0,100).toString()
 								var nome = './mp3/loli (' + numero +').mp3'
-								const buffer6 = fs.readFileSync(nome)
+								buffer6 = fs.readFileSync(nome)
 								
 								client.sendMessage(from, buffer6, audio, {mimetype: 'audio/mp4', filename: `${nome}`, quoted: mek})
 								break
