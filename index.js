@@ -525,30 +525,6 @@ async function starts() {
 					buffer = await getBuffer(`https://imgur.com/${memein.hash}.jpg`)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
 					break
-				case 'conselho':
-					//----------PRINT-------------
-					anu = await fetchJson(`https://api.zeks.xyz/api/ssweb?url=https://api.adviceslip.com/advice&apikey=apivinz`, {method: 'get'})
-					buffer = await getBuffer(anu.result)
-					//-----------------------------
-					const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(buffer).replace('quotedM','m')).message.extendedTextMessage.contextInfo : buffer
-						const media = await client.downloadAndSaveMediaMessage(encmedia)
-						reply(mess.wait)
-						await recognize(media, {lang: 'eng+ind', oem: 1, psm: 3})
-							.then(teks => {
-								reply(teks.trim())
-								fs.unlinkSync(media)
-							})
-							.catch(err => {
-								reply(err.message)
-								fs.unlinkSync(media)
-							})
-					
-					//---------------------------
-					
-					
-					
-					client.sendMessage(from, buffer, MessageType.text, {quoted: mek, caption: '.......'})
-                    break
 				case 'fml':
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fml`)
 					//if (!isUser) return reply(mess.only.daftarB)
