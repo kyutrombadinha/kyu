@@ -1486,4 +1486,5 @@ async function starts() {
 		}
 	})
 }
+
 starts()
