@@ -1439,11 +1439,31 @@ async function starts() {
 					else {
 						switch(budy) 
 						{
+							
 							case 'oi':
 							case 'ola':
 								reply('oi')
 								break
+							case 'Bom dia':
+							case 'Bundia':
+							case 'bundia':
+							case 'bom dia':
+							case 'Ohayo':
 							
+								var numero = getRandomIntInclusive(0,8).toString()
+								var nome = './mp3/ohayo (' + numero +').mp3'
+								const buffer6 = fs.readFileSync(nome)
+								
+								client.sendMessage(from, buffer6, audio, {mimetype: 'audio/mp4', filename: `${nome}`, quoted: mek})
+								break
+							case 'yamete kudasai':
+							case 'Yamete kudasai':
+								var numero = getRandomIntInclusive(0,100).toString()
+								var nome = './mp3/yah.mp3'
+								const buffer6 = fs.readFileSync(nome)
+								
+								client.sendMessage(from, buffer6, audio, {mimetype: 'audio/mp4', filename: `${nome}`, quoted: mek})
+								break
 							case 'Yumi':
 							case 'yumi':
 							
