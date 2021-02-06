@@ -472,16 +472,6 @@ async function starts() {
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
                     break
 				
-				case 'conselho2':
-				fetch(`https://api.adviceslip.com/advice`)
-				.then(res => reply(res))
-				.then(body => {
-					reply(res)
-				})
-				.catch(() => {
-					reply(from, 'Hayolohhh, ada yang error!!')
-				})
-				break
 				case 'conselho3': //FUNCIONOU
 					const res = await fetch('https://api.adviceslip.com/advice');
 					const items2 = await res.json();
