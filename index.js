@@ -465,11 +465,12 @@ async function starts() {
 					gh2 = darez
                     teks12 = gh2.split("|")[0];
                     teks22 = gh2.split("|")[1];
+				})
+				
 					buffer = await getBuffer(teks12)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Metadinha 1'})
 					buffer2 = await getBuffer(teks22)
 					client.sendMessage(from, buffer2, image, {quoted: mek, caption: 'Metadinha 2'})
-				})
 				.catch(() => {
 					//reply(from, 'Hayolohhh, ada yang error!!')
 				})
