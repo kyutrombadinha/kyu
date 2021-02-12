@@ -143,7 +143,7 @@ async function starts() {
                         mek = JSON.parse(JSON.stringify(mek)).messages[0]
 			if (!mek.message) return
 			if (mek.key && mek.key.remoteJid == 'status@broadcast') return
-			if (mek.key.fromMe) return
+			//if (mek.key.fromMe) return      ONDE IGNORA A MENSAGEM DO BOT
 			global.prefix
 			global.blocked
 			
@@ -228,7 +228,7 @@ async function starts() {
 			switch(command) {
 				case 'help':
 				case 'menu':
-					client.sendMessage(from, help(prefix), text)
+					//client.sendMessage(from, help(prefix), text)
 					break
 					case 'help1':
 				case 'menu1':
@@ -1069,7 +1069,7 @@ async function starts() {
 					client.sendMessage(from, buffer6, audio, {quoted: mek, ptt:true})
 					break
 				case 'animeedit':
-					var items = ["./media/jiraya death.mp4", "./media/majin boo.mp4", "./media/melancholy.mp4", "./media/minato.mp4", "./media/Nishimiya.mp4", "./media/Nishimiya2.mp4", "./media/obito.mp4", "./media/pantsu.mp4", "./media/zero two edit.mp4" ]
+					var items = ["./media/jiraya death.mp4","./media/edit3.mp4","./media/barulhinho.mp4", "./media/majin boo.mp4", "./media/melancholy.mp4", "./media/minato.mp4", "./media/Nishimiya.mp4", "./media/Nishimiya2.mp4", "./media/obito.mp4", "./media/pantsu.mp4", "./media/zero two edit.mp4" ]
 					var nime = items[Math.floor(Math.random() * items.length)];
 					const buffer5 = fs.readFileSync(nime)
 					client.sendMessage(from, buffer5, video, {quoted: mek, ptt:true})
