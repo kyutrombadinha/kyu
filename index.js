@@ -455,7 +455,25 @@ async function starts() {
                     buffer = await getBuffer(`https://api.zeks.xyz/api/phub?apikey=apivinz&img=https://1.bp.blogspot.com/-x8KhcOBG-yw/XiU4pi1yWVI/AAAAAAAADBA/gK8tsLyc1lQ808A348IKzDCjf6fUBKONwCLcBGAsYHQ/s1600/cara%2Bbuat%2Bfoto%2Bprofil%2Bdi%2Bwhatsapp%2Bmenjadi%2Bunik.jpg&username=${teks12}&msg=${teks22}`)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
                     break
-				
+					
+				case 'metadinha':
+				fetch('https://raw.githubusercontent.com/kyutrombadinha/aleatorio/main/metadinha.txt')
+				.then(res => res.text())
+				.then(body => {
+					let darex = body.split('\n')
+					let darez = darex[Math.floor(Math.random() * darex.length)]
+					gh2 = darez
+                    teks12 = gh2.split("|")[0];
+                    teks22 = gh2.split("|")[1];
+					buffer = await getBuffer(`${teks12}`)
+					client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Metadinha 1'})
+					buffer2 = await getBuffer(`${teks22}`)
+					client.sendMessage(from, buffer2, image, {quoted: mek, caption: 'Metadinha 2'})
+				})
+				.catch(() => {
+					//reply(from, 'Hayolohhh, ada yang error!!')
+				})
+				break
 				case 'pornhb2':
                     gh2 = body.slice(8)
                     teks12 = gh2.split("|")[0];
