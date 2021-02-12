@@ -458,22 +458,17 @@ async function starts() {
 					
 				case 'metadinha':
 				fetch('https://raw.githubusercontent.com/kyutrombadinha/aleatorio/main/metadinha.txt')
-				.then(res => res.text())
-				.then(body => {
 					let darex = body.split('\n')
 					let darez = darex[Math.floor(Math.random() * darex.length)]
 					gh2 = darez
                     teks12 = gh2.split("|")[0];
                     teks22 = gh2.split("|")[1];
-				})
 				
 					buffer = await getBuffer(teks12)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Metadinha 1'})
 					buffer2 = await getBuffer(teks22)
 					client.sendMessage(from, buffer2, image, {quoted: mek, caption: 'Metadinha 2'})
-				.catch(() => {
-					//reply(from, 'Hayolohhh, ada yang error!!')
-				})
+
 				break
 				case 'pornhb2':
                     gh2 = body.slice(8)
@@ -980,59 +975,7 @@ async function starts() {
 				})
 				break
 					//----------------------------------------------------------
-				case 'nhentai':
-            case 'nh':
-                //if (args.length !== 1) return await bocchi.reply(from, ind.wrongFormat(), id)
-                //if (isNaN(Number(args[0]))) return await bocchi.reply(from, ind.wrongFormat(), id)
-                if (isGroupMsg) {
-                    if (!isNsfw) return await reply(from, ind.notNsfw())
-                    await reply(from, ind.wait(), id)
-                    console.log(`Searching nHentai for ${args[0]}...`)
-                    const validate = await nhentai.exists(args[0])
-                    if (validate === true) {
-                        try {
-                            const pic = await api.getBook(args[0])
-                                .then((book) => {
-                                     return api.getImageURL(book.cover)
-                                })
-                            const dojin = await nhentai.getDoujin(args[0])
-                            const { title, details, link } = dojin
-                            const { tags, artists, languages, categories } = details
-                            let teks = `*Title*: ${title}\n\n*Tags*: ${tags.join(', ')}\n\n*Artists*: ${artists}\n\n*Languages*: ${languages.join(', ')}\n\n*Categories*: ${categories}\n\n*Link*: ${link}`
-                            await client.sendFileFromUrl(from, pic, 'nhentai.jpg', teks, id)
-                            console.log('Success sending nHentai info!')
-                        } catch (err) {
-                            console.error(err)
-                            await reply(from, 'Error!')
-                        }
-                    } else {
-                        await reply(from, ind.nhFalse())
-                    }
-                } else {
-                    await reply(from, ind.wait())
-                    console.log(`Searching nHentai for ${args[0]}...`)
-                    const validate = await nhentai.exists(args[0])
-                    if (validate === true) {
-                        try {
-                            const pic = await api.getBook(args[0])
-                                .then((book) => {
-                                     return api.getImageURL(book.cover)
-                                })
-                            const dojin = await nhentai.getDoujin(args[0])
-                            const { title, details, link } = dojin
-                            const { tags, artists, languages, categories } = details
-                            let teks = `*Title*: ${title}\n\n*Tags*: ${tags.join(', ')}\n\n*Artists*: ${artists}\n\n*Languages*: ${languages.join(', ')}\n\n*Categories*: ${categories}\n\n*Link*: ${link}`
-                            await client.sendFileFromUrl(from, pic, 'nhentai.jpg', teks, id)
-                            console.log('Success sending nHentai info!')
-                        } catch (err) {
-                            console.error(err)
-                            await reply(from, 'Error!')
-                        }
-                    } else {
-                        await reply(from, ind.nhFalse())
-                    }
-                }
-            break
+				
 					//----------------------------------------------------------
 				case 'beijor':
 					tels = body.slice(8)
@@ -1048,7 +991,7 @@ async function starts() {
 				case 'del':
 					client.deleteMessage(from, { id: mek.message.extendedTextMessage, remoteJid: from, fromAll: true })
 					break
-				case 'nhentai2':
+				case 'nhentai':
 					const buffer3 = fs.readFileSync("./media/nhentai.mp4")
 					client.sendMessage(from, buffer3, video, {quoted: mek, ptt:true})
 					break
