@@ -458,17 +458,21 @@ async function starts() {
 					
 				case 'metadinha':
 				fetch('https://raw.githubusercontent.com/kyutrombadinha/aleatorio/main/metadinha.txt')
+				.then(body => {
 					let darex = body.split('\n')
 					let darez = darex[Math.floor(Math.random() * darex.length)]
 					gh2 = darez
                     teks12 = gh2.split("|")[0];
                     teks22 = gh2.split("|")[1];
+				})
 				
 					buffer = await getBuffer(teks12)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Metadinha 1'})
 					buffer2 = await getBuffer(teks22)
 					client.sendMessage(from, buffer2, image, {quoted: mek, caption: 'Metadinha 2'})
-
+				.catch(() => {
+					//reply(from, 'Hayolohhh, ada yang error!!')
+				})
 				break
 				case 'pornhb2':
                     gh2 = body.slice(8)
