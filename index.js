@@ -143,7 +143,7 @@ async function starts() {
                         mek = JSON.parse(JSON.stringify(mek)).messages[0]
 			if (!mek.message) return
 			if (mek.key && mek.key.remoteJid == 'status@broadcast') return
-			//if (mek.key.fromMe) return      ONDE IGNORA A MENSAGEM DO BOT
+			if (mek.key.fromMe) return      
 			global.prefix
 			global.blocked
 			
