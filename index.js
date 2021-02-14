@@ -814,7 +814,7 @@ async function starts() {
 				   client.updatePresence(from, Presence.recording) 
 				   if (args.length < 1) return client.sendMessage(from, 'Qual Ã© o cÃ³digo da linguagem?', text, {quoted: mek})
 					   const gtts = require('./lib/gtts')(args[0])
-					if (args.length < 2) return client.sendMessage(from, 'CadÃª o texto', text, {quoted: mek})
+					if (args.length < 2) return client.sendMessage(from, 'Cade o texto', text, {quoted: mek})
 					dtt = body.slice(8)
 					ranm = getRandom('.mp3')
 					rano = getRandom('.ogg')
@@ -1016,10 +1016,17 @@ async function starts() {
 					client.sendMessage(from, buffer6, audio, {quoted: mek, ptt:true})
 					break
 				case 'animeedit':
-					var items = ["./media/jiraya death.mp4","./media/edit3.mp4","./media/barulhinho.mp4", "./media/majin boo.mp4", "./media/melancholy.mp4", "./media/minato.mp4", "./media/Nishimiya.mp4", "./media/Nishimiya2.mp4", "./media/obito.mp4", "./media/pantsu.mp4", "./media/zero two edit.mp4" ]
+					var items = ["./media/jiraya death.mp4", "./media/animeedit1.mp4", "./media/animeedit2.mp4", "./media/animeedit3.mp4", "./media/animeedit4.mp4", "./media/animeedit5.mp4", "./media/animeedit6.mp4", "./media/animeedit7.mp4", "./media/animeedit8.mp4", "./media/animeedit9.mp4", "./media/animeedit10.mp4", "./media/animeedit11.mp4", "./media/animeedit12.mp4" ,"./media/edit3.mp4","./media/barulhinho.mp4", "./media/majin boo.mp4", "./media/melancholy.mp4", "./media/minato.mp4", "./media/Nishimiya.mp4", "./media/Nishimiya2.mp4", "./media/obito.mp4", "./media/pantsu.mp4", "./media/zero two edit.mp4" ]
 					var nime = items[Math.floor(Math.random() * items.length)];
 					const buffer5 = fs.readFileSync(nime)
 					client.sendMessage(from, buffer5, video, {quoted: mek, ptt:true})
+					break
+				
+				case 'egirledit':
+					var items = ["./media/egirl1.mp4", "./media/egirl2.mp4", "./media/egirl3.mp4", "./media/egirl4.mp4", "./media/egirl5.mp4", "./media/egirl6.mp4", "./media/egirl7.mp4", "./media/egirl8.mp4", "./media/egirl9.mp4", "./media/egirl10.mp4", "./media/egirl11.mp4", "./media/egirl12.mp4", "./media/egirl13.mp4" ]
+					var nime = items[Math.floor(Math.random() * items.length)];
+					const buffer55 = fs.readFileSync(nime)
+					client.sendMessage(from, buffer55, video, {quoted: mek, ptt:true})
 					break
 				case 'hug':
 					
