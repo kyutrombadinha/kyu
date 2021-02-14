@@ -1442,9 +1442,9 @@ async function starts() {
 							
 								var numero = getRandomIntInclusive(0,100).toString()
 								var nome = './mp3/loli (' + numero +').mp3'
-								const buffer7 = fs.readFileSync(nome)
+								const buffer88 = fs.readFileSync(nome)
 								
-								client.sendMessage(from, buffer7, audio, {mimetype: 'audio/mp4', filename: `${nome}`, quoted: mek})
+								client.sendMessage(from, buffer88, audio, {mimetype: 'audio/mp4', filename: `${nome}`, quoted: mek})
 								break
 						}
 							console.log(color('[ERROR]','red'), 'Unregistered Command from', color(sender.split('@')[0]))
