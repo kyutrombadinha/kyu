@@ -1144,7 +1144,6 @@ async function starts() {
 						client.sendMessage(from, buffer, image, {quoted: mek})
 						fs.unlinkSync(rano)
 							})
-					})
 					
 					break
 					//----------------------------------------------------
