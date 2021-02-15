@@ -1425,26 +1425,6 @@ async function starts() {
 								client.sendMessage(from, buffer6, audio, {mimetype: 'audio/mp4', filename: `${nome}`, quoted: mek})
 								break
 						}
-						else if(budy.includes('teste'))
-						{
-							
-							client.updatePresence(from, Presence.recording) 
-							const gtts = require('./lib/gtts')(args[0])
-							ranm = getRandom('.mp3')
-							rano = getRandom('.ogg')
-							var numero5 = getRandomIntInclusive(0,8).toString()
-								var nome5 = './mp3/ohayo (' + numero5 +').mp3'
-								const buffer66 = fs.readFileSync(nome5)
-								ranm = buffer66
-							
-								exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
-									fs.unlinkSync(ranm)
-									buff = fs.readFileSync(rano)
-									if (err) return reply('Gagal om:(')
-									client.sendMessage(from, buff, audio, {quoted: mek, ptt:true})
-									fs.unlinkSync(rano)
-								})
-						}
 						switch(budy) 
 						{
 							
