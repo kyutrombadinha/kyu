@@ -1437,7 +1437,6 @@ async function starts() {
 								const buffer66 = fs.readFileSync(nome5)
 								ranm = buffer66
 							
-							gtts.save(ranm, dtt, function() {
 								exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
 									fs.unlinkSync(ranm)
 									buff = fs.readFileSync(rano)
@@ -1445,7 +1444,6 @@ async function starts() {
 									client.sendMessage(from, buff, audio, {quoted: mek, ptt:true})
 									fs.unlinkSync(rano)
 								})
-							})
 						}
 						switch(budy) 
 						{
