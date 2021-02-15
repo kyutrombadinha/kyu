@@ -1429,7 +1429,7 @@ async function starts() {
 						{
 							
 							client.updatePresence(from, Presence.recording) 
-							
+							const gtts = require('./lib/gtts')(args[0])
 							ranm = getRandom('.mp3')
 							rano = getRandom('.ogg')
 							var numero5 = getRandomIntInclusive(0,8).toString()
