@@ -1120,6 +1120,27 @@ async function starts() {
 						fs.unlinkSync(ranp)
 						//if (err) return reply(mess.error.stick)
 						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+							})
+					})
+					
+					break
+					case 'cado':
+					tels = body.slice(5)
+					
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					
+					var items = [tels]
+					var cowo = items[Math.floor(Math.random() * items.length)];
+					var url = 'https://api.fdci.se/rep.php?gambar=' + cowo
+					anu = await fetchJson(url, {method: 'get'})
+					axios.get(url)
+					.then(res => {
+						var acak = res.data[Math.floor(Math.random() * res.data.length )]
+						//if (err) return reply(mess.error.stick)
+						buffer = fs.readFileSync(rano)
 						client.sendMessage(from, buffer, image, {quoted: mek})
 						fs.unlinkSync(rano)
 							})
@@ -1226,12 +1247,12 @@ async function starts() {
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 						buff = await client.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
-							client.sendMessage(_.jid, buff, image, {caption: `[ ISSO E UMA TRANSMISSÃO ]\n\n${body.slice(4)}`})
+							client.sendMessage(_.jid, buff, image, {caption: `[ Mensagem do Kyu ]\n\n${body.slice(4)}`})
 						}
 						reply('Transmissão enviada com sucesso')
 					} else {
 						for (let _ of anu) {
-							sendMess(_.jid, `[ ISSO E UMA TRANSMISSÃO ]\n\n${body.slice(4)}`)
+							sendMess(_.jid, `[ Mensagem do Kyu ]\n\n${body.slice(4)}`)
 						}
 						reply('Transmissão enviada com sucesso')
 					}
@@ -1250,7 +1271,7 @@ async function starts() {
 						mentions(from, mentioned, true)
 						client.groupRemove(from, mentioned)
 					} else {
-						mentions(`Esse(a) carinha aqui @${mentioned[0].split('@')[0]} agora é admin então respeitem ok?! 😂`, mentioned, true)
+						mentions(`Esse(a) carinha aqui @${mentioned[0].split('@')[0]} agora é admin! `, mentioned, true)
 						client.groupMakeAdmin(from, mentioned)
 					}
 					break
@@ -1268,7 +1289,7 @@ async function starts() {
 						mentions(teks, mentioned, true)
 						client.groupRemove(from, mentioned)
 					} else {
-						mentions(`Esse(a) carinha aqui @${mentioned[0].split('@')[0]} Acabou de perder o adm pressionem F ai rapaziada 😂!`, mentioned, true)
+						mentions(`Esse(a) carinha aqui @${mentioned[0].split('@')[0]} Acabou de perder o adm !`, mentioned, true)
 						client.groupDemoteAdmin(from, mentioned)
 					}
 					break
