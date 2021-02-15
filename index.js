@@ -993,7 +993,10 @@ async function starts() {
 					client.sendMessage(from, tag1, text, {quoted: mek})
 					break
 				case 'del':
-					client.deleteMessage(from, { id: mek.message.extendedTextMessage, remoteJid: from, fromAll: true })
+					if (!isGroup)return reply(mess.only.group)
+                                        if (!isUser) return reply(mess.only.daftarB)
+					if (!isGroupAdmins)return reply(mess.only.admin)
+					client.deleteMessage(from, { id: mek.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true })
 					break
 				case 'nhentai':
 					const buffer3 = fs.readFileSync("./media/nhentai.mp4")
@@ -1118,7 +1121,7 @@ async function starts() {
 						fs.unlinkSync(ranp)
 						//if (err) return reply(mess.error.stick)
 						buffer = fs.readFileSync(rano)
-						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						client.sendMessage(from, buffer, MessageType.image, {quoted: mek})
 						fs.unlinkSync(rano)
 							})
 					})
