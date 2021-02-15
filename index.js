@@ -812,7 +812,7 @@ async function starts() {
 					break
 				case 'tts':
 				   client.updatePresence(from, Presence.recording) 
-				   if (args.length < 1) return client.sendMessage(from, 'Qual Ã© o cÃ³digo da linguagem?', text, {quoted: mek})
+				   if (args.length < 1) return client.sendMessage(from, 'Qual o codigo da linguagem?', text, {quoted: mek})
 					   const gtts = require('./lib/gtts')(args[0])
 					if (args.length < 2) return client.sendMessage(from, 'Cade o texto', text, {quoted: mek})
 					dtt = body.slice(8)
@@ -1414,7 +1414,38 @@ async function starts() {
 					else {
 						if(budy.includes('kyu'))
 						{
-							reply('kyu encontrado')
+							reply('nome kyu encontrado')
+						}
+						else if((budy.includes('Bom dia')) || (budy.includes('Bundia')) || (budy.includes('bundia')) || (budy.includes('bom dia')) || (budy.includes('Ohayo')) || (budy.includes('kyu')) )
+						{
+							var numero = getRandomIntInclusive(0,8).toString()
+								var nome = './mp3/ohayo (' + numero +').mp3'
+								const buffer6 = fs.readFileSync(nome)
+								
+								client.sendMessage(from, buffer6, audio, {mimetype: 'audio/mp4', filename: `${nome}`, quoted: mek})
+								break
+						}
+						else if(budy.includes('teste'))
+						{
+							
+							client.updatePresence(from, Presence.recording) 
+							
+							ranm = getRandom('.mp3')
+							rano = getRandom('.ogg')
+							var numero5 = getRandomIntInclusive(0,8).toString()
+								var nome5 = './mp3/ohayo (' + numero5 +').mp3'
+								const buffer66 = fs.readFileSync(nome5)
+								ranm = buffer66
+							
+							gtts.save(ranm, dtt, function() {
+								exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
+									fs.unlinkSync(ranm)
+									buff = fs.readFileSync(rano)
+									if (err) return reply('Gagal om:(')
+									client.sendMessage(from, buff, audio, {quoted: mek, ptt:true})
+									fs.unlinkSync(rano)
+								})
+							})
 						}
 						switch(budy) 
 						{
@@ -1422,18 +1453,6 @@ async function starts() {
 							case 'oi':
 							case 'ola':
 								reply('oi')
-								break
-							case 'Bom dia':
-							case 'Bundia':
-							case 'bundia':
-							case 'bom dia':
-							case 'Ohayo':
-							
-								var numero = getRandomIntInclusive(0,8).toString()
-								var nome = './mp3/ohayo (' + numero +').mp3'
-								const buffer6 = fs.readFileSync(nome)
-								
-								client.sendMessage(from, buffer6, audio, {mimetype: 'audio/mp4', filename: `${nome}`, quoted: mek})
 								break
 							case 'yamete kudasai':
 							case 'Yamete kudasai':
