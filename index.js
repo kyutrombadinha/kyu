@@ -1432,6 +1432,10 @@ async function starts() {
 						reply(muehe)
 					}
 					else {
+						if(budy.includes('kyu')
+						{
+							reply('kyu encontrado')
+						}
 						switch(budy) 
 						{
 							
