@@ -994,7 +994,6 @@ async function starts() {
 					break
 				case 'del':
 					if (!isGroup)return reply(mess.only.group)
-                                        if (!isUser) return reply(mess.only.daftarB)
 					if (!isGroupAdmins)return reply(mess.only.admin)
 					client.deleteMessage(from, { id: mek.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true })
 					break
@@ -1121,7 +1120,7 @@ async function starts() {
 						fs.unlinkSync(ranp)
 						//if (err) return reply(mess.error.stick)
 						buffer = fs.readFileSync(rano)
-						client.sendMessage(from, buffer, MessageType.image, {quoted: mek})
+						client.sendMessage(from, buffer, image, {quoted: mek})
 						fs.unlinkSync(rano)
 							})
 					})
