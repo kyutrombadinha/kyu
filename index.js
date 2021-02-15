@@ -1126,26 +1126,6 @@ async function starts() {
 					})
 					
 					break
-					case 'cado':
-					tels = body.slice(5)
-					
-					ranp = getRandom('.gif')
-					rano = getRandom('.webp')
-					
-					var items = [tels]
-					var cowo = items[Math.floor(Math.random() * items.length)];
-					var url = 'https://api.fdci.se/rep.php?gambar=' + cowo
-					anu = await fetchJson(url, {method: 'get'})
-					axios.get(url)
-					.then(res => {
-						var acak = res.data[Math.floor(Math.random() * res.data.length )]
-						//if (err) return reply(mess.error.stick)
-						buffer = fs.readFileSync(rano)
-						client.sendMessage(from, buffer, image, {quoted: mek})
-						fs.unlinkSync(rano)
-							})
-					
-					break
 					//----------------------------------------------------
 					case 'nekopict':
 					nekoPict()
