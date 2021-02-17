@@ -777,7 +777,11 @@ async function starts() {
 				
 				case 'gifhentai'://FUNCIONOU
 				
-					if(!isNsfw) return reply('*NSFW Desativado*')
+					if(!isNsfw) 
+					{ 
+						reply('*NSFW Desativado*') 
+						break
+					}
 					
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
