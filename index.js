@@ -1433,11 +1433,14 @@ async function starts() {
 								console.log(color('[NSFW]','red'), 'ativado o recurso nsfw neste grupo', color(sender.split('@')[0]))
 								nsfw.push(from)
 								fs.writeFileSync('./src/nsfw.json', JSON.stringify(nsfw))
+								
+								break
 							case 'Eita':
 								console.log(color('[NSFW]','red'), 'desativado o recurso nsfw neste grupo', color(sender.split('@')[0]))
 								nsfw.splice(from, 1)
 								fs.writeFileSync('./src/nsfw.json', JSON.stringify(nsfw))
 							
+								break
 							case 'oi':
 							case 'ola':
 								reply('oi')
