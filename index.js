@@ -1428,15 +1428,15 @@ async function starts() {
 						}
 						switch(budy) 
 						{
-							case 'Eita':
+							case 'Uia':
 								if (isNsfw) return  console.log(color('[NSFW]','red'), 'o recurso está ativo', color(sender.split('@')[0]))
 								console.log(color('[NSFW]','red'), 'ativado o recurso nsfw neste grupo', color(sender.split('@')[0]))
 								nsfw.push(from)
 								fs.writeFileSync('./src/nsfw.json', JSON.stringify(nsfw))
-							case 'Uia':
+							case 'Eita':
 								console.log(color('[NSFW]','red'), 'desativado o recurso nsfw neste grupo', color(sender.split('@')[0]))
 								nsfw.splice(from, 1)
-								fs.writeFileSync('./src/json/nsfw.json', JSON.stringify(nsfw))
+								fs.writeFileSync('./src/nsfw.json', JSON.stringify(nsfw))
 							
 							case 'oi':
 							case 'ola':
