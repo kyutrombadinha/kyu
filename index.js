@@ -188,7 +188,7 @@ async function starts() {
 			const isBotGroupAdmins = groupAdmins.includes(botNumber) || false
 			const isGroupAdmins = groupAdmins.includes(sender) || false
 			const isWelkom = isGroup ? welkom.includes(from) : false
-			const isNsfw = isGroup ? nsfw.includes(from) : false
+			const isNsfw = isGroup ? nsfw.includes(from) : true
 			const isautostick = isGroup ? autostick.includes(from) : true
 			const isSimi = isGroup ? samih.includes(from) : false
 			const isOwner = ownerNumber.includes(sender)
@@ -518,7 +518,6 @@ async function starts() {
 					client.sendMessage(from, buffer, video, {quoted: mek, caption: '.......'})
                     break
 				case 'dono':
-					memein = await kagApi.memeindo()
 					buffer = await getBuffer(`https://imgur.com/NgpUuz6.jpg`)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '*CRIADOR:* Kyu\n*WPP:* wa.me/+556796083824\n*INSTA:* https://www.instagram.com/caffedemanha/ \n\n\n*Digite *.bot* para ver comandos basicos para criar um bot'})
 					break
