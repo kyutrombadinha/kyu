@@ -904,7 +904,7 @@ async function starts() {
 					} else if (Number(args[0]) === 0) {
 						reply('❬ SUCESSO ❭ desativado o recurso nsfw neste grupo')
 						nsfw.splice(from, 1)
-						fs.writeFileSync('./src/json/nsfw.json', JSON.stringify(nsfw))
+						fs.writeFileSync('./src/nsfw.json', JSON.stringify(nsfw))
 					} else {
 						reply('digite 1 para ativar, 0 para desativar o recurso')
 					}
