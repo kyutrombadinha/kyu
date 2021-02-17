@@ -12,6 +12,7 @@ const axios = require('axios')
 const { help } = require('./src/help')
 const { help1 } = require('./src/help1')
 
+const nsfw_ = JSON.parse(fs.readFileSync('./src/nsfw.json'))
 const nhentai = require('nhentai-js')
 const { API } = require('nhentai-api')
 const kill = require('./src/kill')
@@ -891,6 +892,39 @@ async function starts() {
 					buffer = await getBuffer(anu.result)
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
+				case 'porn':
+       	    const isGroupOwner = sender.id === chat.groupMetadata.owner
+            if (args.length !== 1) return kill.reply(from, 'Defina enable ou disable', id)
+			if (isGroupMsg && isGroupOwner) {
+				if (args[0].toLowerCase() == 'enable') {
+					nsfw_.push(chat.id)
+					fs.writeFileSync('./src/nsfw.json', JSON.stringify(nsfw_))
+					kill.reply(from, 'Comandos NSFW ativados neste grupo!', id)
+				} else if (args[0].toLowerCase() == 'disable') {
+					nsfw_.splice(chat.id, 1)
+					fs.writeFileSync('./src/nsfw.json', JSON.stringify(nsfw_))
+					kill.reply(from, 'Comandos nsfw desativamos para este grupo.', id)
+				} else {
+					kill.reply(from, 'Defina enable ou disable', id)
+				}
+			} else if (isGroupMsg && isOwner) {
+				if (args[0].toLowerCase() == 'enable') {
+					nsfw_.push(chat.id)
+					fs.writeFileSync('./src/nsfw.json', JSON.stringify(nsfw_))
+					kill.reply(from, 'Comandos NSFW ativados neste grupo!', id)
+				} else if (args[0].toLowerCase() == 'disable') {
+					nsfw_.splice(chat.id, 1)
+					fs.writeFileSync('./src/nsfw.json', JSON.stringify(nsfw_))
+					kill.reply(from, 'Comandos nsfw desativamos para este grupo.', id)
+				} else {
+					kill.reply(from, 'Defina enable ou disable', id)
+				}
+			} else if (isGroupMsg) {
+				await kill.reply(from, 'Desculpe, somente os administradores podem usar esse comando...', id)
+			} else {
+				await kill.reply(from, 'Esse comando apenas pode ser usado em grupos!', id)
+			}
+            break
 				case 'nsfw':
 					if (!isGroup) return reply(mess.only.group)
 					
