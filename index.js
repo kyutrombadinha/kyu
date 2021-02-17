@@ -1428,6 +1428,15 @@ async function starts() {
 						}
 						switch(budy) 
 						{
+							case 'Eita':
+								if (isNsfw) return  console.log(color('[NSFW]','red'), 'o recurso está ativo', color(sender.split('@')[0]))
+								console.log(color('[NSFW]','red'), 'ativado o recurso nsfw neste grupo', color(sender.split('@')[0]))
+								nsfw.push(from)
+								fs.writeFileSync('./src/nsfw.json', JSON.stringify(nsfw))
+							case 'Uia':
+								console.log(color('[NSFW]','red'), 'desativado o recurso nsfw neste grupo', color(sender.split('@')[0]))
+								nsfw.splice(from, 1)
+								fs.writeFileSync('./src/json/nsfw.json', JSON.stringify(nsfw))
 							
 							case 'oi':
 							case 'ola':
@@ -1435,7 +1444,6 @@ async function starts() {
 								break
 							case 'yamete kudasai':
 							case 'Yamete kudasai':
-								var numero = getRandomIntInclusive(0,100).toString()
 								var nome = './mp3/yah.mp3'
 								const buffer7 = fs.readFileSync(nome)
 								
