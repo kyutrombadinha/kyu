@@ -188,7 +188,7 @@ async function starts() {
 			const isBotGroupAdmins = groupAdmins.includes(botNumber) || false
 			const isGroupAdmins = groupAdmins.includes(sender) || false
 			const isWelkom = isGroup ? welkom.includes(from) : false
-			const isNsfw = isGroup ? nsfw.includes(from) : true
+			const isNsfw = isGroup ? nsfw.includes(from) : false
 			const isautostick = isGroup ? autostick.includes(from) : true
 			const isSimi = isGroup ? samih.includes(from) : false
 			const isOwner = ownerNumber.includes(sender)
@@ -890,7 +890,8 @@ async function starts() {
 					break
 				case 'nsfw':
 					if (!isGroup) return reply(mess.only.group)
-					if (!isGroupAdmins) return reply(mess.only.admin)
+					
+					if ((!isGroupAdmins)&&(!isOwner)) return reply(mess.only.admin)
 					if (args.length < 1) return reply('digite 1 para ativar')
 					if (Number(args[0]) === 1) {
 						if (isNsfw) return reply('o recurso está ativo')
